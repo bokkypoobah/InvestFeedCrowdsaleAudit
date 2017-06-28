@@ -1,0 +1,7 @@
+.DS_Store
+.project
+private
+private/*
+test/testchain/geth*
+test/testchain/history*
+.settings
