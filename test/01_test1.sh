@@ -12,10 +12,6 @@ PASSWORD=`grep ^PASSWORD= settings.txt | sed "s/^.*=//"`
 
 CONTRACTSDIR=`grep ^CONTRACTSDIR= settings.txt | sed "s/^.*=//"`
 
-BONUSFINALIZEAGENTSOL=`grep ^BONUSFINALIZEAGENTSOL= settings.txt | sed "s/^.*=//"`
-BONUSFINALIZEAGENTTEMPSOL=`grep ^BONUSFINALIZEAGENTTEMPSOL= settings.txt | sed "s/^.*=//"`
-BONUSFINALIZEAGENTJS=`grep ^BONUSFINALIZEAGENTJS= settings.txt | sed "s/^.*=//"`
-
 CROWDSALETOKENSOL=`grep ^CROWDSALETOKENSOL= settings.txt | sed "s/^.*=//"`
 CROWDSALETOKENTEMPSOL=`grep ^CROWDSALETOKENTEMPSOL= settings.txt | sed "s/^.*=//"`
 CROWDSALETOKENJS=`grep ^CROWDSALETOKENJS= settings.txt | sed "s/^.*=//"`
@@ -27,6 +23,10 @@ ETHTRANCHEPRICINGJS=`grep ^ETHTRANCHEPRICINGJS= settings.txt | sed "s/^.*=//"`
 MINTEDETHCAPPEDSOL=`grep ^MINTEDETHCAPPEDSOL= settings.txt | sed "s/^.*=//"`
 MINTEDETHCAPPEDTEMPSOL=`grep ^MINTEDETHCAPPEDTEMPSOL= settings.txt | sed "s/^.*=//"`
 MINTEDETHCAPPEDJS=`grep ^MINTEDETHCAPPEDJS= settings.txt | sed "s/^.*=//"`
+
+BONUSFINALIZEAGENTSOL=`grep ^BONUSFINALIZEAGENTSOL= settings.txt | sed "s/^.*=//"`
+BONUSFINALIZEAGENTTEMPSOL=`grep ^BONUSFINALIZEAGENTTEMPSOL= settings.txt | sed "s/^.*=//"`
+BONUSFINALIZEAGENTJS=`grep ^BONUSFINALIZEAGENTJS= settings.txt | sed "s/^.*=//"`
 
 DEPLOYMENTDATA=`grep ^DEPLOYMENTDATA= settings.txt | sed "s/^.*=//"`
 
@@ -57,10 +57,6 @@ printf "PASSWORD                  = '$PASSWORD'\n"
 
 printf "CONTRACTSDIR              = '$CONTRACTSDIR'\n"
 
-printf "BONUSFINALIZEAGENTSOL     = '$BONUSFINALIZEAGENTSOL'\n"
-printf "BONUSFINALIZEAGENTTEMPSOL = '$BONUSFINALIZEAGENTTEMPSOL'\n"
-printf "BONUSFINALIZEAGENTJS      = '$BONUSFINALIZEAGENTJS'\n"
-
 printf "CROWDSALETOKENSOL         = '$CROWDSALETOKENSOL'\n"
 printf "CROWDSALETOKENTEMPSOL     = '$CROWDSALETOKENTEMPSOL'\n"
 printf "CROWDSALETOKENJS          = '$CROWDSALETOKENJS'\n"
@@ -73,6 +69,10 @@ printf "MINTEDETHCAPPEDSOL        = '$MINTEDETHCAPPEDSOL'\n"
 printf "MINTEDETHCAPPEDTEMPSOL    = '$MINTEDETHCAPPEDTEMPSOL'\n"
 printf "MINTEDETHCAPPEDJS         = '$MINTEDETHCAPPEDJS'\n"
 
+printf "BONUSFINALIZEAGENTSOL     = '$BONUSFINALIZEAGENTSOL'\n"
+printf "BONUSFINALIZEAGENTTEMPSOL = '$BONUSFINALIZEAGENTTEMPSOL'\n"
+printf "BONUSFINALIZEAGENTJS      = '$BONUSFINALIZEAGENTJS'\n"
+
 printf "DEPLOYMENTDATA            = '$DEPLOYMENTDATA'\n"
 printf "INCLUDEJS                 = '$INCLUDEJS'\n"
 printf "TEST1OUTPUT               = '$TEST1OUTPUT'\n"
@@ -82,20 +82,16 @@ printf "STARTTIME                 = '$STARTTIME' '$STARTTIME_S'\n"
 printf "ENDTIME                   = '$ENDTIME' '$ENDTIME_S'\n"
 
 # Make copy of SOL file and modify start and end times ---
-`cp $CONTRACTSDIR/$BONUSFINALIZEAGENTSOL $BONUSFINALIZEAGENTTEMPSOL`
 `cp $CONTRACTSDIR/$CROWDSALETOKENSOL $CROWDSALETOKENTEMPSOL`
 `cp $CONTRACTSDIR/$ETHTRANCHEPRICINGSOL $ETHTRANCHEPRICINGTEMPSOL`
 `cp $CONTRACTSDIR/$MINTEDETHCAPPEDSOL $MINTEDETHCAPPEDTEMPSOL`
+`cp $CONTRACTSDIR/$BONUSFINALIZEAGENTSOL $BONUSFINALIZEAGENTTEMPSOL`
 
 # --- Modify dates ---
 #`perl -pi -e "s/startTime \= 1498140000;.*$/startTime = $STARTTIME; \/\/ $STARTTIME_S/" $FUNFAIRSALETEMPSOL`
 #`perl -pi -e "s/deadline \=  1499436000;.*$/deadline = $ENDTIME; \/\/ $ENDTIME_S/" $FUNFAIRSALETEMPSOL`
 #`perl -pi -e "s/\/\/\/ \@return total amount of tokens.*$/function overloadedTotalSupply() constant returns (uint256) \{ return totalSupply; \}/" $DAOCASINOICOTEMPSOL`
 #`perl -pi -e "s/BLOCKS_IN_DAY \= 5256;*$/BLOCKS_IN_DAY \= $BLOCKSINDAY;/" $DAOCASINOICOTEMPSOL`
-
-DIFFS1=`diff $CONTRACTSDIR/$BONUSFINALIZEAGENTSOL $BONUSFINALIZEAGENTTEMPSOL`
-echo "--- Differences $CONTRACTSDIR/$BONUSFINALIZEAGENTSOL $BONUSFINALIZEAGENTTEMPSOL ---"
-echo "$DIFFS1"
 
 DIFFS1=`diff $CONTRACTSDIR/$CROWDSALETOKENSOL $CROWDSALETOKENTEMPSOL`
 echo "--- Differences $CONTRACTSDIR/$CROWDSALETOKENSOL $CROWDSALETOKENTEMPSOL ---"
@@ -109,7 +105,9 @@ DIFFS1=`diff $CONTRACTSDIR/$MINTEDETHCAPPEDSOL $MINTEDETHCAPPEDTEMPSOL`
 echo "--- Differences $CONTRACTSDIR/$MINTEDETHCAPPEDSOL $MINTEDETHCAPPEDTEMPSOL ---"
 echo "$DIFFS1"
 
-echo "var bfaOutput=`solc --optimize --combined-json abi,bin,interface $BONUSFINALIZEAGENTTEMPSOL`;" > $BONUSFINALIZEAGENTJS
+DIFFS1=`diff $CONTRACTSDIR/$BONUSFINALIZEAGENTSOL $BONUSFINALIZEAGENTTEMPSOL`
+echo "--- Differences $CONTRACTSDIR/$BONUSFINALIZEAGENTSOL $BONUSFINALIZEAGENTTEMPSOL ---"
+echo "$DIFFS1"
 
 echo "var cstOutput=`solc --optimize --combined-json abi,bin,interface $CROWDSALETOKENTEMPSOL`;" > $CROWDSALETOKENJS
 
@@ -117,15 +115,14 @@ echo "var etpOutput=`solc --optimize --combined-json abi,bin,interface $ETHTRANC
 
 echo "var mecOutput=`solc --optimize --combined-json abi,bin,interface $MINTEDETHCAPPEDTEMPSOL`;" > $MINTEDETHCAPPEDJS
 
+echo "var bfaOutput=`solc --optimize --combined-json abi,bin,interface $BONUSFINALIZEAGENTTEMPSOL`;" > $BONUSFINALIZEAGENTJS
+
 geth --verbosity 3 attach $GETHATTACHPOINT << EOF | tee $TEST1OUTPUT
-loadScript("$BONUSFINALIZEAGENTJS");
 loadScript("$CROWDSALETOKENJS");
 loadScript("$ETHTRANCHEPRICINGJS");
 loadScript("$MINTEDETHCAPPEDJS");
+loadScript("$BONUSFINALIZEAGENTJS");
 loadScript("functions.js");
-
-var bfaAbi = JSON.parse(bfaOutput.contracts["$BONUSFINALIZEAGENTTEMPSOL:BonusFinalizeAgent"].abi);
-var bfaBin = "0x" + bfaOutput.contracts["$BONUSFINALIZEAGENTTEMPSOL:BonusFinalizeAgent"].bin;
 
 var cstAbi = JSON.parse(cstOutput.contracts["$CROWDSALETOKENTEMPSOL:CrowdsaleToken"].abi);
 var cstBin = "0x" + cstOutput.contracts["$CROWDSALETOKENTEMPSOL:CrowdsaleToken"].bin;
@@ -136,40 +133,54 @@ var etpBin = "0x" + etpOutput.contracts["$ETHTRANCHEPRICINGTEMPSOL:EthTranchePri
 var mecAbi = JSON.parse(mecOutput.contracts["$MINTEDETHCAPPEDTEMPSOL:MintedEthCappedCrowdsale"].abi);
 var mecBin = "0x" + mecOutput.contracts["$MINTEDETHCAPPEDTEMPSOL:MintedEthCappedCrowdsale"].bin;
 
-console.log("DATA: bfaAbi=" + JSON.stringify(bfaAbi));
-console.log("DATA: cstAbi=" + JSON.stringify(cstAbi));
-console.log("DATA: etpAbi=" + JSON.stringify(etpAbi));
-console.log("DATA: mecAbi=" + JSON.stringify(mecAbi));
+var bfaAbi = JSON.parse(bfaOutput.contracts["$BONUSFINALIZEAGENTTEMPSOL:BonusFinalizeAgent"].abi);
+var bfaBin = "0x" + bfaOutput.contracts["$BONUSFINALIZEAGENTTEMPSOL:BonusFinalizeAgent"].bin;
+
+// console.log("DATA: cstAbi=" + JSON.stringify(cstAbi));
+// console.log("DATA: etpAbi=" + JSON.stringify(etpAbi));
+// console.log("DATA: mecAbi=" + JSON.stringify(mecAbi));
+// console.log("DATA: bfaAbi=" + JSON.stringify(bfaAbi));
 
 unlockAccounts("$PASSWORD");
 printBalances();
 console.log("RESULT: ");
 
-exit;
-
-// -----------------------------------------------------------------------------
-var teMessage = "Deploy TokenEmission Contract";
-console.log("RESULT: " + teMessage);
-var teContract = web3.eth.contract(teAbi);
-console.log(JSON.stringify(teContract));
-var teTx = null;
-var teAddress = null;
-
-var name = "DAO.Casino";
-var symbol = "BET";
+var name = "Feed";
+var symbol = "FEED";
+var initialSupply = 0;
 var decimals = 18;
-var startCount = 0;
-var te = teContract.new(name, symbol, decimals, startCount, {from: contractOwnerAccount, data: teBin, gas: 6000000},
+var mintable = true;
+
+var minimumFundingGoal = new BigNumber(100).shift(18);
+var cap = new BigNumber(1000).shift(18);
+
+var tranches = [ \
+  0, new BigNumber(10000).shift(18), \
+  new BigNumber(100).shift(18), new BigNumber(9000).shift(18), \
+  cap, 0 \
+];
+
+
+if (true) {
+// -----------------------------------------------------------------------------
+var cstMessage = "Deploy CrowdsaleToken Contract";
+console.log("RESULT: " + cstMessage);
+var cstContract = web3.eth.contract(cstAbi);
+console.log(JSON.stringify(cstContract));
+var cstTx = null;
+var cstAddress = null;
+
+var cst = cstContract.new(name, symbol, initialSupply, decimals, mintable, {from: contractOwnerAccount, data: cstBin, gas: 6000000},
   function(e, contract) {
     if (!e) {
       if (!contract.address) {
-        teTx = contract.transactionHash;
+        cstTx = contract.transactionHash;
       } else {
-        teAddress = contract.address;
-        addAccount(teAddress, "TokenEmission");
-        addTeContractAddressAndAbi(teAddress, teAbi);
-        addTokenContractAddressAndAbi(teAddress, teAbi);
-        console.log("DATA: teAddress=" + teAddress);
+        cstAddress = contract.address;
+        addAccount(cstAddress, symbol + " " + name);
+        addCstContractAddressAndAbi(cstAddress, cstAbi);
+        addTokenContractAddressAndAbi(cstAddress, cstAbi);
+        console.log("DATA: teAddress=" + cstAddress);
       }
     }
   }
@@ -178,11 +189,81 @@ var te = teContract.new(name, symbol, decimals, startCount, {from: contractOwner
 while (txpool.status.pending > 0) {
 }
 
-printTxData("teAddress=" + teAddress, teTx);
+printTxData("cstAddress=" + cstAddress, cstTx);
 printBalances();
-failIfGasEqualsGasUsed(teTx, teMessage);
-printTeContractDetails();
+failIfGasEqualsGasUsed(cstTx, cstMessage);
+printCstContractDetails();
 console.log("RESULT: ");
+}
+
+
+// -----------------------------------------------------------------------------
+var etpMessage = "Deploy PricingStrategy Contract";
+console.log("RESULT: " + etpMessage);
+var etpContract = web3.eth.contract(etpAbi);
+console.log(JSON.stringify(etpContract));
+var etpTx = null;
+var etpAddress = null;
+
+var etp = etpContract.new(tranches, {from: contractOwnerAccount, data: etpBin, gas: 6000000},
+  function(e, contract) {
+    if (!e) {
+      if (!contract.address) {
+        etpTx = contract.transactionHash;
+      } else {
+        etpAddress = contract.address;
+        addAccount(etpAddress, "PricingStrategy");
+        // addCstContractAddressAndAbi(etpAddress, etpAbi);
+        console.log("DATA: etpAddress=" + etpAddress);
+      }
+    }
+  }
+);
+
+while (txpool.status.pending > 0) {
+}
+
+printTxData("etpAddress=" + etpAddress, etpTx);
+printBalances();
+failIfGasEqualsGasUsed(etpTx, etpMessage);
+// printCstContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+var mecMessage = "Deploy MintedEthCappedCrowdsale Contract";
+console.log("RESULT: " + mecMessage);
+var mecContract = web3.eth.contract(mecAbi);
+console.log(JSON.stringify(mecContract));
+var mecTx = null;
+var mecAddress = null;
+
+var mec = mecContract.new(cstAddress, etpAddress, multisig, $STARTTIME, $ENDTIME, minimumFundingGoal, cap, {from: contractOwnerAccount, data: mecBin, gas: 6000000},
+  function(e, contract) {
+    if (!e) {
+      if (!contract.address) {
+        mecTx = contract.transactionHash;
+      } else {
+        mecAddress = contract.address;
+        addAccount(mecAddress, "Crowdsale");
+        // addCstContractAddressAndAbi(etpAddress, etpAbi);
+        console.log("DATA: mecAddress=" + mecAddress);
+      }
+    }
+  }
+);
+
+while (txpool.status.pending > 0) {
+}
+
+printTxData("mecAddress=" + mecAddress, mecTx);
+printBalances();
+failIfGasEqualsGasUsed(mecTx, mecMessage);
+// printCstContractDetails();
+console.log("RESULT: ");
+
+
+exit;
 
 
 // -----------------------------------------------------------------------------

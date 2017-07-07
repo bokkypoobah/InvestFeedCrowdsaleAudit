@@ -3,10 +3,6 @@ PASSWORD=testtest
 
 CONTRACTSDIR=../contracts-thirdreview
 
-BONUSFINALIZEAGENTSOL=BonusFinalizeAgentCombined.sol
-BONUSFINALIZEAGENTTEMPSOL=BonusFinalizeAgent.sol
-BONUSFINALIZEAGENTJS=BonusFinalizeAgent.js
-
 CROWDSALETOKENSOL=CrowdsaleTokenCombined.sol
 CROWDSALETOKENTEMPSOL=CrowdsaleToken.sol
 CROWDSALETOKENJS=CrowdsaleToken.js
@@ -18,6 +14,10 @@ ETHTRANCHEPRICINGJS=EthTranchePricing.js
 MINTEDETHCAPPEDSOL=MintedEthCappedCrowdsaleCombined.sol
 MINTEDETHCAPPEDTEMPSOL=MintedEthCappedCrowdsale.sol
 MINTEDETHCAPPEDJS=MintedEthCappedCrowdsale.js
+
+BONUSFINALIZEAGENTSOL=BonusFinalizeAgentCombined.sol
+BONUSFINALIZEAGENTTEMPSOL=BonusFinalizeAgent.sol
+BONUSFINALIZEAGENTJS=BonusFinalizeAgent.js
 
 DEPLOYMENTDATA=deploymentData.txt
 

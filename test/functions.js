@@ -9,7 +9,7 @@ var accountNames = {};
 
 addAccount(eth.accounts[0], "Account #0 - Miner");
 addAccount(eth.accounts[1], "Account #1 - Contract Owner");
-addAccount(eth.accounts[2], "Account #2 - Fund");
+addAccount(eth.accounts[2], "Account #2 - Multisig");
 addAccount(eth.accounts[3], "Account #3");
 addAccount(eth.accounts[4], "Account #4");
 addAccount(eth.accounts[5], "Account #5");
@@ -30,7 +30,7 @@ addAccount(eth.accounts[8], "Account #8");
 
 var minerAccount = eth.accounts[0];
 var contractOwnerAccount = eth.accounts[1];
-var fundAccount = eth.accounts[2];
+var multisig = eth.accounts[2];
 var account3 = eth.accounts[3];
 var account4 = eth.accounts[4];
 var account5 = eth.accounts[5];
@@ -247,49 +247,48 @@ function printDciContractDetails() {
 
 
 //-----------------------------------------------------------------------------
-//te Contract
+// Cst Contract
 //-----------------------------------------------------------------------------
-var teContractAddress = null;
-var teContractAbi = null;
+var cstContractAddress = null;
+var cstContractAbi = null;
 
-function addTeContractAddressAndAbi(address, abi) {
-  teContractAddress = address;
-  teContractAbi = abi;
+function addCstContractAddressAndAbi(address, abi) {
+  cstContractAddress = address;
+  cstContractAbi = abi;
 }
 
-var teFromBlock = 0;
-function printTeContractDetails() {
-  console.log("RESULT: teContractAddress=" + teContractAddress);
-  // console.log("RESULT: teContractAbi=" + JSON.stringify(teContractAbi));
-  if (teContractAddress != null && teContractAbi != null) {
-    var contract = eth.contract(teContractAbi).at(teContractAddress);
-    console.log("RESULT: te.owner=" + contract.owner());
-    console.log("RESULT: te.hammer=" + contract.hammer());
+var cstFromBlock = 0;
+function printCstContractDetails() {
+  console.log("RESULT: cstContractAddress=" + cstContractAddress);
+  // console.log("RESULT: cstContractAbi=" + JSON.stringify(cstContractAbi));
+  if (cstContractAddress != null && cstContractAbi != null) {
+    var contract = eth.contract(cstContractAbi).at(cstContractAddress);
+    console.log("RESULT: token.owner=" + contract.owner());
     console.log("RESULT: token.symbol=" + contract.symbol());
     console.log("RESULT: token.name=" + contract.name());
     console.log("RESULT: token.decimals=" + decimals);
     console.log("RESULT: token.totalSupply=" + contract.totalSupply());
-    console.log("RESULT: token.overloadedTotalSupply=" + contract.overloadedTotalSupply());
+    console.log("RESULT: token.mintable=" + contract.mintable());
 
     var latestBlock = eth.blockNumber;
     var i;
 
-    var approvalEvents = contract.Approval({}, { fromBlock: teFromBlock, toBlock: latestBlock });
+    var approvalEvents = contract.Approval({}, { fromBlock: cstFromBlock, toBlock: latestBlock });
     i = 0;
     approvalEvents.watch(function (error, result) {
-      console.log("RESULT: Approval " + i++ + " #" + result.blockNumber + " _owner=" + result.args._owner + " _spender=" + result.args._spender + " _value=" +
-        result.args._value.shift(-decimals));
+      console.log("RESULT: Approval " + i++ + " #" + result.blockNumber + " owner=" + result.args.owner + " spender=" + result.args.spender + " _value=" +
+        result.args.value.shift(-decimals));
     });
     approvalEvents.stopWatching();
 
-    var transferEvents = contract.Transfer({}, { fromBlock: teFromBlock, toBlock: latestBlock });
+    var transferEvents = contract.Transfer({}, { fromBlock: cstFromBlock, toBlock: latestBlock });
     i = 0;
     transferEvents.watch(function (error, result) {
-      console.log("RESULT: Transfer " + i++ + " #" + result.blockNumber + ": _from=" + result.args._from + " _to=" + result.args._to +
-        " value=" + result.args._value.shift(-decimals));
+      console.log("RESULT: Transfer " + i++ + " #" + result.blockNumber + ": from=" + result.args.from + " to=" + result.args.to +
+        " value=" + result.args.value.shift(-decimals));
     });
     transferEvents.stopWatching();
 
-    teFromBlock = latestBlock + 1;
+    cstFromBlock = parseInt(latestBlock) + 1;
   }
 }
