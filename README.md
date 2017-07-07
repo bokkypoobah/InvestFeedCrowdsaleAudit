@@ -1,5 +1,15 @@
 # InvestFeed Crowdsale Audit
 
+## Table Of Contents
+
+* [First Review](#first-review)
+* [Second Review](#second-review)
+* [Third Review](#third-review)
+
+<br />
+
+<hr />
+
 ## First Review
 
 The [MintedEthCappedCrowdsale](contracts-firstreview/MintedEthCappedCrowdsale.sol) crowdsale contract is deployed at [0x70791b81028f30ff01d4ad8f83cbffcd2be1b1f3](https://etherscan.io/address/0x70791b81028f30ff01d4ad8f83cbffcd2be1b1f3#code)
@@ -38,7 +48,11 @@ Some potential issues:
 
   Moving to the second review.
 
-## Second review
+<br />
+
+<hr />
+
+## Second Review
 
 Second review of [https://github.com/investfeed-corp/feed-token-sale/commit/57cdb3867d4616c41b21e8948ff507730a513e25](https://github.com/investfeed-corp/feed-token-sale/commit/57cdb3867d4616c41b21e8948ff507730a513e25).
 
@@ -57,3 +71,13 @@ Some potential issues:
 * \#8 LOW IMPORTANCE - The new OpenZeppelin libraries now use `balances[msg.sender] = balances[msg.sender].sub(_amount);` instead of `balances[_to] = safeAdd(balances[_to],_value);` style
 
 * \#9 LOW IMPORTANCE - Decide on 2 or 4 spaces for tabs, have consistent spacing between functions, groups of statements, prettify source so investors can read easily and require less trust
+
+<br />
+
+<hr />
+
+## Third Review
+
+Third review of [https://github.com/investfeed-corp/feed-token-sale/commit/2007dc6163cc8a2c27cc6c3e35023663b1641214](https://github.com/investfeed-corp/feed-token-sale/commit/2007dc6163cc8a2c27cc6c3e35023663b1641214).
+
+Setting up tests.
