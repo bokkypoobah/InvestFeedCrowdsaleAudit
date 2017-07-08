@@ -149,6 +149,8 @@ Some potential issues:
 
 * \#5 MEDIUM IMPORTANCE - Use `acceptOwnership(...)` pattern in Owned contract
 
+  Fixed in third review
+
 * \#6 LOW IMPORTANCE - `assert(...)` is built-in in Solidity 0.4.11 - https://github.com/investfeed-corp/feed-token-sale/blob/master/CrowdsaleTokenCombined.sol#L22-L24
 
 * \#7 LOW IMPORTANCE - Use `require(...)` instead of `throw` or `assert(...)` - from https://www.reddit.com/r/ethereum/comments/6llgxv/solidity_0413_released/, "Syntax Checker: Deprecated throw in favour of require(), assert() and revert()"
@@ -190,7 +192,7 @@ Setting up [tests](test).
     * contract [ReleasableToken](codereview/ReleasableToken.md) is *ERC20*, *Ownable*
       * contract [ERC20](codereview/ERC20.md) is *ERC20Basic*
         * contract [ERC20Basic](codereview/ERC20Basic.md)
-      * contract [Ownable](codereview/Ownable.md)
+      * [x] contract [Ownable](codereview/Ownable.md)
     * contract [MintableToken](codereview/MintableToken.md) is *StandardToken*, *Ownable*
       * contract [StandardToken](codereview/StandardToken.md) is *ERC20*, [SafeMathLib](codereview/SafeMathLib.md)
         * contract *ERC20* is *ERC20Basic*
