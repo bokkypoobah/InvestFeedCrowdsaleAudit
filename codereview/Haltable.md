@@ -1,3 +1,8 @@
+# Haltable
+
+Source file [../contracts/Haltable.sol](../contracts/Haltable.sol)
+
+```javascript
 pragma solidity ^0.4.11;
 
 import './Ownable.sol';
@@ -37,3 +42,4 @@ contract Haltable is Ownable {
   }
 
 }
+```

@@ -1,3 +1,8 @@
+# Crowdsale
+
+Source file [../contracts/Crowdsale.sol](../contracts/Crowdsale.sol)
+
+```javascript
 pragma solidity ^0.4.11;
 
 import "./SafeMathLib.sol";
@@ -529,3 +534,4 @@ contract Crowdsale is Haltable, SafeMathLib {
    */
   function assignTokens(address receiver, uint tokenAmount) private;
 }
+```

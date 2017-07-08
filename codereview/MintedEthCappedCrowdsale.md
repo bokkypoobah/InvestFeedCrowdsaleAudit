@@ -1,3 +1,8 @@
+# MintedEthCappedCrowdsale
+
+Source file [../contracts/MintedEthCappedCrowdsale.sol](../contracts/MintedEthCappedCrowdsale.sol)
+
+```javascript
 pragma solidity ^0.4.11;
 
 import "./Crowdsale.sol";
@@ -38,3 +43,4 @@ contract MintedEthCappedCrowdsale is Crowdsale {
     mintableToken.mint(receiver, tokenAmount);
   }
 }
+```

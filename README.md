@@ -109,9 +109,9 @@ Code review of:
     * contract *SafeMathLib*
   
 * [MintedEthCappedCrowdsale.md](MintedEthCappedCrowdsale.md)
-  * contract MintedEthCappedCrowdsale is Crowdsale
-    * contract Crowdsale is Haltable, *SafeMathLib*
-      * contract Haltable is *Ownable*
+  * contract [MintedEthCappedCrowdsale](codereview/MintedEthCappedCrowdsale.md) is *Crowdsale*
+    * contract [Crowdsale](codereview/Crowdsale.md) is *Haltable*, *SafeMathLib*
+      * contract [Haltable](codereview/Haltable.md) is *Ownable*
         * contract *Ownable*
       * contract *SafeMathLib*
 
