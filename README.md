@@ -1,12 +1,95 @@
 # InvestFeed Crowdsale Audit
 
+**STATUS: Work In Progress**
+
+See [https://www.investfeed.com/tokensale](https://www.investfeed.com/tokensale).
+
+<br />
+
+<hr />
+
 ## Table Of Contents
 
+* [Scope](#scope)
+* [Limitations](#limitations)
+* [Due Diligence](#due-diligence)
+* [Risks](#risks)
+* [Trustlessness Of The Crowdsale Contract](#trustlessness-of-the-crowdsale-contract)
+* [Potential Vulnerabilities](#potential-vulnerabilities)
 * [First Review](#first-review)
 * [Second Review](#second-review)
 * [Third Review](#third-review)
   * [Recommendations](#recommendations)
   * [Code Review](#code-review)
+
+<br />
+
+<hr />
+
+## Scope
+
+This audit is into the technical aspects of the crowdsale contracts. The primary aim of this audit is to ensure that funds contributed to these contracts are not easily attacked or stolen by third parties. 
+The secondary aim of this audit is that ensure the coded algorithms work as expected. This audit does not guarantee that that the code is bugfree, but intends to highlight any areas of
+weaknesses.
+
+<br />
+
+<hr />
+
+## Limitations
+This audit makes no statements or warranties about the viability of the InvestFeed's business proposition, the individuals involved in this business or the regulatory regime for the business model.
+
+<br />
+
+<hr />
+
+## Due Diligence
+As always, potential participants in any crowdsale are encouraged to perform their due diligence on the business proposition before funding the crowdsale.
+
+Potential participants are also encouraged to only send their funds to the official crowdsale Ethereum address, published on InvestFeed's official communication channel.
+
+Scammers have been publishing phishing address in the forums, twitter and other communication channels, and some go as far as duplicating crowdsale websites.
+ 
+Potential participants should also confirm that the verified source code on EtherScan.io for the published crowdsale address matches the audited source code, and that 
+the deployment parameters are correctly set, including the constant parameters.
+
+Potential participants should note that there is a minimum funding goal in this crowdsale and there are refunds if this minimum funding goal is not reached.
+
+InvestFeed will have to load funds back into the crowdsale contract for investors to withdraw their refunds.
+
+This contract has no mechanism to enforce any vesting of InvestFeed's tokens.
+
+<br />
+
+<hr />
+
+## Risks
+
+This crowdfunding contract has a relatively low risk of losing large amounts of ethers in an attack or a bug, as funds contributed by participants are immediately transferred
+into a multisig wallet.
+
+The flow of funds from this crowdsale contract should be monitored using a script and visually through EtherScan. Should there be any abnormal 
+gaps in the crowdfunding contracts, potential participants should be informed to stop contributing to this crowdsale contract. Most of the funds
+will be held in the multisig wallet, so any potential losses due to flaws in the crowdsale contract should be minimal.
+
+In the case of the crowdfunding contract allocating an incorrect number of tokens for each contribution, the token numbers can be manually
+recalculated and a new token contract can be deployed at a new address.
+
+<br />
+
+<hr />
+
+## Trustlessness Of The Crowdsale Contract
+
+TODO
+
+<br />
+
+<hr />
+
+## Potential Vulnerabilities
+
+TODO No potential vulnerabilities have been identified in the crowdsale contract yet.
 
 <br />
 
@@ -94,6 +177,8 @@ Setting up [tests](test).
 
 * \#11 MEDIUM IMPORTANCE - Use the ConsenSys or Ethereum multisig as these are more widely use, unless you have a good reason to use the OpenZeppelin multisig
 
+* \#12 MEDIUM IMPORTANCE - Developer to review recent changes to the OpenZeppelin and TokenMarket libraries since the contracts were copied, for high priority bugs
+
 <br />
 
 <hr />
@@ -137,3 +222,16 @@ Setting up [tests](test).
     * contract *SafeMathLib*
 
 
+<br />
+
+<hr />
+
+## References
+
+* [Ethereum Contract Security Techniques and Tips](https://github.com/ConsenSys/smart-contract-best-practices)
+
+<br />
+
+<br />
+
+Enjoy. (c) BokkyPooBah / Bok Consulting Pty Ltd for InvestFeed Jul 9 2017. The MIT Licence.
