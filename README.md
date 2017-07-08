@@ -84,7 +84,7 @@ Setting up [tests](test).
 
 Code review of:
 
-* [CrowdsaleToken.md](CrowdsaleToken.md)
+* [CrowdsaleTokenCombined.sol](contracts-thirdreview/CrowdsaleTokenCombined.sol)
   * contract [CrowdsaleToken](codereview/CrowdsaleToken.md) is *ReleasableToken*, *MintableToken*, *UpgradeableToken*
     * contract [ReleasableToken](codereview/ReleasableToken.md) is *ERC20*, *Ownable*
       * contract [ERC20](codereview/ERC20.md) is *ERC20Basic*
@@ -102,20 +102,20 @@ Code review of:
           * contract *ERC20Basic*
         * contract *SafeMathLib*
 
-* [EthTranchePricing.md](EthTranchePricing.md)
+* [EthTranchePricingCombined.sol](contracts-thirdreview/EthTranchePricingCombined.sol)
   * contract [EthTranchePricing](codereview/EthTranchePricing.md) is *PricingStrategy*, *Ownable*, *SafeMathLib*
     * contract [PricingStrategy](codereview/PricingStrategy.md)
     * contract *Ownable*
     * contract *SafeMathLib*
   
-* [MintedEthCappedCrowdsale.md](MintedEthCappedCrowdsale.md)
+* [MintedEthCappedCrowdsaleCombined.sol](contracts-thirdreview/MintedEthCappedCrowdsaleCombined.sol)
   * contract [MintedEthCappedCrowdsale](codereview/MintedEthCappedCrowdsale.md) is *Crowdsale*
     * contract [Crowdsale](codereview/Crowdsale.md) is *Haltable*, *SafeMathLib*
       * contract [Haltable](codereview/Haltable.md) is *Ownable*
         * contract *Ownable*
       * contract *SafeMathLib*
 
-* [BonusFinalizeAgent.md](BonusFinalizeAgent.md)
+* [BonusFInalizeAgentCombined.sol](contracts-thirdreview/BonusFInalizeAgentCombined.sol)
   * contract [BonusFinalizeAgent](codereview/BonusFinalizeAgent.md) is *FinalizeAgent*, *SafeMathLib*
     * contract [FinalizeAgent](codereview/FinalizeAgent.md)
     * contract *SafeMathLib*
