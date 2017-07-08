@@ -85,7 +85,39 @@ Setting up [tests](test).
 Code review of:
 
 * [CrowdsaleToken.md](CrowdsaleToken.md)
+  * contract CrowdsaleToken is ReleasableToken, MintableToken, UpgradeableToken
+    * contract ReleasableToken is ERC20, Ownable
+      * contract ERC20 is ERC20Basic
+        * contract ERC20Basic
+      * contract Ownable
+    * contract MintableToken is StandardToken, Ownable
+      * contract StandardToken is ERC20, SafeMathLib
+        * contract ERC20 is ERC20Basic
+          * contract ERC20Basic
+        * contract SafeMathLib
+      * contract Ownable
+    * contract UpgradeableToken is StandardToken
+      * contract StandardToken is ERC20, SafeMathLib
+        * contract ERC20 is ERC20Basic
+          * contract ERC20Basic
+        * contract SafeMathLib
+
 * [EthTranchePricing.md](EthTranchePricing.md)
+  * contract EthTranchePricing is PricingStrategy, Ownable, SafeMathLib
+    * contract PricingStrategy
+    * contract Ownable
+    * contract SafeMathLib
+  
 * [MintedEthCappedCrowdsale.md](MintedEthCappedCrowdsale.md)
+  * contract MintedEthCappedCrowdsale is Crowdsale
+    * contract Crowdsale is Haltable, SafeMathLib
+      * contract Haltable is Ownable
+        * contract Ownable
+      * contract SafeMathLib
+
 * [BonusFinalizeAgent.md](BonusFinalizeAgent.md)
+  * contract BonusFinalizeAgent is FinalizeAgent, SafeMathLib
+    * contract FinalizeAgent
+    * contract SafeMathLib
+
 
