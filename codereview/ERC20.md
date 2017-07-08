@@ -1,3 +1,8 @@
+# ERC20
+
+Source file [../contracts/ERC20.sol](../contracts/ERC20.sol)
+
+```javascript
 pragma solidity ^0.4.11;
 import './ERC20Basic.sol';
 /**
@@ -10,3 +15,4 @@ contract ERC20 is ERC20Basic {
   function approve(address _spender, uint _value) returns (bool success);
   event Approval(address indexed owner, address indexed spender, uint value);
 }
+```

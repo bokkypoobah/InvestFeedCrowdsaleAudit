@@ -1,3 +1,8 @@
+# ERC20Basic
+
+Source file [../contracts/ERC20Basic.sol](../contracts/ERC20Basic.sol)
+
+```javascript
 pragma solidity ^0.4.11;
 /**
  * @title ERC20Basic
@@ -10,3 +15,4 @@ contract ERC20Basic {
   function transfer(address _to, uint _value) returns (bool success);
   event Transfer(address indexed from, address indexed to, uint value);
 }
+```

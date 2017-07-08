@@ -1,3 +1,8 @@
+# SafeMathLib
+
+Source file [../contracts/SafeMathLib.sol](../contracts/SafeMathLib.sol)
+
+```javascript
 pragma solidity ^0.4.11;
 
 contract SafeMathLib {
@@ -18,3 +23,4 @@ contract SafeMathLib {
     return c;
   }
 }
+```
