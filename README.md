@@ -194,10 +194,10 @@ Setting up [tests](test).
         * [x] contract [ERC20Basic](codereview/ERC20Basic.md)
       * [x] contract [Ownable](codereview/Ownable.md)
     * contract [MintableToken](codereview/MintableToken.md) is *StandardToken*, *Ownable*
-      * contract [StandardToken](codereview/StandardToken.md) is *ERC20*, [SafeMathLib](codereview/SafeMathLib.md)
+      * contract [StandardToken](codereview/StandardToken.md) is *ERC20*, *SafeMathLib*
         * contract *ERC20* is *ERC20Basic*
           * contract *ERC20Basic*
-        * contract *SafeMathLib*
+        * contract [SafeMathLib](codereview/SafeMathLib.md)
       * contract *Ownable*
     * contract [UpgradeableToken](codereview/UpgradeableToken.md) is *StandardToken*
       * contract *StandardToken* is *ERC20*, *SafeMathLib*
@@ -214,7 +214,7 @@ Setting up [tests](test).
 * [MintedEthCappedCrowdsaleCombined.sol](contracts-thirdreview/MintedEthCappedCrowdsaleCombined.sol)
   * contract [MintedEthCappedCrowdsale](codereview/MintedEthCappedCrowdsale.md) is *Crowdsale*
     * contract [Crowdsale](codereview/Crowdsale.md) is *Haltable*, *SafeMathLib*
-      * contract [Haltable](codereview/Haltable.md) is *Ownable*
+      * [x] contract [Haltable](codereview/Haltable.md) is *Ownable*
         * contract *Ownable*
       * contract *SafeMathLib*
 
