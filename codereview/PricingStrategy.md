@@ -1,3 +1,8 @@
+# PricingStrategy
+
+Source file [../contracts/PricingStrategy.sol](../contracts/PricingStrategy.sol)
+
+```javascript
 pragma solidity ^0.4.11;
 
 /**
@@ -31,3 +36,4 @@ contract PricingStrategy {
    */
   function calculatePrice(uint value, uint weiRaised, uint tokensSold, address msgSender, uint decimals) public constant returns (uint tokenAmount);
 }
+```

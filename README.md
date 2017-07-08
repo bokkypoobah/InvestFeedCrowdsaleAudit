@@ -103,8 +103,8 @@ Code review of:
         * contract *SafeMathLib*
 
 * [EthTranchePricing.md](EthTranchePricing.md)
-  * contract EthTranchePricing is PricingStrategy, *Ownable*, *SafeMathLib*
-    * contract PricingStrategy
+  * contract [EthTranchePricing](codereview/EthTranchePricing.md) is *PricingStrategy*, *Ownable*, *SafeMathLib*
+    * contract [PricingStrategy](codereview/PricingStrategy.md)
     * contract *Ownable*
     * contract *SafeMathLib*
   

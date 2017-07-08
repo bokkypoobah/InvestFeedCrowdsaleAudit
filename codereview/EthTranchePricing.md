@@ -1,3 +1,8 @@
+# EthTranchePricing
+
+Source file [../contracts/EthTranchePricing.sol](../contracts/EthTranchePricing.sol)
+
+```javascript
 pragma solidity ^0.4.11;
 
 import "./PricingStrategy.sol";
@@ -155,3 +160,4 @@ contract EthTranchePricing is PricingStrategy, Ownable, SafeMathLib {
   }
 
 }
+```
