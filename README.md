@@ -5,6 +5,8 @@
 * [First Review](#first-review)
 * [Second Review](#second-review)
 * [Third Review](#third-review)
+  * [Recommendations](#recommendations)
+  * [Code Review](#code-review)
 
 <br />
 
@@ -82,7 +84,21 @@ Third review of [https://github.com/investfeed-corp/feed-token-sale/commit/2007d
 
 Setting up [tests](test).
 
-Code review of:
+<br />
+
+<hr />
+
+### Recommendations
+
+* \#10 MEDIUM IMPORTANCE - Comments from the individual contract files should be left in the combined files to make it more readable
+
+* \#11 MEDIUM IMPORTANCE - Use the ConsenSys or Ethereum multisig as these are more widely use, unless you have a good reason to use the OpenZeppelin multisig
+
+<br />
+
+<hr />
+
+### Code Review
 
 * [CrowdsaleTokenCombined.sol](contracts-thirdreview/CrowdsaleTokenCombined.sol)
   * contract [CrowdsaleToken](codereview/CrowdsaleToken.md) is *ReleasableToken*, *MintableToken*, *UpgradeableToken*
