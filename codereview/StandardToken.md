@@ -1,3 +1,8 @@
+# StandardToken
+
+Source file [../contracts/StandardToken.sol](../contracts/StandardToken.sol)
+
+```javascript
 pragma solidity ^0.4.11;
 
 import './ERC20.sol';
@@ -109,3 +114,4 @@ contract StandardToken is ERC20, SafeMathLib {
   }
 
 }
+```

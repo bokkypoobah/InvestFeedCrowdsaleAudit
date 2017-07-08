@@ -1,3 +1,8 @@
+# UpgradeableToken
+
+Source file [../contracts/UpgradeableToken.sol](../contracts/UpgradeableToken.sol)
+
+```javascript
 pragma solidity ^0.4.11;
 
 import './ERC20.sol';
@@ -135,3 +140,4 @@ contract UpgradeableToken is StandardToken {
   }
 
 }
+```
