@@ -1,3 +1,8 @@
+# FinalizeAgent
+
+Source file [../contracts/FinalizeAgent.sol](../contracts/FinalizeAgent.sol)
+
+```javascript
 pragma solidity ^0.4.11;
 
 /**
@@ -24,3 +29,4 @@ contract FinalizeAgent {
   function finalizeCrowdsale();
 
 }
+```

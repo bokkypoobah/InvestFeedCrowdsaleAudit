@@ -1,3 +1,8 @@
+# BonusFinalizeAgent
+
+Source file [../contracts/BonusFinalizeAgent.sol](../contracts/BonusFinalizeAgent.sol)
+
+```javascript
 pragma solidity ^0.4.11;
 
 import "./Crowdsale.sol";
@@ -86,3 +91,4 @@ contract BonusFinalizeAgent is FinalizeAgent, SafeMathLib {
   }
 
 }
+```

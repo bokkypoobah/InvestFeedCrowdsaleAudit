@@ -116,8 +116,8 @@ Code review of:
       * contract *SafeMathLib*
 
 * [BonusFinalizeAgent.md](BonusFinalizeAgent.md)
-  * contract BonusFinalizeAgent is FinalizeAgent, *SafeMathLib*
-    * contract FinalizeAgent
+  * contract [BonusFinalizeAgent](codereview/BonusFinalizeAgent.md) is *FinalizeAgent*, *SafeMathLib*
+    * contract [FinalizeAgent](codereview/FinalizeAgent.md)
     * contract *SafeMathLib*
 
 
