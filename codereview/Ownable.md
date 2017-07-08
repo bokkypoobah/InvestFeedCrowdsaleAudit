@@ -2,6 +2,10 @@
 
 Source file [../contracts/Ownable.sol](../contracts/Ownable.sol)
 
+<br />
+
+<hr />
+
 ```javascript
 // BK Ok
 pragma solidity ^0.4.11;
