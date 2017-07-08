@@ -86,38 +86,38 @@ Code review of:
 
 * [CrowdsaleToken.md](CrowdsaleToken.md)
   * contract CrowdsaleToken is ReleasableToken, MintableToken, UpgradeableToken
-    * contract ReleasableToken is ERC20, Ownable
-      * contract [ERC20](codereview/ERC20.md) is ERC20Basic
+    * contract ReleasableToken is *ERC20*, *Ownable*
+      * contract [ERC20](codereview/ERC20.md) is *ERC20Basic*
         * contract [ERC20Basic](codereview/ERC20Basic.md)
       * contract [Ownable](codereview/Ownable.md)
-    * contract MintableToken is StandardToken, Ownable
-      * contract StandardToken is ERC20, [SafeMathLib](codereview/SafeMathLib.md)
-        * contract ERC20 is ERC20Basic
-          * contract ERC20Basic
-        * contract SafeMathLib
-      * contract Ownable
+    * contract MintableToken is StandardToken, *Ownable*
+      * contract StandardToken is *ERC20*, [SafeMathLib](codereview/SafeMathLib.md)
+        * contract *ERC20* is *ERC20Basic*
+          * contract *ERC20Basic*
+        * contract *SafeMathLib*
+      * contract *Ownable*
     * contract UpgradeableToken is StandardToken
-      * contract StandardToken is ERC20, SafeMathLib
-        * contract ERC20 is ERC20Basic
-          * contract ERC20Basic
-        * contract SafeMathLib
+      * contract StandardToken is *ERC20*, *SafeMathLib*
+        * contract *ERC20* is *ERC20Basic*
+          * contract *ERC20Basic*
+        * contract *SafeMathLib*
 
 * [EthTranchePricing.md](EthTranchePricing.md)
-  * contract EthTranchePricing is PricingStrategy, Ownable, SafeMathLib
+  * contract EthTranchePricing is PricingStrategy, *Ownable*, *SafeMathLib*
     * contract PricingStrategy
-    * contract Ownable
-    * contract SafeMathLib
+    * contract *Ownable*
+    * contract *SafeMathLib*
   
 * [MintedEthCappedCrowdsale.md](MintedEthCappedCrowdsale.md)
   * contract MintedEthCappedCrowdsale is Crowdsale
-    * contract Crowdsale is Haltable, SafeMathLib
-      * contract Haltable is Ownable
-        * contract Ownable
-      * contract SafeMathLib
+    * contract Crowdsale is Haltable, *SafeMathLib*
+      * contract Haltable is *Ownable*
+        * contract *Ownable*
+      * contract *SafeMathLib*
 
 * [BonusFinalizeAgent.md](BonusFinalizeAgent.md)
-  * contract BonusFinalizeAgent is FinalizeAgent, SafeMathLib
+  * contract BonusFinalizeAgent is FinalizeAgent, *SafeMathLib*
     * contract FinalizeAgent
-    * contract SafeMathLib
+    * contract *SafeMathLib*
 
 
