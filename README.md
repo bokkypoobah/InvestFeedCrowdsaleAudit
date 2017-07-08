@@ -190,7 +190,7 @@ Setting up [tests](test).
 * [CrowdsaleTokenCombined.sol](contracts-thirdreview/CrowdsaleTokenCombined.sol)
   * contract [CrowdsaleToken](codereview/CrowdsaleToken.md) is *ReleasableToken*, *MintableToken*, *UpgradeableToken*
     * contract [ReleasableToken](codereview/ReleasableToken.md) is *ERC20*, *Ownable*
-      * contract [ERC20](codereview/ERC20.md) is *ERC20Basic*
+      * [x] contract [ERC20](codereview/ERC20.md) is *ERC20Basic*
         * [x] contract [ERC20Basic](codereview/ERC20Basic.md)
       * [x] contract [Ownable](codereview/Ownable.md)
     * contract [MintableToken](codereview/MintableToken.md) is *StandardToken*, *Ownable*
