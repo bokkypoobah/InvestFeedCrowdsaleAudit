@@ -197,7 +197,7 @@ Setting up [tests](test).
       * contract [StandardToken](codereview/StandardToken.md) is *ERC20*, *SafeMathLib*
         * contract *ERC20* is *ERC20Basic*
           * contract *ERC20Basic*
-        * contract [SafeMathLib](codereview/SafeMathLib.md)
+        * [x] contract [SafeMathLib](codereview/SafeMathLib.md)
       * contract *Ownable*
     * contract [UpgradeableToken](codereview/UpgradeableToken.md) is *StandardToken*
       * contract *StandardToken* is *ERC20*, *SafeMathLib*
