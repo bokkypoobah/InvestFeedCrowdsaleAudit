@@ -48,7 +48,7 @@ else
   STARTTIME=`echo "$CURRENTTIME+75" | bc`
 fi
 STARTTIME_S=`date -r $STARTTIME -u`
-ENDTIME=`echo "$CURRENTTIME+60*3" | bc`
+ENDTIME=`echo "$CURRENTTIME+60*4" | bc`
 ENDTIME_S=`date -r $ENDTIME -u`
 
 printf "MODE                      = '$MODE'\n"
@@ -148,20 +148,24 @@ console.log("RESULT: ");
 var name = "Feed";
 var symbol = "FEED";
 var initialSupply = 0;
+// NOTE: 8 or 18, does not make a difference in the tranches calculations
 var decimals = 18;
 var mintable = true;
 
-var minimumFundingGoal = new BigNumber(100).shift(18);
-var cap = new BigNumber(1000).shift(18);
+var minimumFundingGoal = new BigNumber(1500).shift(18);
+var cap = new BigNumber(28000).shift(18);
 
+#      0 to 15,000 ETH 10,000 FEED = 1 ETH
+# 15,000 to 28,000 ETH  9,000 FEED = 1 ETH
 var tranches = [ \
-  0, new BigNumber(10000).shift(18), \
-  new BigNumber(100).shift(18), new BigNumber(9000).shift(18), \
+  0, new BigNumber(1).shift(18).div(10000), \
+  new BigNumber(15000).shift(18), new BigNumber(1).shift(18).div(9000), \
   cap, 0 \
 ];
 
+var teamMembers = [ team1, team2, team3 ];
+var teamBonus = [150, 150, 150];
 
-if (true) {
 // -----------------------------------------------------------------------------
 var cstMessage = "Deploy CrowdsaleToken Contract";
 console.log("RESULT: " + cstMessage);
@@ -177,24 +181,13 @@ var cst = cstContract.new(name, symbol, initialSupply, decimals, mintable, {from
         cstTx = contract.transactionHash;
       } else {
         cstAddress = contract.address;
-        addAccount(cstAddress, symbol + " " + name);
-        addCstContractAddressAndAbi(cstAddress, cstAbi);
+        addAccount(cstAddress, "Token '" + symbol + "' '" + name + "'");
         addTokenContractAddressAndAbi(cstAddress, cstAbi);
         console.log("DATA: teAddress=" + cstAddress);
       }
     }
   }
 );
-
-while (txpool.status.pending > 0) {
-}
-
-printTxData("cstAddress=" + cstAddress, cstTx);
-printBalances();
-failIfGasEqualsGasUsed(cstTx, cstMessage);
-printCstContractDetails();
-console.log("RESULT: ");
-}
 
 
 // -----------------------------------------------------------------------------
@@ -223,10 +216,12 @@ var etp = etpContract.new(tranches, {from: contractOwnerAccount, data: etpBin, g
 while (txpool.status.pending > 0) {
 }
 
+printTxData("cstAddress=" + cstAddress, cstTx);
 printTxData("etpAddress=" + etpAddress, etpTx);
 printBalances();
+failIfGasEqualsGasUsed(cstTx, cstMessage);
 failIfGasEqualsGasUsed(etpTx, etpMessage);
-// printCstContractDetails();
+printTokenContractDetails();
 console.log("RESULT: ");
 
 
@@ -246,7 +241,7 @@ var mec = mecContract.new(cstAddress, etpAddress, multisig, $STARTTIME, $ENDTIME
       } else {
         mecAddress = contract.address;
         addAccount(mecAddress, "Crowdsale");
-        // addCstContractAddressAndAbi(etpAddress, etpAbi);
+        addCrowdsaleContractAddressAndAbi(mecAddress, mecAbi);
         console.log("DATA: mecAddress=" + mecAddress);
       }
     }
@@ -259,43 +254,27 @@ while (txpool.status.pending > 0) {
 printTxData("mecAddress=" + mecAddress, mecTx);
 printBalances();
 failIfGasEqualsGasUsed(mecTx, mecMessage);
-// printCstContractDetails();
+printCrowdsaleContractDetails();
 console.log("RESULT: ");
 
 
-exit;
-
-
 // -----------------------------------------------------------------------------
-var dciMessage = "Deploy DaoCasinoIco Contract";
-console.log("RESULT: " + dciMessage);
-var dciContract = web3.eth.contract(dciAbi);
-console.log(JSON.stringify(dciContract));
-var dciTx = null;
-var dciAddress = null;
-var startBlock = parseInt(eth.blockNumber) + 1;
-var stopBlock = parseInt(eth.blockNumber) + 29;
-var day1Block = parseInt(startBlock) + $BLOCKSINDAY * 12; // Day 13 2,000 BET = 1 ETH
-var day2Block = parseInt(startBlock) + $BLOCKSINDAY * 16; // Day 16 1,700 BET = 1 ETH
-var day3Block = parseInt(startBlock) + $BLOCKSINDAY * 21; // Day 21 1,500 BET = 1 ETH
-var minValue = 10000000000000000000; // 10 ETH
-var maxValue = 1000000000000000000000; // 1000 ETH
-var scale = 1;
-var startRatio = 1;
-var reductionStep = 1;
-var reductionValue = 1;
-var minDonation = 100000000000000000; // 0.1 ETH
-var dci = dciContract.new(fundAccount, teAddress, "Reference", startBlock, stopBlock, 
-    minValue, maxValue, scale, startRatio, reductionStep, reductionValue, minDonation, {from: contractOwnerAccount, data: dciBin, gas: 6000000},
+var bfaMessage = "Deploy BonusFinalizerAgent Contract";
+console.log("RESULT: " + bfaMessage);
+var bfaContract = web3.eth.contract(bfaAbi);
+console.log(JSON.stringify(bfaContract));
+var bfaTx = null;
+var bfaAddress = null;
+
+var bfa = bfaContract.new(cstAddress, mecAddress, teamBonus, teamMembers, {from: contractOwnerAccount, data: bfaBin, gas: 6000000},
   function(e, contract) {
     if (!e) {
       if (!contract.address) {
-        dciTx = contract.transactionHash;
+        bfaTx = contract.transactionHash;
       } else {
-        dciAddress = contract.address;
-        addAccount(dciAddress, "DaoCasinoIco");
-        addDciContractAddressAndAbi(dciAddress, dciAbi);
-        console.log("DATA: dciAddress=" + dciAddress);
+        bfaAddress = contract.address;
+        addAccount(bfaAddress, "BonusFinalizerAgent");
+        console.log("DATA: bfaAddress=" + bfaAddress);
       }
     }
   }
@@ -304,29 +283,83 @@ var dci = dciContract.new(fundAccount, teAddress, "Reference", startBlock, stopB
 while (txpool.status.pending > 0) {
 }
 
-printTxData("dciAddress=" + dciAddress, dciTx);
+printTxData("bfaAddress=" + bfaAddress, bfaTx);
 printBalances();
-failIfGasEqualsGasUsed(dciTx, dciMessage);
-printDciContractDetails();
+failIfGasEqualsGasUsed(bfaTx, bfaMessage);
 console.log("RESULT: ");
-console.log(JSON.stringify(dci));
 
 
 // -----------------------------------------------------------------------------
-var linkMessage = "Link TokenEmission With DaoCasinoICO";
-console.log("RESULT: " + linkMessage);
-var link1Tx = te.setOwner(dciAddress, {from: contractOwnerAccount, gas: 400000});
-var link2Tx = te.setHammer(dciAddress, {from: contractOwnerAccount, gas: 400000});
+var invalidContribution1Message = "Send Invalid Contribution - 100 ETH From Account6 - Before Crowdsale Start";
+console.log("RESULT: " + invalidContribution1Message);
+var invalidContribution1Tx = eth.sendTransaction({from: account6, to: mecAddress, gas: 400000, value: web3.toWei("100", "ether")});
 while (txpool.status.pending > 0) {
 }
-printTxData("link1Tx", link1Tx);
-printTxData("link2Tx", link2Tx);
+printTxData("invalidContribution1Tx", invalidContribution1Tx);
 printBalances();
-failIfGasEqualsGasUsed(link1Tx, linkMessage);
-failIfGasEqualsGasUsed(link2Tx, linkMessage);
-printDciContractDetails();
-printTeContractDetails();
+passIfGasEqualsGasUsed(invalidContribution1Tx, invalidContribution1Message);
+printCrowdsaleContractDetails();
+printTokenContractDetails();
 console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+var stitchMessage = "Stitch Contracts Together";
+console.log("RESULT: " + stitchMessage);
+var stitch1Tx = cst.setMintAgent(mecAddress, true, {from: contractOwnerAccount, gas: 400000});
+var stitch2Tx = cst.setMintAgent(bfaAddress, true, {from: contractOwnerAccount, gas: 400000});
+var stitch3Tx = cst.setReleaseAgent(bfaAddress, {from: contractOwnerAccount, gas: 400000});
+var stitch4Tx = cst.setTransferAgent(mecAddress, true, {from: contractOwnerAccount, gas: 400000});
+var stitch5Tx = mec.setFinalizeAgent(bfaAddress, {from: contractOwnerAccount, gas: 400000});
+while (txpool.status.pending > 0) {
+}
+printTxData("stitch1Tx", stitch1Tx);
+printTxData("stitch2Tx", stitch2Tx);
+printTxData("stitch3Tx", stitch3Tx);
+printTxData("stitch4Tx", stitch4Tx);
+printTxData("stitch5Tx", stitch5Tx);
+printBalances();
+failIfGasEqualsGasUsed(stitch1Tx, stitchMessage + " 1");
+failIfGasEqualsGasUsed(stitch2Tx, stitchMessage + " 2");
+failIfGasEqualsGasUsed(stitch3Tx, stitchMessage + " 3");
+failIfGasEqualsGasUsed(stitch4Tx, stitchMessage + " 4");
+failIfGasEqualsGasUsed(stitch5Tx, stitchMessage + " 5");
+printCrowdsaleContractDetails();
+printTokenContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+// Wait for crowdsale start
+// -----------------------------------------------------------------------------
+var startsAtTime = mec.startsAt();
+var startsAtTimeDate = new Date(startsAtTime * 1000);
+console.log("RESULT: Waiting until startAt date at " + startsAtTime + " " + startsAtTimeDate +
+  " currentDate=" + new Date());
+while ((new Date()).getTime() <= startsAtTimeDate.getTime()) {
+}
+console.log("RESULT: Waited until start date at " + startsAtTime + " " + startsAtTimeDate +
+  " currentDate=" + new Date());
+
+
+// -----------------------------------------------------------------------------
+var validContribution1Message = "Send Valid Contribution - 100 ETH From Account6 - After Crowdsale Start";
+console.log("RESULT: " + validContribution1Message);
+var validContribution1Tx = mec.investWithCustomerId(account6, 123, {from: account6, to: mecAddress, gas: 400000, value: web3.toWei("100", "ether")});
+
+while (txpool.status.pending > 0) {
+}
+printTxData("validContribution1Tx", validContribution1Tx);
+printBalances();
+failIfGasEqualsGasUsed(validContribution1Tx, validContribution1Message);
+printCrowdsaleContractDetails();
+printTokenContractDetails();
+console.log("RESULT: ");
+
+
+
+exit;
+
 
 
 // -----------------------------------------------------------------------------

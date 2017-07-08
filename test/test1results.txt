@@ -1,11 +1,11 @@
  # Account                                             EtherBalanceChange                          Token Name
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
- 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       30.000000000000000000           0.000000000000000000 Account #0 - Miner
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       20.000000000000000000           0.000000000000000000 Account #0 - Miner
  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433        0.000000000000000000           0.000000000000000000 Account #1 - Contract Owner
  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
- 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
- 4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
- 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
+ 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Team #1
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Team #2
+ 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Team #3
  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
@@ -15,65 +15,195 @@
 
 
 Deploy CrowdsaleToken Contract
-cstAddress=null gas=6000000 gasUsed=2014935 costETH=0.03626883 costUSD=9.51686845434 @ ETH/USD=262.398 gasPrice=18000000000 block=212 txId=0xe01ff681663582f6079284433109bedc5bf210490503e9c3392f17b16229066e
+Deploy PricingStrategy Contract
+cstAddress=0xed7852146e2254fc862b87f77fa3ba3b211079fe gas=6000000 gasUsed=2014935 costETH=0.03626883 costUSD=9.51686845434 @ ETH/USD=262.398 gasPrice=18000000000 block=4176 txId=0xa6bb615111b1400fe0211a69a4f2c12de05748e72c83f58bc0faf03913629dba
+etpAddress=0xbfffb78bbb3a27d78857021d162b64c577626b62 gas=6000000 gasUsed=759746 costETH=0.013675428 costUSD=3.588404956344 @ ETH/USD=262.398 gasPrice=18000000000 block=4176 txId=0xb153c86185a1bdb60093c6eaf9bd3ca4c2813336f3f405c4fe9b4f7150f05990
  # Account                                             EtherBalanceChange                          Token Name
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
- 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       40.036268830000000000           0.000000000000000000 Account #0 - Miner
- 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.036268830000000000           0.000000000000000000 Account #1 - Contract Owner
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       30.049944258000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.049944258000000000           0.000000000000000000 Account #1 - Contract Owner
  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
- 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
- 4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
- 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
+ 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Team #1
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Team #2
+ 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Team #3
  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
+ 9 0xed7852146e2254fc862b87f77fa3ba3b211079fe        0.000000000000000000           0.000000000000000000 Token 'FEED' 'Feed'
+10 0xbfffb78bbb3a27d78857021d162b64c577626b62        0.000000000000000000           0.000000000000000000 PricingStrategy
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
                                                                                     0.000000000000000000 Total Token Balances
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 
 PASS Deploy CrowdsaleToken Contract
-cstContractAddress=null
-
-Deploy PricingStrategy Contract
-etpAddress=0xf4441f10804b35b13bad1e664e32237773276253 gas=6000000 gasUsed=759938 costETH=0.013678884 costUSD=3.589311803832 @ ETH/USD=262.398 gasPrice=18000000000 block=214 txId=0x1a70798b8c364caeda98232bac8d4b265c73c1bfce078d56640a6813558e5acc
- # Account                                             EtherBalanceChange                          Token Name
--- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
- 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       50.049947714000000000           0.000000000000000000 Account #0 - Miner
- 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.049947714000000000           0.000000000000000000 Account #1 - Contract Owner
- 2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
- 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
- 4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
- 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
- 6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
- 7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
- 8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
- 9 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 FEED Feed
-10 0xf4441f10804b35b13bad1e664e32237773276253        0.000000000000000000           0.000000000000000000 PricingStrategy
--- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-                                                                                    0.000000000000000000 Total Token Balances
--- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-
 PASS Deploy PricingStrategy Contract
+tokenContractAddress=0xed7852146e2254fc862b87f77fa3ba3b211079fe
+token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+token.symbol=FEED
+token.name=Feed
+token.decimals=18
+token.totalSupply=0
+token.mintingFinished=false
 
 Deploy MintedEthCappedCrowdsale Contract
-mecAddress=0x57930444aa5c1e758c1407ded001a8f36aa80b1d gas=6000000 gasUsed=2091522 costETH=0.037647396 costUSD=9.878601415608 @ ETH/USD=262.398 gasPrice=18000000000 block=216 txId=0x4458666d0c073486d5e5c26c356d628d9882110ad9167913aeba0a14eac06bfa
+mecAddress=0xfd2dc31157ecf6599df9eafa6871afd33dbea620 gas=6000000 gasUsed=2091586 costETH=0.037648548 costUSD=9.878903698104 @ ETH/USD=262.398 gasPrice=18000000000 block=4178 txId=0xfb77a9f6d3a5b01e94da95a5f9cfde227b358142f9067003db64be38a6eadae0
  # Account                                             EtherBalanceChange                          Token Name
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
- 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       60.087595110000000000           0.000000000000000000 Account #0 - Miner
- 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.087595110000000000           0.000000000000000000 Account #1 - Contract Owner
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       40.087592806000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.087592806000000000           0.000000000000000000 Account #1 - Contract Owner
  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
- 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
- 4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
- 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
+ 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Team #1
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Team #2
+ 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Team #3
  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
- 9 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 FEED Feed
-10 0xf4441f10804b35b13bad1e664e32237773276253        0.000000000000000000           0.000000000000000000 PricingStrategy
-11 0x57930444aa5c1e758c1407ded001a8f36aa80b1d        0.000000000000000000           0.000000000000000000 Crowdsale
+ 9 0xed7852146e2254fc862b87f77fa3ba3b211079fe        0.000000000000000000           0.000000000000000000 Token 'FEED' 'Feed'
+10 0xbfffb78bbb3a27d78857021d162b64c577626b62        0.000000000000000000           0.000000000000000000 PricingStrategy
+11 0xfd2dc31157ecf6599df9eafa6871afd33dbea620        0.000000000000000000           0.000000000000000000 Crowdsale
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
                                                                                     0.000000000000000000 Total Token Balances
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 
 PASS Deploy MintedEthCappedCrowdsale Contract
+crowdsaleContractAddress=0xfd2dc31157ecf6599df9eafa6871afd33dbea620
+crowdsale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+crowdsale.startsAt=1499524362 Sat, 08 Jul 2017 14:32:42 UTC
+crowdsale.endsAt=1499524527 Sat, 08 Jul 2017 14:35:27 UTC
+
+Deploy BonusFinalizerAgent Contract
+bfaAddress=0x491ef36b192b3fcd85b7b6a6cf9b94384b0360a6 gas=6000000 gasUsed=732404 costETH=0.013183272 costUSD=3.459264206256 @ ETH/USD=262.398 gasPrice=18000000000 block=4180 txId=0xc59cf81752cfbf8efdd38f0b5159f81c7e4159b9da028733af00f7042b727325
+ # Account                                             EtherBalanceChange                          Token Name
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       50.100776078000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.100776078000000000           0.000000000000000000 Account #1 - Contract Owner
+ 2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
+ 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Team #1
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Team #2
+ 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Team #3
+ 6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
+ 7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
+ 8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
+ 9 0xed7852146e2254fc862b87f77fa3ba3b211079fe        0.000000000000000000           0.000000000000000000 Token 'FEED' 'Feed'
+10 0xbfffb78bbb3a27d78857021d162b64c577626b62        0.000000000000000000           0.000000000000000000 PricingStrategy
+11 0xfd2dc31157ecf6599df9eafa6871afd33dbea620        0.000000000000000000           0.000000000000000000 Crowdsale
+12 0x491ef36b192b3fcd85b7b6a6cf9b94384b0360a6        0.000000000000000000           0.000000000000000000 BonusFinalizerAgent
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+                                                                                    0.000000000000000000 Total Token Balances
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+
+PASS Deploy BonusFinalizerAgent Contract
+
+Send Invalid Contribution - 100 ETH From Account6 - Before Crowdsale Start
+invalidContribution1Tx gas=400000 gasUsed=400000 costETH=0.0072 costUSD=1.8892656 @ ETH/USD=262.398 gasPrice=18000000000 block=4182 txId=0x7d199fd3bb7c2d9fa0aa07309586d203fcd42b5037ce96f865c8dedc79c0c759
+ # Account                                             EtherBalanceChange                          Token Name
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       60.107976078000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.100776078000000000           0.000000000000000000 Account #1 - Contract Owner
+ 2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
+ 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Team #1
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Team #2
+ 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Team #3
+ 6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9       -0.007200000000000000           0.000000000000000000 Account #6
+ 7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
+ 8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
+ 9 0xed7852146e2254fc862b87f77fa3ba3b211079fe        0.000000000000000000           0.000000000000000000 Token 'FEED' 'Feed'
+10 0xbfffb78bbb3a27d78857021d162b64c577626b62        0.000000000000000000           0.000000000000000000 PricingStrategy
+11 0xfd2dc31157ecf6599df9eafa6871afd33dbea620        0.000000000000000000           0.000000000000000000 Crowdsale
+12 0x491ef36b192b3fcd85b7b6a6cf9b94384b0360a6        0.000000000000000000           0.000000000000000000 BonusFinalizerAgent
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+                                                                                    0.000000000000000000 Total Token Balances
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+
+PASS Send Invalid Contribution - 100 ETH From Account6 - Before Crowdsale Start
+crowdsaleContractAddress=0xfd2dc31157ecf6599df9eafa6871afd33dbea620
+crowdsale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+crowdsale.startsAt=1499524362 Sat, 08 Jul 2017 14:32:42 UTC
+crowdsale.endsAt=1499524527 Sat, 08 Jul 2017 14:35:27 UTC
+tokenContractAddress=0xed7852146e2254fc862b87f77fa3ba3b211079fe
+token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+token.symbol=FEED
+token.name=Feed
+token.decimals=18
+token.totalSupply=0
+token.mintingFinished=false
+
+Stitch Contracts Together
+stitch1Tx gas=400000 gasUsed=45002 costETH=0.000810036 costUSD=0.212551826328 @ ETH/USD=262.398 gasPrice=18000000000 block=4184 txId=0x49b983c5ebfcaa9afd1662a79eaa6b703df1762387a4efe15fa931dc98a25e1b
+stitch2Tx gas=400000 gasUsed=45002 costETH=0.000810036 costUSD=0.212551826328 @ ETH/USD=262.398 gasPrice=18000000000 block=4184 txId=0x0fcf1dc76b05b90136c451ee85ffc2779496c89f2444cc64dc4d6e2084598cf3
+stitch3Tx gas=400000 gasUsed=43326 costETH=0.000779868 costUSD=0.204635803464 @ ETH/USD=262.398 gasPrice=18000000000 block=4184 txId=0x279b382e44ec821979e8b7adc9786085a767ff087fdff22c237663785b8fc9ab
+stitch4Tx gas=400000 gasUsed=43475 costETH=0.00078255 costUSD=0.2053395549 @ ETH/USD=262.398 gasPrice=18000000000 block=4184 txId=0xec53289ac51c3cc5d4a56837f223780d01bef6b775f065aa422e0052622e7858
+stitch5Tx gas=400000 gasUsed=43791 costETH=0.000788238 costUSD=0.206832074724 @ ETH/USD=262.398 gasPrice=18000000000 block=4184 txId=0x75ac82368e715228c4e399eee4f570f5336f4fddc27c8825ee71c52b80a3ed29
+ # Account                                             EtherBalanceChange                          Token Name
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       75.111946806000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.104746806000000000           0.000000000000000000 Account #1 - Contract Owner
+ 2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
+ 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Team #1
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Team #2
+ 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Team #3
+ 6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9       -0.007200000000000000           0.000000000000000000 Account #6
+ 7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
+ 8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
+ 9 0xed7852146e2254fc862b87f77fa3ba3b211079fe        0.000000000000000000           0.000000000000000000 Token 'FEED' 'Feed'
+10 0xbfffb78bbb3a27d78857021d162b64c577626b62        0.000000000000000000           0.000000000000000000 PricingStrategy
+11 0xfd2dc31157ecf6599df9eafa6871afd33dbea620        0.000000000000000000           0.000000000000000000 Crowdsale
+12 0x491ef36b192b3fcd85b7b6a6cf9b94384b0360a6        0.000000000000000000           0.000000000000000000 BonusFinalizerAgent
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+                                                                                    0.000000000000000000 Total Token Balances
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+
+PASS Stitch Contracts Together 1
+PASS Stitch Contracts Together 2
+PASS Stitch Contracts Together 3
+PASS Stitch Contracts Together 4
+PASS Stitch Contracts Together 5
+crowdsaleContractAddress=0xfd2dc31157ecf6599df9eafa6871afd33dbea620
+crowdsale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+crowdsale.startsAt=1499524362 Sat, 08 Jul 2017 14:32:42 UTC
+crowdsale.endsAt=1499524527 Sat, 08 Jul 2017 14:35:27 UTC
+tokenContractAddress=0xed7852146e2254fc862b87f77fa3ba3b211079fe
+token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+token.symbol=FEED
+token.name=Feed
+token.decimals=18
+token.totalSupply=0
+token.mintingFinished=false
+
+Waiting until startAt date at 1499524362 Sun, 09 Jul 2017 00:32:42 AEST currentDate=Sun, 09 Jul 2017 00:33:36 AEST
+Waited until start date at 1499524362 Sun, 09 Jul 2017 00:32:42 AEST currentDate=Sun, 09 Jul 2017 00:33:36 AEST
+Send Valid Contribution - 100 ETH From Account6 - After Crowdsale Start
+validContribution1Tx gas=400000 gasUsed=189871 costETH=0.003417678 costUSD=0.896791871844 @ ETH/USD=262.398 gasPrice=18000000000 block=4187 txId=0x214ff792bda01fce28e057e8f7e1eb370619a00a1e795fcb693b2d697307d204
+ # Account                                             EtherBalanceChange                          Token Name
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       85.115364484000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.104746806000000000           0.000000000000000000 Account #1 - Contract Owner
+ 2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976      100.000000000000000000           0.000000000000000000 Account #2 - Multisig
+ 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Team #1
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Team #2
+ 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Team #3
+ 6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9     -100.010617678000000000     1000000.000000000000000000 Account #6
+ 7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
+ 8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
+ 9 0xed7852146e2254fc862b87f77fa3ba3b211079fe        0.000000000000000000           0.000000000000000000 Token 'FEED' 'Feed'
+10 0xbfffb78bbb3a27d78857021d162b64c577626b62        0.000000000000000000           0.000000000000000000 PricingStrategy
+11 0xfd2dc31157ecf6599df9eafa6871afd33dbea620        0.000000000000000000           0.000000000000000000 Crowdsale
+12 0x491ef36b192b3fcd85b7b6a6cf9b94384b0360a6        0.000000000000000000           0.000000000000000000 BonusFinalizerAgent
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+                                                                              1000000.000000000000000000 Total Token Balances
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+
+PASS Send Valid Contribution - 100 ETH From Account6 - After Crowdsale Start
+crowdsaleContractAddress=0xfd2dc31157ecf6599df9eafa6871afd33dbea620
+crowdsale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+crowdsale.startsAt=1499524362 Sat, 08 Jul 2017 14:32:42 UTC
+crowdsale.endsAt=1499524527 Sat, 08 Jul 2017 14:35:27 UTC
+tokenContractAddress=0xed7852146e2254fc862b87f77fa3ba3b211079fe
+token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+token.symbol=FEED
+token.name=Feed
+token.decimals=18
+token.totalSupply=1e+24
+token.mintingFinished=false
+Transfer 0 #4187: from=0x0000000000000000000000000000000000000000 to=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 value=1000000
 

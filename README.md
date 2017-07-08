@@ -80,4 +80,12 @@ Some potential issues:
 
 Third review of [https://github.com/investfeed-corp/feed-token-sale/commit/2007dc6163cc8a2c27cc6c3e35023663b1641214](https://github.com/investfeed-corp/feed-token-sale/commit/2007dc6163cc8a2c27cc6c3e35023663b1641214).
 
-Setting up tests.
+Setting up [tests](test).
+
+Code review of:
+
+* [CrowdsaleToken.md](CrowdsaleToken.md)
+* [EthTranchePricing.md](EthTranchePricing.md)
+* [MintedEthCappedCrowdsale.md](MintedEthCappedCrowdsale.md)
+* [BonusFinalizeAgent.md](BonusFinalizeAgent.md)
+

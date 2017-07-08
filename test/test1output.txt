@@ -2,7 +2,7 @@ Welcome to the Geth JavaScript console!
 
 instance: Geth/v1.6.5-stable-cf87713d/darwin-amd64/go1.8.3
 coinbase: 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e
-at block: 204 (Sat, 08 Jul 2017 14:52:00 AEST)
+at block: 4170 (Sun, 09 Jul 2017 00:31:03 AEST)
  datadir: /Users/bok/Projects/InvestFeedCrowdsaleAudit/test/testchain
  modules: admin:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
@@ -51,12 +51,12 @@ undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       30.000000000000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       20.000000000000000000           0.000000000000000000 Account #0 - Miner
 RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433        0.000000000000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
-RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
-RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Team #1
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Team #2
+RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Team #3
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
@@ -89,66 +89,45 @@ undefined
 undefined
 > 
 > 
+undefined
 > 
-... 
-... 
-... 
-... 
-... 
-... 
-... 
-... 
-... 
-...... 
-......... 
-............ 
-............... 
-............... 
-............... 
-............... 
-............... 
-............... 
-............... 
-............... 
-............ 
-......... 
-...... 
-... 
-... 
-...... 
-... 
-... 
-... 
-... 
-... 
-... 
-... 
+undefined
+> 
+> 
+undefined
+> 
+undefined
+> 
 RESULT: Deploy CrowdsaleToken Contract
-{"abi":[{"constant":false,"inputs":[{"name":"addr","type":"address"},{"name":"state","type":"bool"}],"name":"setTransferAgent","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"mintingFinished","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setReleaseAgent","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"receiver","type":"address"},{"name":"amount","type":"uint256"}],"name":"mint","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"mintAgents","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"},{"name":"state","type":"bool"}],"name":"setMintAgent","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"value","type":"uint256"}],"name":"upgrade","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_name","type":"string"},{"name":"_symbol","type":"string"}],"name":"setTokenInformation","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"upgradeAgent","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"releaseTokenTransfer","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"upgradeMaster","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"acceptOwnership","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getUpgradeState","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"transferAgents","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"released","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"canUpgrade","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeSub","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_addedValue","type":"uint256"}],"name":"addApproval","outputs":[{"name":"success","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalUpgraded","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeMul","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"releaseAgent","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"newOwner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"agent","type":"address"}],"name":"setUpgradeAgent","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_subtractedValue","type":"uint256"}],"name":"subApproval","outputs":[{"name":"success","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeAdd","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"master","type":"address"}],"name":"setUpgradeMaster","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"_name","type":"string"},{"name":"_symbol","type":"string"},{"name":"_initialSupply","type":"uint256"},{"name":"_decimals","type":"uint8"},{"name":"_mintable","type":"bool"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"newName","type":"string"},{"indexed":false,"name":"newSymbol","type":"string"}],"name":"UpdatedTokenInformation","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Upgrade","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"agent","type":"address"}],"name":"UpgradeAgentSet","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"addr","type":"address"},{"indexed":false,"name":"state","type":"bool"}],"name":"MintingAgentChanged","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"receiver","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"Minted","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"}],"eth":{"_requestManager":{"polls":{},"provider":{},"timeout":null},"accounts":["0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e","0xa11aae29840fbb5c86e6fd4cf809eba183aef433","0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","0xa44a08d3f6933c69212114bb66e2df1813651844","0xa55a151eb00fded1634d27d1127b4be4627079ea","0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9","0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec","0xa88a05d2b88283ce84c8325760b72a64591279a2","0xa99a0ae3354c06b1459fd441a32a3f71005d7da0","0xaaaa9de1e6c564446ebca0fd102d8bd92093c756","0xabba43e7594e3b76afb157989e93c6621497fd4b","0xacca534c9f62ab495bd986e002ddf0f054caae4f","0xadda9b762a00ff12711113bfdc36958b73d7f915","0xaeea63b5479b50f79583ec49dacdcf86ddeff392","0xaffa4d3a80add8ce4018540e056dacb649589394","0xbbbb34fa53a801b5f298744490a1596438bbbe50"],"blockNumber":210,"coinbase":"0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e","compile":{},"gasPrice":"18000000000","hashrate":41119,"mining":true,"pendingTransactions":[],"protocolVersion":"0x3f","syncing":false}}
-RESULT: cstAddress=null gas=6000000 gasUsed=2014935 costETH=0.03626883 costUSD=9.51686845434 @ ETH/USD=262.398 gasPrice=18000000000 block=212 txId=0xe01ff681663582f6079284433109bedc5bf210490503e9c3392f17b16229066e
-RESULT:  # Account                                             EtherBalanceChange                          Token Name
-RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       40.036268830000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.036268830000000000           0.000000000000000000 Account #1 - Contract Owner
-RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
-RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
-RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
-RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
-RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
-RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
-RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:                                                                                     0.000000000000000000 Total Token Balances
-RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT: 
-RESULT: PASS Deploy CrowdsaleToken Contract
-RESULT: cstContractAddress=null
-RESULT: 
+undefined
+> 
+undefined
+> 
+{"abi":[{"constant":false,"inputs":[{"name":"addr","type":"address"},{"name":"state","type":"bool"}],"name":"setTransferAgent","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"mintingFinished","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setReleaseAgent","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"receiver","type":"address"},{"name":"amount","type":"uint256"}],"name":"mint","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"mintAgents","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"},{"name":"state","type":"bool"}],"name":"setMintAgent","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"value","type":"uint256"}],"name":"upgrade","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_name","type":"string"},{"name":"_symbol","type":"string"}],"name":"setTokenInformation","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"upgradeAgent","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"releaseTokenTransfer","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"upgradeMaster","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"acceptOwnership","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getUpgradeState","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"transferAgents","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"released","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"canUpgrade","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeSub","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_addedValue","type":"uint256"}],"name":"addApproval","outputs":[{"name":"success","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalUpgraded","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeMul","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"releaseAgent","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"newOwner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"agent","type":"address"}],"name":"setUpgradeAgent","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_subtractedValue","type":"uint256"}],"name":"subApproval","outputs":[{"name":"success","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeAdd","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"master","type":"address"}],"name":"setUpgradeMaster","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"_name","type":"string"},{"name":"_symbol","type":"string"},{"name":"_initialSupply","type":"uint256"},{"name":"_decimals","type":"uint8"},{"name":"_mintable","type":"bool"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"newName","type":"string"},{"indexed":false,"name":"newSymbol","type":"string"}],"name":"UpdatedTokenInformation","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Upgrade","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"agent","type":"address"}],"name":"UpgradeAgentSet","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"addr","type":"address"},{"indexed":false,"name":"state","type":"bool"}],"name":"MintingAgentChanged","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"receiver","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"Minted","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"}],"eth":{"_requestManager":{"polls":{},"provider":{},"timeout":null},"accounts":["0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e","0xa11aae29840fbb5c86e6fd4cf809eba183aef433","0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","0xa44a08d3f6933c69212114bb66e2df1813651844","0xa55a151eb00fded1634d27d1127b4be4627079ea","0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9","0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec","0xa88a05d2b88283ce84c8325760b72a64591279a2","0xa99a0ae3354c06b1459fd441a32a3f71005d7da0","0xaaaa9de1e6c564446ebca0fd102d8bd92093c756","0xabba43e7594e3b76afb157989e93c6621497fd4b","0xacca534c9f62ab495bd986e002ddf0f054caae4f","0xadda9b762a00ff12711113bfdc36958b73d7f915","0xaeea63b5479b50f79583ec49dacdcf86ddeff392","0xaffa4d3a80add8ce4018540e056dacb649589394","0xbbbb34fa53a801b5f298744490a1596438bbbe50"],"blockNumber":4174,"coinbase":"0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e","compile":{},"gasPrice":"18000000000","hashrate":44769,"mining":true,"pendingTransactions":[],"protocolVersion":"0x3f","syncing":false}}
+undefined
+> 
+undefined
+> 
+undefined
+> 
+> 
+... 
+...... 
+......... 
+............ 
+............ 
+............ 
+............ 
+............ 
+............ 
+............ 
+......... 
+...... 
+... 
 undefined
 > 
 > 
 > 
-DATA: teAddress=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 undefined
 > 
 undefined
@@ -158,7 +137,7 @@ undefined
 > 
 undefined
 > 
-{"abi":[{"constant":true,"inputs":[],"name":"isPricingStrategy","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"value","type":"uint256"},{"name":"weiRaised","type":"uint256"},{"name":"tokensSold","type":"uint256"},{"name":"msgSender","type":"address"},{"name":"decimals","type":"uint256"}],"name":"calculatePrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"tranches","outputs":[{"name":"amount","type":"uint256"},{"name":"price","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getPricingStartsAt","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"trancheCount","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getPricingEndsAt","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"acceptOwnership","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"MAX_TRANCHES","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"_crowdsale","type":"address"}],"name":"isSane","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeSub","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"weiRaised","type":"uint256"}],"name":"getCurrentPrice","outputs":[{"name":"result","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeMul","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"newOwner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"n","type":"uint256"}],"name":"getTranche","outputs":[{"name":"","type":"uint256"},{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"preicoAddress","type":"address"},{"name":"pricePerToken","type":"uint256"}],"name":"setPreicoAddress","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeAdd","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"preicoAddresses","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"_tranches","type":"uint256[]"}],"payable":false,"type":"constructor"},{"payable":true,"type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"}],"name":"OwnershipTransferred","type":"event"}],"eth":{"_requestManager":{"polls":{},"provider":{},"timeout":null},"accounts":["0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e","0xa11aae29840fbb5c86e6fd4cf809eba183aef433","0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","0xa44a08d3f6933c69212114bb66e2df1813651844","0xa55a151eb00fded1634d27d1127b4be4627079ea","0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9","0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec","0xa88a05d2b88283ce84c8325760b72a64591279a2","0xa99a0ae3354c06b1459fd441a32a3f71005d7da0","0xaaaa9de1e6c564446ebca0fd102d8bd92093c756","0xabba43e7594e3b76afb157989e93c6621497fd4b","0xacca534c9f62ab495bd986e002ddf0f054caae4f","0xadda9b762a00ff12711113bfdc36958b73d7f915","0xaeea63b5479b50f79583ec49dacdcf86ddeff392","0xaffa4d3a80add8ce4018540e056dacb649589394","0xbbbb34fa53a801b5f298744490a1596438bbbe50"],"blockNumber":212,"coinbase":"0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e","compile":{},"gasPrice":"18000000000","hashrate":41119,"mining":true,"pendingTransactions":[],"protocolVersion":"0x3f","syncing":false}}
+{"abi":[{"constant":true,"inputs":[],"name":"isPricingStrategy","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"value","type":"uint256"},{"name":"weiRaised","type":"uint256"},{"name":"tokensSold","type":"uint256"},{"name":"msgSender","type":"address"},{"name":"decimals","type":"uint256"}],"name":"calculatePrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"tranches","outputs":[{"name":"amount","type":"uint256"},{"name":"price","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getPricingStartsAt","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"trancheCount","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getPricingEndsAt","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"acceptOwnership","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"MAX_TRANCHES","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"_crowdsale","type":"address"}],"name":"isSane","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeSub","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"weiRaised","type":"uint256"}],"name":"getCurrentPrice","outputs":[{"name":"result","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeMul","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"newOwner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"n","type":"uint256"}],"name":"getTranche","outputs":[{"name":"","type":"uint256"},{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"preicoAddress","type":"address"},{"name":"pricePerToken","type":"uint256"}],"name":"setPreicoAddress","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeAdd","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"preicoAddresses","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"_tranches","type":"uint256[]"}],"payable":false,"type":"constructor"},{"payable":true,"type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"}],"name":"OwnershipTransferred","type":"event"}],"eth":{"_requestManager":{"polls":{"0x81ca8e5e6c8cf48d3bb68dc44e8ff72e":{"data":{"method":"eth_getFilterChanges","params":["0x81ca8e5e6c8cf48d3bb68dc44e8ff72e"]},"id":"0x81ca8e5e6c8cf48d3bb68dc44e8ff72e"}},"provider":{},"timeout":{}},"accounts":["0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e","0xa11aae29840fbb5c86e6fd4cf809eba183aef433","0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","0xa44a08d3f6933c69212114bb66e2df1813651844","0xa55a151eb00fded1634d27d1127b4be4627079ea","0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9","0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec","0xa88a05d2b88283ce84c8325760b72a64591279a2","0xa99a0ae3354c06b1459fd441a32a3f71005d7da0","0xaaaa9de1e6c564446ebca0fd102d8bd92093c756","0xabba43e7594e3b76afb157989e93c6621497fd4b","0xacca534c9f62ab495bd986e002ddf0f054caae4f","0xadda9b762a00ff12711113bfdc36958b73d7f915","0xaeea63b5479b50f79583ec49dacdcf86ddeff392","0xaffa4d3a80add8ce4018540e056dacb649589394","0xbbbb34fa53a801b5f298744490a1596438bbbe50"],"blockNumber":4174,"coinbase":"0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e","compile":{},"gasPrice":"18000000000","hashrate":44769,"mining":true,"pendingTransactions":[{"blockHash":null,"blockNumber":null,"from":"0xa11aae29840fbb5c86e6fd4cf809eba183aef433","gas":6000000,"gasPrice":"18000000000","hash":"0xa6bb615111b1400fe0211a69a4f2c12de05748e72c83f58bc0faf03913629dba","input":"0x60606040526005805460a060020a60ff02191690556007805460ff1916905534156200002757fe5b60405162001cb838038062001cb883398101604090815281516020830151918301516060840151608085015192850194939093019290915b335b5b60038054600160a060020a03191633600160a060020a03161790555b60098054600160a060020a031916600160a060020a0383161790555b5060038054600160a060020a03191633600160a060020a03161790558451620000cb90600c90602088019062000196565b508351620000e190600d90602087019062000196565b506000838155600e805460ff191660ff8516179055600354600160a060020a03168152600160205260408120849055831115620001645760035460005460408051600160a060020a039093168352602083019190915280517f30385c845b448a36257a6a1716e6ad2e1bc2cbe333cde1e69fe849ad6511adfe9281900390910190a15b80151562000189576007805460ff191660011790556000541515620001895760006000fd5b5b5b505050505062000240565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10620001d957805160ff191683800117855562000209565b8280016001018555821562000209579182015b8281111562000209578251825591602001919060010190620001ec565b5b50620002189291506200021c565b5090565b6200023d91905b8082111562000218576000815560010162000223565b5090565b90565b611a6880620002506000396000f300606060405236156101ca5763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166302f652a381146101cc57806305d2035b146101ef57806306fdde0314610213578063095ea7b3146102a357806318160ddd146102d657806323b872dd146102f857806329ff4f5314610331578063313ce5671461034f57806340c10f191461037557806342c1867b1461039657806343214675146103c657806345977d03146103e95780634eee966f146103fe5780635de4ccb0146104935780635f412d4f146104bf578063600440cb146104d157806370a08231146104fd57806379ba50971461052b5780638444b3911461053d578063867c2857146105715780638da5cb5b146105a157806395d89b41146105cd578063961325211461065d5780639738968c14610681578063a293d1e8146106a5578063a9059cbb146106cd578063ac3cb72c14610700578063c752ff6214610733578063d05c78da14610755578063d1f276d31461077d578063d4ee1d90146107a9578063d7e7088a146107d5578063dd62ed3e146107f3578063e2301d0214610827578063e6cb90131461085a578063f2fde38b14610882578063ffeb7d75146108a0575bfe5b34156101d457fe5b6101ed600160a060020a036004351660243515156108be565b005b34156101f757fe5b6101ff610921565b604080519115158252519081900360200190f35b341561021b57fe5b61022361092a565b604080516020808252835181830152835191928392908301918501908083838215610269575b80518252602083111561026957601f199092019160209182019101610249565b505050905090810190601f1680156102955780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34156102ab57fe5b6101ff600160a060020a03600435166024356109b8565b604080519115158252519081900360200190f35b34156102de57fe5b6102e6610a5f565b60408051918252519081900360200190f35b341561030057fe5b6101ff600160a060020a0360043581169060243516604435610a65565b604080519115158252519081900360200190f35b341561033957fe5b6101ed600160a060020a0360043516610abd565b005b341561035757fe5b61035f610b23565b6040805160ff9092168252519081900360200190f35b341561037d57fe5b6101ed600160a060020a0360043516602435610b2c565b005b341561039e57fe5b6101ff600160a060020a0360043516610bf1565b604080519115158252519081900360200190f35b34156103ce57fe5b6101ed600160a060020a03600435166024351515610c06565b005b34156103f157fe5b6101ed600435610c9a565b005b341561040657fe5b6101ed600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284375050604080516020601f89358b01803591820183900483028401830190945280835297999881019791965091820194509250829150840183828082843750949650610e0a95505050505050565b005b341561049b57fe5b6104a3610f7e565b60408051600160a060020a039092168252519081900360200190f35b34156104c757fe5b6101ed610f8d565b005b34156104d957fe5b6104a3610fc2565b60408051600160a060020a039092168252519081900360200190f35b341561050557fe5b6102e6600160a060020a0360043516610fd1565b60408051918252519081900360200190f35b341561053357fe5b6101ed610ff0565b005b341561054557fe5b61054d61107d565b6040518082600481111561055d57fe5b60ff16815260200191505060405180910390f35b341561057957fe5b6101ff600160a060020a03600435166110ca565b604080519115158252519081900360200190f35b34156105a957fe5b6104a36110df565b60408051600160a060020a039092168252519081900360200190f35b34156105d557fe5b6102236110ee565b604080516020808252835181830152835191928392908301918501908083838215610269575b80518252602083111561026957601f199092019160209182019101610249565b505050905090810190601f1680156102955780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561066557fe5b6101ff61117c565b604080519115158252519081900360200190f35b341561068957fe5b6101ff61118c565b604080519115158252519081900360200190f35b34156106ad57fe5b6102e66004356024356111b2565b60408051918252519081900360200190f35b34156106d557fe5b6101ff600160a060020a03600435166024356111c9565b604080519115158252519081900360200190f35b341561070857fe5b6101ff600160a060020a036004351660243561121f565b604080519115158252519081900360200190f35b341561073b57fe5b6102e66112be565b60408051918252519081900360200190f35b341561075d57fe5b6102e66004356024356112c4565b60408051918252519081900360200190f35b341561078557fe5b6104a36112f3565b60408051600160a060020a039092168252519081900360200190f35b34156107b157fe5b6104a3611302565b60408051600160a060020a039092168252519081900360200190f35b34156107dd57fe5b6101ed600160a060020a0360043516611311565b005b34156107fb57fe5b6102e6600160a060020a03600435811690602435166114ee565b60408051918252519081900360200190f35b341561082f57fe5b6101ff600160a060020a036004351660243561151b565b604080519115158252519081900360200190f35b341561086257fe5b6102e6600435602435611610565b60408051918252519081900360200190f35b341561088a57fe5b6101ed600160a060020a036004351661162a565b005b34156108a857fe5b6101ed600160a060020a0360043516611673565b005b60035433600160a060020a039081169116146108da5760006000fd5b60055460009060a060020a900460ff16156108f55760006000fd5b600160a060020a0383166000908152600660205260409020805460ff19168315151790555b5b505b5050565b60075460ff1681565b600c805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156109b05780601f10610985576101008083540402835291602001916109b0565b820191906000526020600020905b81548152906001019060200180831161099357829003601f168201915b505050505081565b600081158015906109ed5750600160a060020a0333811660009081526002602090815260408083209387168352929052205415155b156109f85760006000fd5b600160a060020a03338116600081815260026020908152604080832094881680845294825291829020869055815186815291517f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b9259281900390910190a35060015b92915050565b60005481565b600554600090849060a060020a900460ff161515610aa557600160a060020a03811660009081526006602052604090205460ff161515610aa55760006000fd5b5b610ab18585856116d1565b91505b5b509392505050565b60035433600160a060020a03908116911614610ad95760006000fd5b60055460009060a060020a900460ff1615610af45760006000fd5b6005805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0384161790555b5b505b50565b600e5460ff1681565b600160a060020a03331660009081526008602052604090205460ff161515610b545760006000fd5b60075460ff1615610b655760006000fd5b610b7160005482611610565b6000908155600160a060020a038316815260016020526040902054610b969082611610565b600160a060020a03831660008181526001602090815260408083209490945583518581529351929391927fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef9281900390910190a35b5b5b5050565b60086020526000908152604090205460ff1681565b60035433600160a060020a03908116911614610c225760006000fd5b60075460ff1615610c335760006000fd5b600160a060020a038216600081815260086020908152604091829020805460ff191685151590811790915582519384529083015280517f4b0adf6c802794c7dde28a08a4e07131abcff3bf9603cd71f14f90bec7865efa9281900390910190a15b5b5b5050565b6000610ca461107d565b905060035b816004811115610cb557fe5b1480610ccd575060045b816004811115610ccb57fe5b145b1515610cd95760006000fd5b811515610ce65760006000fd5b600160a060020a033316600090815260016020526040902054610d0990836111b2565b600160a060020a03331660009081526001602052604081209190915554610d3090836111b2565b600055600b54610d409083611610565b600b55600a54604080517f753e88e5000000000000000000000000000000000000000000000000000000008152600160a060020a033381166004830152602482018690529151919092169163753e88e591604480830192600092919082900301818387803b1515610dad57fe5b6102c65a03f11515610dbb57fe5b5050600a54604080518581529051600160a060020a03928316935033909216917f7e5c344a8141a805725cb476f76c6953b842222b967edd1f78ddb6e8b3f397ac9181900360200190a35b5050565b60035433600160a060020a03908116911614610e265760006000fd5b8151610e3990600c90602085019061199c565b508051610e4d90600d90602084019061199c565b5060408051818152600c8054600260001961010060018416150201909116049282018390527fd131ab1e6f279deea74e13a18477e13e2107deb6dc8ae955648948be5841fb46929091600d9181906020820190606083019086908015610ef45780601f10610ec957610100808354040283529160200191610ef4565b820191906000526020600020905b815481529060010190602001808311610ed757829003601f168201915b5050838103825284546002600019610100600184161502019091160480825260209091019085908015610f685780601f10610f3d57610100808354040283529160200191610f68565b820191906000526020600020905b815481529060010190602001808311610f4b57829003601f168201915b505094505050505060405180910390a15b5b5050565b600a54600160a060020a031681565b60055433600160a060020a03908116911614610fa95760006000fd5b6007805460ff19166001179055610fbe61183e565b5b5b565b600954600160a060020a031681565b600160a060020a0381166000908152600160205260409020545b919050565b60045433600160a060020a0390811691161461100c5760006000fd5b600454600354604051600160a060020a0392831692909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a36004546003805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a039092169190911790555b565b600061108761118c565b1515611095575060016110c4565b600a54600160a060020a031615156110af575060026110c4565b600b5415156110c0575060036110c4565b5060045b5b5b5b90565b60066020526000908152604090205460ff1681565b600354600160a060020a031681565b600d805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156109b05780601f10610985576101008083540402835291602001916109b0565b820191906000526020600020905b81548152906001019060200180831161099357829003601f168201915b505050505081565b60055460a060020a900460ff1681565b60055460009060a060020a900460ff1680156111ab57506111ab611882565b5b90505b90565b6000828211156111be57fe5b508082035b92915050565b600554600090339060a060020a900460ff16151561120957600160a060020a03811660009081526006602052604090205460ff1615156112095760006000fd5b5b6112148484611888565b91505b5b5092915050565b600160a060020a0333811660009081526002602090815260408083209386168352929052908120546112518184611610565b600160a060020a033381166000818152600260209081526040808320948a168084529482529182902085905581519485529051929391927f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b9259281900390910190a3600191505b5092915050565b600b5481565b60008282028315806112e057508284828115156112dd57fe5b04145b15156112e857fe5b8091505b5092915050565b600554600160a060020a031681565b600454600160a060020a031681565b61131961118c565b15156113255760006000fd5b600160a060020a038116151561133b5760006000fd5b60095433600160a060020a039081169116146113575760006000fd5b60045b61136261107d565b600481111561136d57fe5b14156113795760006000fd5b600a805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a038381169190911791829055604080516000602091820181905282517f61d3d7a6000000000000000000000000000000000000000000000000000000008152925194909316936361d3d7a6936004808501948390030190829087803b15156113ff57fe5b6102c65a03f1151561140d57fe5b505060405151151590506114215760006000fd5b60008054600a5460408051602090810185905281517f4b2ba0dd00000000000000000000000000000000000000000000000000000000815291519394600160a060020a0390931693634b2ba0dd936004808501948390030190829087803b151561148757fe5b6102c65a03f1151561149557fe5b5050604051519190911490506114ab5760006000fd5b600a5460408051600160a060020a039092168252517f7845d5aa74cc410e35571258d954f23b82276e160fe8c188fa80566580f279cc9181900360200190a15b50565b600160a060020a038083166000908152600260209081526040808320938516835292905220545b92915050565b600160a060020a0333811660009081526002602090815260408083209386168352929052908120548083111561157857600160a060020a0333811660009081526002602090815260408083209388168352929052908120556115a9565b61125181846111b2565b600160a060020a033381166000908152600260209081526040808320938916835292905220555b600160a060020a0333811660008181526002602090815260408083209489168084529482529182902054825190815291517f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b9259281900390910190a3600191505b5092915050565b6000828201838110156112e857fe5b8091505b5092915050565b60035433600160a060020a039081169116146116465760006000fd5b6004805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0383161790555b5b50565b600160a060020a03811615156116895760006000fd5b60095433600160a060020a039081169116146116a55760006000fd5b6009805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0383161790555b50565b600160a060020a0380841660008181526002602090815260408083203390951683529381528382205492825260019052918220548390108015906117155750828110155b80156117215750600083115b80156117465750600160a060020a038416600090815260016020526040902054838101115b1561182c57600160a060020a03841660009081526001602052604090205461176e9084611610565b600160a060020a03808616600090815260016020526040808220939093559087168152205461179d90846111b2565b600160a060020a0386166000908152600160205260409020556117c081846111b2565b600160a060020a038087166000818152600260209081526040808320338616845282529182902094909455805187815290519288169391927fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef929181900390910190a360019150610ab4565b60009150610ab4565b5b509392505050565b60055433600160a060020a0390811691161461185a5760006000fd5b6005805474ff0000000000000000000000000000000000000000191660a060020a1790555b5b565b60015b90565b600160a060020a0333166000908152600160205260408120548290108015906118b15750600082115b80156118d65750600160a060020a038316600090815260016020526040902054828101115b1561198d57600160a060020a0333166000908152600160205260409020546118fe90836111b2565b600160a060020a03338116600090815260016020526040808220939093559085168152205461192d9083611610565b600160a060020a038085166000818152600160209081526040918290209490945580518681529051919333909316927fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef92918290030190a3506001610a59565b506000610a59565b5b92915050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106119dd57805160ff1916838001178555611a0a565b82800160010185558215611a0a579182015b82811115611a0a5782518255916020019190600101906119ef565b5b50611a17929150611a1b565b5090565b6110c491905b80821115611a175760008155600101611a21565b5090565b905600a165627a7a72305820f7ff34c352ac678f278a093394cc8559436a90bf9d4175cc303428d5f5bff150002900000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000000e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001200000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000004466565640000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000044645454400000000000000000000000000000000000000000000000000000000","nonce":119,"r":"0xbf2bb895d74226b8d37f76825ccac965f7379d22f530960c8cb8a2d8ca57c1e5","s":"0x497ed1eb2618859c149b7129315abd34881a703b6ad63eeb01523c82977108bf","to":null,"transactionIndex":0,"v":"0x1c","value":"0"}],"protocolVersion":"0x3f","syncing":false}}
 undefined
 > 
 undefined
@@ -186,32 +165,46 @@ undefined
 undefined
 > 
 > 
-DATA: etpAddress=0xf4441f10804b35b13bad1e664e32237773276253
-RESULT: etpAddress=0xf4441f10804b35b13bad1e664e32237773276253 gas=6000000 gasUsed=759938 costETH=0.013678884 costUSD=3.589311803832 @ ETH/USD=262.398 gasPrice=18000000000 block=214 txId=0x1a70798b8c364caeda98232bac8d4b265c73c1bfce078d56640a6813558e5acc
+DATA: teAddress=0xed7852146e2254fc862b87f77fa3ba3b211079fe
+DATA: etpAddress=0xbfffb78bbb3a27d78857021d162b64c577626b62
+RESULT: cstAddress=0xed7852146e2254fc862b87f77fa3ba3b211079fe gas=6000000 gasUsed=2014935 costETH=0.03626883 costUSD=9.51686845434 @ ETH/USD=262.398 gasPrice=18000000000 block=4176 txId=0xa6bb615111b1400fe0211a69a4f2c12de05748e72c83f58bc0faf03913629dba
+undefined
+> 
+RESULT: etpAddress=0xbfffb78bbb3a27d78857021d162b64c577626b62 gas=6000000 gasUsed=759746 costETH=0.013675428 costUSD=3.588404956344 @ ETH/USD=262.398 gasPrice=18000000000 block=4176 txId=0xb153c86185a1bdb60093c6eaf9bd3ca4c2813336f3f405c4fe9b4f7150f05990
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       50.049947714000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.049947714000000000           0.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       30.049944258000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.049944258000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
-RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
-RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Team #1
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Team #2
+RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Team #3
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
-RESULT:  9 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 FEED Feed
-RESULT: 10 0xf4441f10804b35b13bad1e664e32237773276253        0.000000000000000000           0.000000000000000000 PricingStrategy
+RESULT:  9 0xed7852146e2254fc862b87f77fa3ba3b211079fe        0.000000000000000000           0.000000000000000000 Token 'FEED' 'Feed'
+RESULT: 10 0xbfffb78bbb3a27d78857021d162b64c577626b62        0.000000000000000000           0.000000000000000000 PricingStrategy
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                     0.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT: 
 undefined
 > 
+RESULT: PASS Deploy CrowdsaleToken Contract
+1
+> 
 RESULT: PASS Deploy PricingStrategy Contract
 1
 > 
+RESULT: tokenContractAddress=0xed7852146e2254fc862b87f77fa3ba3b211079fe
+RESULT: token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+RESULT: token.symbol=FEED
+RESULT: token.name=Feed
+RESULT: token.decimals=18
+RESULT: token.totalSupply=0
+RESULT: token.mintingFinished=false
 undefined
 > 
 RESULT: 
@@ -228,7 +221,7 @@ undefined
 > 
 undefined
 > 
-{"abi":[{"constant":true,"inputs":[],"name":"ownerTestValue","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"requireCustomerId","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"invest","outputs":[],"payable":true,"type":"function"},{"constant":true,"inputs":[],"name":"isPricingSane","outputs":[{"name":"sane","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"endsAt","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"minimumFundingGoal","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getState","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setFinalizeAgent","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"investedAmountOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"finalizeAgent","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"receiver","type":"address"},{"name":"fullTokens","type":"uint256"},{"name":"weiPrice","type":"uint256"}],"name":"preallocate","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"weiRaised","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isCrowdsale","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"finalize","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_pricingStrategy","type":"address"}],"name":"setPricingStrategy","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"tokensSold","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"refund","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"signerAddress","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"weiRefunded","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"halt","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"time","type":"uint256"}],"name":"setEndsAt","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"pricingStrategy","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"loadedRefund","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"acceptOwnership","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isMinimumGoalReached","outputs":[{"name":"reached","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"value","type":"bool"}],"name":"setRequireCustomerId","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"weiCap","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"loadRefund","outputs":[],"payable":true,"type":"function"},{"constant":false,"inputs":[{"name":"val","type":"uint256"}],"name":"setOwnerTestValue","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"multisigWallet","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"tokenAmountOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"customerId","type":"uint128"}],"name":"buyWithCustomerId","outputs":[],"payable":true,"type":"function"},{"constant":true,"inputs":[{"name":"weiAmount","type":"uint256"},{"name":"tokenAmount","type":"uint256"},{"name":"weiRaisedTotal","type":"uint256"},{"name":"tokensSoldTotal","type":"uint256"}],"name":"isBreakingCap","outputs":[{"name":"limitBroken","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeSub","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"buy","outputs":[],"payable":true,"type":"function"},{"constant":true,"inputs":[],"name":"isFinalizerSane","outputs":[{"name":"sane","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"startsAt","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"finalized","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"halted","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"earlyParticipantWhitelist","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"unhalt","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeMul","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"requiredSignedAddress","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"newOwner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isCrowdsaleFull","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"investorCount","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeAdd","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"},{"name":"status","type":"bool"}],"name":"setEarlyParicipantWhitelist","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"},{"name":"customerId","type":"uint128"}],"name":"investWithCustomerId","outputs":[],"payable":true,"type":"function"},{"constant":false,"inputs":[{"name":"_newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"token","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"inputs":[{"name":"_token","type":"address"},{"name":"_pricingStrategy","type":"address"},{"name":"_multisigWallet","type":"address"},{"name":"_start","type":"uint256"},{"name":"_end","type":"uint256"},{"name":"_minimumFundingGoal","type":"uint256"},{"name":"_weiCap","type":"uint256"}],"payable":false,"type":"constructor"},{"payable":true,"type":"fallback"},{"anonymous":false,"inputs":[{"indexed":false,"name":"investor","type":"address"},{"indexed":false,"name":"weiAmount","type":"uint256"},{"indexed":false,"name":"tokenAmount","type":"uint256"},{"indexed":false,"name":"customerId","type":"uint128"}],"name":"Invested","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"investor","type":"address"},{"indexed":false,"name":"weiAmount","type":"uint256"}],"name":"Refund","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"requireCustomerId","type":"bool"},{"indexed":false,"name":"requiredSignedAddress","type":"bool"},{"indexed":false,"name":"signerAddress","type":"address"}],"name":"InvestmentPolicyChanged","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"addr","type":"address"},{"indexed":false,"name":"status","type":"bool"}],"name":"Whitelisted","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"endsAt","type":"uint256"}],"name":"EndsAtChanged","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"}],"name":"OwnershipTransferred","type":"event"}],"eth":{"_requestManager":{"polls":{},"provider":{},"timeout":null},"accounts":["0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e","0xa11aae29840fbb5c86e6fd4cf809eba183aef433","0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","0xa44a08d3f6933c69212114bb66e2df1813651844","0xa55a151eb00fded1634d27d1127b4be4627079ea","0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9","0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec","0xa88a05d2b88283ce84c8325760b72a64591279a2","0xa99a0ae3354c06b1459fd441a32a3f71005d7da0","0xaaaa9de1e6c564446ebca0fd102d8bd92093c756","0xabba43e7594e3b76afb157989e93c6621497fd4b","0xacca534c9f62ab495bd986e002ddf0f054caae4f","0xadda9b762a00ff12711113bfdc36958b73d7f915","0xaeea63b5479b50f79583ec49dacdcf86ddeff392","0xaffa4d3a80add8ce4018540e056dacb649589394","0xbbbb34fa53a801b5f298744490a1596438bbbe50"],"blockNumber":214,"coinbase":"0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e","compile":{},"gasPrice":"18000000000","hashrate":41119,"mining":true,"pendingTransactions":[],"protocolVersion":"0x3f","syncing":false}}
+{"abi":[{"constant":true,"inputs":[],"name":"ownerTestValue","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"requireCustomerId","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"invest","outputs":[],"payable":true,"type":"function"},{"constant":true,"inputs":[],"name":"isPricingSane","outputs":[{"name":"sane","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"endsAt","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"minimumFundingGoal","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getState","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setFinalizeAgent","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"investedAmountOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"finalizeAgent","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"receiver","type":"address"},{"name":"fullTokens","type":"uint256"},{"name":"weiPrice","type":"uint256"}],"name":"preallocate","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"weiRaised","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isCrowdsale","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"finalize","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_pricingStrategy","type":"address"}],"name":"setPricingStrategy","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"tokensSold","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"refund","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"signerAddress","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"weiRefunded","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"halt","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"time","type":"uint256"}],"name":"setEndsAt","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"pricingStrategy","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"loadedRefund","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"acceptOwnership","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isMinimumGoalReached","outputs":[{"name":"reached","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"value","type":"bool"}],"name":"setRequireCustomerId","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"weiCap","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"loadRefund","outputs":[],"payable":true,"type":"function"},{"constant":false,"inputs":[{"name":"val","type":"uint256"}],"name":"setOwnerTestValue","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"multisigWallet","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"tokenAmountOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"customerId","type":"uint128"}],"name":"buyWithCustomerId","outputs":[],"payable":true,"type":"function"},{"constant":true,"inputs":[{"name":"weiAmount","type":"uint256"},{"name":"tokenAmount","type":"uint256"},{"name":"weiRaisedTotal","type":"uint256"},{"name":"tokensSoldTotal","type":"uint256"}],"name":"isBreakingCap","outputs":[{"name":"limitBroken","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeSub","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"buy","outputs":[],"payable":true,"type":"function"},{"constant":true,"inputs":[],"name":"isFinalizerSane","outputs":[{"name":"sane","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"startsAt","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"finalized","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"halted","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"earlyParticipantWhitelist","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"unhalt","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeMul","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"requiredSignedAddress","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"newOwner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isCrowdsaleFull","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"investorCount","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeAdd","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"},{"name":"status","type":"bool"}],"name":"setEarlyParicipantWhitelist","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"},{"name":"customerId","type":"uint128"}],"name":"investWithCustomerId","outputs":[],"payable":true,"type":"function"},{"constant":false,"inputs":[{"name":"_newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"token","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"inputs":[{"name":"_token","type":"address"},{"name":"_pricingStrategy","type":"address"},{"name":"_multisigWallet","type":"address"},{"name":"_start","type":"uint256"},{"name":"_end","type":"uint256"},{"name":"_minimumFundingGoal","type":"uint256"},{"name":"_weiCap","type":"uint256"}],"payable":false,"type":"constructor"},{"payable":true,"type":"fallback"},{"anonymous":false,"inputs":[{"indexed":false,"name":"investor","type":"address"},{"indexed":false,"name":"weiAmount","type":"uint256"},{"indexed":false,"name":"tokenAmount","type":"uint256"},{"indexed":false,"name":"customerId","type":"uint128"}],"name":"Invested","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"investor","type":"address"},{"indexed":false,"name":"weiAmount","type":"uint256"}],"name":"Refund","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"requireCustomerId","type":"bool"},{"indexed":false,"name":"requiredSignedAddress","type":"bool"},{"indexed":false,"name":"signerAddress","type":"address"}],"name":"InvestmentPolicyChanged","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"addr","type":"address"},{"indexed":false,"name":"status","type":"bool"}],"name":"Whitelisted","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"endsAt","type":"uint256"}],"name":"EndsAtChanged","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"}],"name":"OwnershipTransferred","type":"event"}],"eth":{"_requestManager":{"polls":{},"provider":{},"timeout":null},"accounts":["0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e","0xa11aae29840fbb5c86e6fd4cf809eba183aef433","0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","0xa44a08d3f6933c69212114bb66e2df1813651844","0xa55a151eb00fded1634d27d1127b4be4627079ea","0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9","0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec","0xa88a05d2b88283ce84c8325760b72a64591279a2","0xa99a0ae3354c06b1459fd441a32a3f71005d7da0","0xaaaa9de1e6c564446ebca0fd102d8bd92093c756","0xabba43e7594e3b76afb157989e93c6621497fd4b","0xacca534c9f62ab495bd986e002ddf0f054caae4f","0xadda9b762a00ff12711113bfdc36958b73d7f915","0xaeea63b5479b50f79583ec49dacdcf86ddeff392","0xaffa4d3a80add8ce4018540e056dacb649589394","0xbbbb34fa53a801b5f298744490a1596438bbbe50"],"blockNumber":4176,"coinbase":"0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e","compile":{},"gasPrice":"18000000000","hashrate":43891,"mining":true,"pendingTransactions":[],"protocolVersion":"0x3f","syncing":false}}
 undefined
 > 
 undefined
@@ -256,24 +249,24 @@ undefined
 undefined
 > 
 > 
-DATA: mecAddress=0x57930444aa5c1e758c1407ded001a8f36aa80b1d
-RESULT: mecAddress=0x57930444aa5c1e758c1407ded001a8f36aa80b1d gas=6000000 gasUsed=2091522 costETH=0.037647396 costUSD=9.878601415608 @ ETH/USD=262.398 gasPrice=18000000000 block=216 txId=0x4458666d0c073486d5e5c26c356d628d9882110ad9167913aeba0a14eac06bfa
+DATA: mecAddress=0xfd2dc31157ecf6599df9eafa6871afd33dbea620
+RESULT: mecAddress=0xfd2dc31157ecf6599df9eafa6871afd33dbea620 gas=6000000 gasUsed=2091586 costETH=0.037648548 costUSD=9.878903698104 @ ETH/USD=262.398 gasPrice=18000000000 block=4178 txId=0xfb77a9f6d3a5b01e94da95a5f9cfde227b358142f9067003db64be38a6eadae0
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       60.087595110000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.087595110000000000           0.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       40.087592806000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.087592806000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
-RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
-RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Team #1
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Team #2
+RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Team #3
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
-RESULT:  9 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 FEED Feed
-RESULT: 10 0xf4441f10804b35b13bad1e664e32237773276253        0.000000000000000000           0.000000000000000000 PricingStrategy
-RESULT: 11 0x57930444aa5c1e758c1407ded001a8f36aa80b1d        0.000000000000000000           0.000000000000000000 Crowdsale
+RESULT:  9 0xed7852146e2254fc862b87f77fa3ba3b211079fe        0.000000000000000000           0.000000000000000000 Token 'FEED' 'Feed'
+RESULT: 10 0xbfffb78bbb3a27d78857021d162b64c577626b62        0.000000000000000000           0.000000000000000000 PricingStrategy
+RESULT: 11 0xfd2dc31157ecf6599df9eafa6871afd33dbea620        0.000000000000000000           0.000000000000000000 Crowdsale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                     0.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -283,10 +276,318 @@ undefined
 RESULT: PASS Deploy MintedEthCappedCrowdsale Contract
 1
 > 
+RESULT: crowdsaleContractAddress=0xfd2dc31157ecf6599df9eafa6871afd33dbea620
+RESULT: crowdsale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+RESULT: crowdsale.startsAt=1499524362 Sat, 08 Jul 2017 14:32:42 UTC
+RESULT: crowdsale.endsAt=1499524527 Sat, 08 Jul 2017 14:35:27 UTC
 undefined
 > 
 RESULT: 
 undefined
+> 
+> 
+> 
+undefined
+> 
+undefined
+> 
+RESULT: Deploy BonusFinalizerAgent Contract
+undefined
+> 
+undefined
+> 
+{"abi":[{"constant":false,"inputs":[],"name":"finalizeCrowdsale","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"teamAddresses","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isFinalizeAgent","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"allocatedBonus","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalMembers","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isSane","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"crowdsale","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeSub","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeMul","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeAdd","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"token","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"inputs":[{"name":"_token","type":"address"},{"name":"_crowdsale","type":"address"},{"name":"_bonusBasePoints","type":"uint256[]"},{"name":"_teamAddresses","type":"address[]"}],"payable":false,"type":"constructor"}],"eth":{"_requestManager":{"polls":{},"provider":{},"timeout":null},"accounts":["0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e","0xa11aae29840fbb5c86e6fd4cf809eba183aef433","0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","0xa44a08d3f6933c69212114bb66e2df1813651844","0xa55a151eb00fded1634d27d1127b4be4627079ea","0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9","0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec","0xa88a05d2b88283ce84c8325760b72a64591279a2","0xa99a0ae3354c06b1459fd441a32a3f71005d7da0","0xaaaa9de1e6c564446ebca0fd102d8bd92093c756","0xabba43e7594e3b76afb157989e93c6621497fd4b","0xacca534c9f62ab495bd986e002ddf0f054caae4f","0xadda9b762a00ff12711113bfdc36958b73d7f915","0xaeea63b5479b50f79583ec49dacdcf86ddeff392","0xaffa4d3a80add8ce4018540e056dacb649589394","0xbbbb34fa53a801b5f298744490a1596438bbbe50"],"blockNumber":4178,"coinbase":"0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e","compile":{},"gasPrice":"18000000000","hashrate":42131,"mining":true,"pendingTransactions":[],"protocolVersion":"0x3f","syncing":false}}
+undefined
+> 
+undefined
+> 
+undefined
+> 
+> 
+... 
+...... 
+......... 
+............ 
+............ 
+............ 
+............ 
+............ 
+............ 
+......... 
+...... 
+... 
+undefined
+> 
+> 
+... 
+undefined
+> 
+> 
+DATA: bfaAddress=0x491ef36b192b3fcd85b7b6a6cf9b94384b0360a6
+RESULT: bfaAddress=0x491ef36b192b3fcd85b7b6a6cf9b94384b0360a6 gas=6000000 gasUsed=732404 costETH=0.013183272 costUSD=3.459264206256 @ ETH/USD=262.398 gasPrice=18000000000 block=4180 txId=0xc59cf81752cfbf8efdd38f0b5159f81c7e4159b9da028733af00f7042b727325
+undefined
+> 
+RESULT:  # Account                                             EtherBalanceChange                          Token Name
+RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       50.100776078000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.100776078000000000           0.000000000000000000 Account #1 - Contract Owner
+RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Team #1
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Team #2
+RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Team #3
+RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
+RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
+RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
+RESULT:  9 0xed7852146e2254fc862b87f77fa3ba3b211079fe        0.000000000000000000           0.000000000000000000 Token 'FEED' 'Feed'
+RESULT: 10 0xbfffb78bbb3a27d78857021d162b64c577626b62        0.000000000000000000           0.000000000000000000 PricingStrategy
+RESULT: 11 0xfd2dc31157ecf6599df9eafa6871afd33dbea620        0.000000000000000000           0.000000000000000000 Crowdsale
+RESULT: 12 0x491ef36b192b3fcd85b7b6a6cf9b94384b0360a6        0.000000000000000000           0.000000000000000000 BonusFinalizerAgent
+RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+RESULT:                                                                                     0.000000000000000000 Total Token Balances
+RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+RESULT: 
+undefined
+> 
+RESULT: PASS Deploy BonusFinalizerAgent Contract
+1
+> 
+RESULT: 
+undefined
+> 
+> 
+> 
+undefined
+> 
+undefined
+> 
+RESULT: Send Invalid Contribution - 100 ETH From Account6 - Before Crowdsale Start
+undefined
+> 
+undefined
+> 
+... 
+undefined
+> 
+RESULT: invalidContribution1Tx gas=400000 gasUsed=400000 costETH=0.0072 costUSD=1.8892656 @ ETH/USD=262.398 gasPrice=18000000000 block=4182 txId=0x7d199fd3bb7c2d9fa0aa07309586d203fcd42b5037ce96f865c8dedc79c0c759
+undefined
+> 
+RESULT:  # Account                                             EtherBalanceChange                          Token Name
+RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       60.107976078000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.100776078000000000           0.000000000000000000 Account #1 - Contract Owner
+RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Team #1
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Team #2
+RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Team #3
+RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9       -0.007200000000000000           0.000000000000000000 Account #6
+RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
+RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
+RESULT:  9 0xed7852146e2254fc862b87f77fa3ba3b211079fe        0.000000000000000000           0.000000000000000000 Token 'FEED' 'Feed'
+RESULT: 10 0xbfffb78bbb3a27d78857021d162b64c577626b62        0.000000000000000000           0.000000000000000000 PricingStrategy
+RESULT: 11 0xfd2dc31157ecf6599df9eafa6871afd33dbea620        0.000000000000000000           0.000000000000000000 Crowdsale
+RESULT: 12 0x491ef36b192b3fcd85b7b6a6cf9b94384b0360a6        0.000000000000000000           0.000000000000000000 BonusFinalizerAgent
+RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+RESULT:                                                                                     0.000000000000000000 Total Token Balances
+RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+RESULT: 
+undefined
+> 
+RESULT: PASS Send Invalid Contribution - 100 ETH From Account6 - Before Crowdsale Start
+1
+> 
+RESULT: crowdsaleContractAddress=0xfd2dc31157ecf6599df9eafa6871afd33dbea620
+RESULT: crowdsale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+RESULT: crowdsale.startsAt=1499524362 Sat, 08 Jul 2017 14:32:42 UTC
+RESULT: crowdsale.endsAt=1499524527 Sat, 08 Jul 2017 14:35:27 UTC
+undefined
+> 
+RESULT: tokenContractAddress=0xed7852146e2254fc862b87f77fa3ba3b211079fe
+RESULT: token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+RESULT: token.symbol=FEED
+RESULT: token.name=Feed
+RESULT: token.decimals=18
+RESULT: token.totalSupply=0
+RESULT: token.mintingFinished=false
+undefined
+> 
+RESULT: 
+undefined
+> 
+> 
+> 
+undefined
+> 
+undefined
+> 
+RESULT: Stitch Contracts Together
+undefined
+> 
+undefined
+> 
+undefined
+> 
+undefined
+> 
+undefined
+> 
+undefined
+> 
+... 
+undefined
+> 
+RESULT: stitch1Tx gas=400000 gasUsed=45002 costETH=0.000810036 costUSD=0.212551826328 @ ETH/USD=262.398 gasPrice=18000000000 block=4184 txId=0x49b983c5ebfcaa9afd1662a79eaa6b703df1762387a4efe15fa931dc98a25e1b
+undefined
+> 
+RESULT: stitch2Tx gas=400000 gasUsed=45002 costETH=0.000810036 costUSD=0.212551826328 @ ETH/USD=262.398 gasPrice=18000000000 block=4184 txId=0x0fcf1dc76b05b90136c451ee85ffc2779496c89f2444cc64dc4d6e2084598cf3
+undefined
+> 
+RESULT: stitch3Tx gas=400000 gasUsed=43326 costETH=0.000779868 costUSD=0.204635803464 @ ETH/USD=262.398 gasPrice=18000000000 block=4184 txId=0x279b382e44ec821979e8b7adc9786085a767ff087fdff22c237663785b8fc9ab
+undefined
+> 
+RESULT: stitch4Tx gas=400000 gasUsed=43475 costETH=0.00078255 costUSD=0.2053395549 @ ETH/USD=262.398 gasPrice=18000000000 block=4184 txId=0xec53289ac51c3cc5d4a56837f223780d01bef6b775f065aa422e0052622e7858
+undefined
+> 
+RESULT: stitch5Tx gas=400000 gasUsed=43791 costETH=0.000788238 costUSD=0.206832074724 @ ETH/USD=262.398 gasPrice=18000000000 block=4184 txId=0x75ac82368e715228c4e399eee4f570f5336f4fddc27c8825ee71c52b80a3ed29
+undefined
+> 
+RESULT:  # Account                                             EtherBalanceChange                          Token Name
+RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       75.111946806000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.104746806000000000           0.000000000000000000 Account #1 - Contract Owner
+RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Team #1
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Team #2
+RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Team #3
+RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9       -0.007200000000000000           0.000000000000000000 Account #6
+RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
+RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
+RESULT:  9 0xed7852146e2254fc862b87f77fa3ba3b211079fe        0.000000000000000000           0.000000000000000000 Token 'FEED' 'Feed'
+RESULT: 10 0xbfffb78bbb3a27d78857021d162b64c577626b62        0.000000000000000000           0.000000000000000000 PricingStrategy
+RESULT: 11 0xfd2dc31157ecf6599df9eafa6871afd33dbea620        0.000000000000000000           0.000000000000000000 Crowdsale
+RESULT: 12 0x491ef36b192b3fcd85b7b6a6cf9b94384b0360a6        0.000000000000000000           0.000000000000000000 BonusFinalizerAgent
+RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+RESULT:                                                                                     0.000000000000000000 Total Token Balances
+RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+RESULT: 
+undefined
+> 
+RESULT: PASS Stitch Contracts Together 1
+1
+> 
+RESULT: PASS Stitch Contracts Together 2
+1
+> 
+RESULT: PASS Stitch Contracts Together 3
+1
+> 
+RESULT: PASS Stitch Contracts Together 4
+1
+> 
+RESULT: PASS Stitch Contracts Together 5
+1
+> 
+RESULT: crowdsaleContractAddress=0xfd2dc31157ecf6599df9eafa6871afd33dbea620
+RESULT: crowdsale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+RESULT: crowdsale.startsAt=1499524362 Sat, 08 Jul 2017 14:32:42 UTC
+RESULT: crowdsale.endsAt=1499524527 Sat, 08 Jul 2017 14:35:27 UTC
+undefined
+> 
+RESULT: tokenContractAddress=0xed7852146e2254fc862b87f77fa3ba3b211079fe
+RESULT: token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+RESULT: token.symbol=FEED
+RESULT: token.name=Feed
+RESULT: token.decimals=18
+RESULT: token.totalSupply=0
+RESULT: token.mintingFinished=false
+undefined
+> 
+RESULT: 
+undefined
+> 
+> 
+> 
+undefined
+> 
+undefined
+> 
+undefined
+> 
+undefined
+> 
+undefined
+> 
+... 
+RESULT: Waiting until startAt date at 1499524362 Sun, 09 Jul 2017 00:32:42 AEST currentDate=Sun, 09 Jul 2017 00:33:36 AEST
+undefined
+> 
+... 
+undefined
+> 
+... 
+RESULT: Waited until start date at 1499524362 Sun, 09 Jul 2017 00:32:42 AEST currentDate=Sun, 09 Jul 2017 00:33:36 AEST
+undefined
+> 
+> 
+> 
+undefined
+> 
+undefined
+> 
+RESULT: Send Valid Contribution - 100 ETH From Account6 - After Crowdsale Start
+undefined
+> 
+undefined
+> 
+> 
+... 
+undefined
+> 
+RESULT: validContribution1Tx gas=400000 gasUsed=189871 costETH=0.003417678 costUSD=0.896791871844 @ ETH/USD=262.398 gasPrice=18000000000 block=4187 txId=0x214ff792bda01fce28e057e8f7e1eb370619a00a1e795fcb693b2d697307d204
+undefined
+> 
+RESULT:  # Account                                             EtherBalanceChange                          Token Name
+RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       85.115364484000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.104746806000000000           0.000000000000000000 Account #1 - Contract Owner
+RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976      100.000000000000000000           0.000000000000000000 Account #2 - Multisig
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Team #1
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Team #2
+RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Team #3
+RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9     -100.010617678000000000     1000000.000000000000000000 Account #6
+RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
+RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
+RESULT:  9 0xed7852146e2254fc862b87f77fa3ba3b211079fe        0.000000000000000000           0.000000000000000000 Token 'FEED' 'Feed'
+RESULT: 10 0xbfffb78bbb3a27d78857021d162b64c577626b62        0.000000000000000000           0.000000000000000000 PricingStrategy
+RESULT: 11 0xfd2dc31157ecf6599df9eafa6871afd33dbea620        0.000000000000000000           0.000000000000000000 Crowdsale
+RESULT: 12 0x491ef36b192b3fcd85b7b6a6cf9b94384b0360a6        0.000000000000000000           0.000000000000000000 BonusFinalizerAgent
+RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+RESULT:                                                                               1000000.000000000000000000 Total Token Balances
+RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+RESULT: 
+undefined
+> 
+RESULT: PASS Send Valid Contribution - 100 ETH From Account6 - After Crowdsale Start
+1
+> 
+RESULT: crowdsaleContractAddress=0xfd2dc31157ecf6599df9eafa6871afd33dbea620
+RESULT: crowdsale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+RESULT: crowdsale.startsAt=1499524362 Sat, 08 Jul 2017 14:32:42 UTC
+RESULT: crowdsale.endsAt=1499524527 Sat, 08 Jul 2017 14:35:27 UTC
+undefined
+> 
+RESULT: tokenContractAddress=0xed7852146e2254fc862b87f77fa3ba3b211079fe
+RESULT: token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+RESULT: token.symbol=FEED
+RESULT: token.name=Feed
+RESULT: token.decimals=18
+RESULT: token.totalSupply=1e+24
+RESULT: token.mintingFinished=false
+RESULT: Transfer 0 #4187: from=0x0000000000000000000000000000000000000000 to=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 value=1000000
+undefined
+> 
+RESULT: 
+undefined
+> 
 > 
 > 
 > 

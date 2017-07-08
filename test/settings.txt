@@ -15,7 +15,7 @@ MINTEDETHCAPPEDSOL=MintedEthCappedCrowdsaleCombined.sol
 MINTEDETHCAPPEDTEMPSOL=MintedEthCappedCrowdsale.sol
 MINTEDETHCAPPEDJS=MintedEthCappedCrowdsale.js
 
-BONUSFINALIZEAGENTSOL=BonusFinalizeAgentCombined.sol
+BONUSFINALIZEAGENTSOL=BonusFInalizeAgentCombined.sol
 BONUSFINALIZEAGENTTEMPSOL=BonusFinalizeAgent.sol
 BONUSFINALIZEAGENTJS=BonusFinalizeAgent.js
 

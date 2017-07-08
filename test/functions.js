@@ -10,9 +10,9 @@ var accountNames = {};
 addAccount(eth.accounts[0], "Account #0 - Miner");
 addAccount(eth.accounts[1], "Account #1 - Contract Owner");
 addAccount(eth.accounts[2], "Account #2 - Multisig");
-addAccount(eth.accounts[3], "Account #3");
-addAccount(eth.accounts[4], "Account #4");
-addAccount(eth.accounts[5], "Account #5");
+addAccount(eth.accounts[3], "Account #3 - Team #1");
+addAccount(eth.accounts[4], "Account #4 - Team #2");
+addAccount(eth.accounts[5], "Account #5 - Team #3");
 addAccount(eth.accounts[6], "Account #6");
 addAccount(eth.accounts[7], "Account #7");
 addAccount(eth.accounts[8], "Account #8");
@@ -31,9 +31,9 @@ addAccount(eth.accounts[8], "Account #8");
 var minerAccount = eth.accounts[0];
 var contractOwnerAccount = eth.accounts[1];
 var multisig = eth.accounts[2];
-var account3 = eth.accounts[3];
-var account4 = eth.accounts[4];
-var account5 = eth.accounts[5];
+var team1 = eth.accounts[3];
+var team2 = eth.accounts[4];
+var team3 = eth.accounts[5];
 var account6 = eth.accounts[6];
 var account7 = eth.accounts[7];
 var account8 = eth.accounts[8];
@@ -194,86 +194,82 @@ function failIfGasEqualsGasUsedOrContractAddressNull(contractAddress, tx, msg) {
 
 
 //-----------------------------------------------------------------------------
-// dci Contract
+// Crowdsale Contract
 //-----------------------------------------------------------------------------
-var dciContractAddress = null;
-var dciContractAbi = null;
+var crowdsaleContractAddress = null;
+var crowdsaleContractAbi = null;
 
-function addDciContractAddressAndAbi(address, abi) {
-  dciContractAddress = address;
-  dciContractAbi = abi;
+function addCrowdsaleContractAddressAndAbi(address, abi) {
+  crowdsaleContractAddress = address;
+  crowdsaleContractAbi = abi;
 }
 
-var dciFromBlock = 0;
-function printDciContractDetails() {
-  console.log("RESULT: dciContractAddress=" + dciContractAddress);
-  // console.log("RESULT: dciContractAbi=" + JSON.stringify(dciContractAbi));
-  if (dciContractAddress != null && dciContractAbi != null) {
-    var contract = eth.contract(dciContractAbi).at(dciContractAddress);
-    console.log("RESULT: dci.owner=" + contract.owner());
-    console.log("RESULT: dci.hammer=" + contract.hammer());
-    console.log("RESULT: dci.minDonation=" + contract.minDonation().shift(-18));
-    console.log("RESULT: dci.BLOCKS_IN_DAY=" + contract.BLOCKS_IN_DAY());
-    console.log("RESULT: dci.cf.fund=" + contract.fund());
-    console.log("RESULT: dci.cf.bounty=" + contract.bounty());
-    console.log("RESULT: dci.cf.totalFunded=" + contract.totalFunded().shift(-18));
-    console.log("RESULT: dci.cf.reference=" + contract.reference());
-    console.log("RESULT: dci.cf.config=" + JSON.stringify(contract.config()));
-    var config = contract.config();
-    console.log("RESULT: dci.cf.config[startBlock]=" + config[0]);
-    console.log("RESULT: dci.cf.config[stopBlock]=" + config[1]);
-    console.log("RESULT: dci.cf.config[minValue]=" + config[2].shift(-18));
-    console.log("RESULT: dci.cf.config[maxValue]=" + config[3].shift(-18));
-    console.log("RESULT: dci.cf.config[bountyScale]=" + config[4]);
-    console.log("RESULT: dci.cf.config[startRatio]=" + config[5]);
-    console.log("RESULT: dci.cf.config[reductionStep]=" + config[6]);
-    console.log("RESULT: dci.cf.config[reductionValue]=" + config[7]);
+var crowdsaleFromBlock = 0;
+function printCrowdsaleContractDetails() {
+  console.log("RESULT: crowdsaleContractAddress=" + crowdsaleContractAddress);
+  // console.log("RESULT: crowdsaleContractAbi=" + JSON.stringify(crowdsaleContractAbi));
+  if (crowdsaleContractAddress != null && crowdsaleContractAbi != null) {
+    var contract = eth.contract(crowdsaleContractAbi).at(crowdsaleContractAddress);
+    console.log("RESULT: crowdsale.owner=" + contract.owner());
+    var startsAt = contract.startsAt();
+    console.log("RESULT: crowdsale.startsAt=" + startsAt + " " + new Date(startsAt * 1000).toUTCString());
+    var endsAt = contract.endsAt();
+    console.log("RESULT: crowdsale.endsAt=" + endsAt + " " + new Date(endsAt * 1000).toUTCString());
+
+    // console.log("RESULT: crowdsale.minDonation=" + contract.minDonation().shift(-18));
+    // console.log("RESULT: crowdsale.BLOCKS_IN_DAY=" + contract.BLOCKS_IN_DAY());
+    // console.log("RESULT: crowdsale.cf.fund=" + contract.fund());
+    // console.log("RESULT: crowdsale.cf.bounty=" + contract.bounty());
+    // console.log("RESULT: crowdsale.cf.totalFunded=" + contract.totalFunded().shift(-18));
+    // console.log("RESULT: crowdsale.cf.reference=" + contract.reference());
+    // console.log("RESULT: crowdsale.cf.config=" + JSON.stringify(contract.config()));
+    // var config = contract.config();
+    // console.log("RESULT: crowdsale.cf.config[startBlock]=" + config[0]);
+    // console.log("RESULT: crowdsale.cf.config[stopBlock]=" + config[1]);
+    // console.log("RESULT: crowdsale.cf.config[minValue]=" + config[2].shift(-18));
+    // console.log("RESULT: crowdsale.cf.config[maxValue]=" + config[3].shift(-18));
+    // console.log("RESULT: crowdsale.cf.config[bountyScale]=" + config[4]);
+    // console.log("RESULT: crowdsale.cf.config[startRatio]=" + config[5]);
+    // console.log("RESULT: crowdsale.cf.config[reductionStep]=" + config[6]);
+    // console.log("RESULT: crowdsale.cf.config[reductionValue]=" + config[7]);
     
     var latestBlock = eth.blockNumber;
     var i;
 
-    var receivedEtherEvents = contract.ReceivedEther({}, { fromBlock: dciFromBlock, toBlock: latestBlock });
-    i = 0;
-    receivedEtherEvents.watch(function (error, result) {
-      console.log("RESULT: ReceivedEther " + i++ + " #" + result.blockNumber + " sender=" + result.args.sender + " amount=" + result.args.amount + " " +
-        result.args.amount.shift(-decimals));
-    });
-    receivedEtherEvents.stopWatching();
+    // var receivedEtherEvents = contract.ReceivedEther({}, { fromBlock: crowdsaleFromBlock, toBlock: latestBlock });
+    // i = 0;
+    // receivedEtherEvents.watch(function (error, result) {
+    //   console.log("RESULT: ReceivedEther " + i++ + " #" + result.blockNumber + " sender=" + result.args.sender + " amount=" + result.args.amount + " " +
+    //     result.args.amount.shift(-decimals));
+    // });
+    // receivedEtherEvents.stopWatching();
 
-    dciFromBlock = latestBlock + 1;
+    crowdsaleFromBlock = latestBlock + 1;
   }
 }
 
 
 
 //-----------------------------------------------------------------------------
-// Cst Contract
+// Token Contract
 //-----------------------------------------------------------------------------
-var cstContractAddress = null;
-var cstContractAbi = null;
-
-function addCstContractAddressAndAbi(address, abi) {
-  cstContractAddress = address;
-  cstContractAbi = abi;
-}
-
-var cstFromBlock = 0;
-function printCstContractDetails() {
-  console.log("RESULT: cstContractAddress=" + cstContractAddress);
-  // console.log("RESULT: cstContractAbi=" + JSON.stringify(cstContractAbi));
-  if (cstContractAddress != null && cstContractAbi != null) {
-    var contract = eth.contract(cstContractAbi).at(cstContractAddress);
+var tokenFromBlock = 0;
+function printTokenContractDetails() {
+  console.log("RESULT: tokenContractAddress=" + tokenContractAddress);
+  // console.log("RESULT: tokenContractAbi=" + JSON.stringify(tokenContractAbi));
+  if (tokenContractAddress != null && tokenContractAbi != null) {
+    var contract = eth.contract(tokenContractAbi).at(tokenContractAddress);
     console.log("RESULT: token.owner=" + contract.owner());
     console.log("RESULT: token.symbol=" + contract.symbol());
     console.log("RESULT: token.name=" + contract.name());
     console.log("RESULT: token.decimals=" + decimals);
     console.log("RESULT: token.totalSupply=" + contract.totalSupply());
-    console.log("RESULT: token.mintable=" + contract.mintable());
+    console.log("RESULT: token.mintingFinished=" + contract.mintingFinished());
 
     var latestBlock = eth.blockNumber;
     var i;
 
-    var approvalEvents = contract.Approval({}, { fromBlock: cstFromBlock, toBlock: latestBlock });
+    var approvalEvents = contract.Approval({}, { fromBlock: tokenFromBlock, toBlock: latestBlock });
     i = 0;
     approvalEvents.watch(function (error, result) {
       console.log("RESULT: Approval " + i++ + " #" + result.blockNumber + " owner=" + result.args.owner + " spender=" + result.args.spender + " _value=" +
@@ -281,7 +277,7 @@ function printCstContractDetails() {
     });
     approvalEvents.stopWatching();
 
-    var transferEvents = contract.Transfer({}, { fromBlock: cstFromBlock, toBlock: latestBlock });
+    var transferEvents = contract.Transfer({}, { fromBlock: tokenFromBlock, toBlock: latestBlock });
     i = 0;
     transferEvents.watch(function (error, result) {
       console.log("RESULT: Transfer " + i++ + " #" + result.blockNumber + ": from=" + result.args.from + " to=" + result.args.to +
@@ -289,6 +285,6 @@ function printCstContractDetails() {
     });
     transferEvents.stopWatching();
 
-    cstFromBlock = parseInt(latestBlock) + 1;
+    tokenFromBlock = parseInt(latestBlock) + 1;
   }
 }
