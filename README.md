@@ -220,7 +220,7 @@ Setting up [tests](test).
 
 * [BonusFInalizeAgentCombined.sol](contracts-thirdreview/BonusFInalizeAgentCombined.sol)
   * contract [BonusFinalizeAgent](codereview/BonusFinalizeAgent.md) is *FinalizeAgent*, *SafeMathLib*
-    * contract [FinalizeAgent](codereview/FinalizeAgent.md)
+    * [x] contract [FinalizeAgent](codereview/FinalizeAgent.md)
     * contract *SafeMathLib*
 
 
