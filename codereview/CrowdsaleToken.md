@@ -1,3 +1,8 @@
+# CrowdsaleToken
+
+Source file [../contracts/CrowdsaleToken.sol](../contracts/CrowdsaleToken.sol)
+
+```javascript
 pragma solidity ^0.4.11;
 
 import './StandardToken.sol';
@@ -95,3 +100,4 @@ contract CrowdsaleToken is ReleasableToken, MintableToken, UpgradeableToken {
   }
 
 }
+```

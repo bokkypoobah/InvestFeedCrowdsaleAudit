@@ -85,12 +85,12 @@ Setting up [tests](test).
 Code review of:
 
 * [CrowdsaleToken.md](CrowdsaleToken.md)
-  * contract CrowdsaleToken is ReleasableToken, MintableToken, *UpgradeableToken*
-    * contract ReleasableToken is *ERC20*, *Ownable*
+  * contract [CrowdsaleToken](codereview/CrowdsaleToken.md) is *ReleasableToken*, *MintableToken*, *UpgradeableToken*
+    * contract [ReleasableToken](codereview/ReleasableToken.md) is *ERC20*, *Ownable*
       * contract [ERC20](codereview/ERC20.md) is *ERC20Basic*
         * contract [ERC20Basic](codereview/ERC20Basic.md)
       * contract [Ownable](codereview/Ownable.md)
-    * contract MintableToken is *StandardToken*, *Ownable*
+    * contract [MintableToken](codereview/MintableToken.md) is *StandardToken*, *Ownable*
       * contract [StandardToken](codereview/StandardToken.md) is *ERC20*, [SafeMathLib](codereview/SafeMathLib.md)
         * contract *ERC20* is *ERC20Basic*
           * contract *ERC20Basic*

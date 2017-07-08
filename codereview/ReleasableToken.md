@@ -1,3 +1,8 @@
+# ReleasableToken
+
+Source file [../contracts/ReleasableToken.sol](../contracts/ReleasableToken.sol)
+
+```javascript
 pragma solidity ^0.4.11;
 
 import './Ownable.sol';
@@ -90,3 +95,4 @@ contract ReleasableToken is ERC20, Ownable {
   }
 
 }
+```

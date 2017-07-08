@@ -1,3 +1,8 @@
+# MintableToken
+
+Source file [../contracts/MintableToken.sol](../contracts/MintableToken.sol)
+
+```javascript
 pragma solidity ^0.4.11;
 import './ERC20.sol';
 import './Ownable.sol';
@@ -58,3 +63,4 @@ contract MintableToken is StandardToken, Ownable {
     _;
   }
 }
+```
