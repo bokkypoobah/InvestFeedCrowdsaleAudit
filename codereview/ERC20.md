@@ -2,6 +2,10 @@
 
 Source file [../contracts/ERC20.sol](../contracts/ERC20.sol)
 
+<br />
+
+<hr />
+
 ```javascript
 pragma solidity ^0.4.11;
 import './ERC20Basic.sol';

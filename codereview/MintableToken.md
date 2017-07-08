@@ -2,6 +2,10 @@
 
 Source file [../contracts/MintableToken.sol](../contracts/MintableToken.sol)
 
+<br />
+
+<hr />
+
 ```javascript
 pragma solidity ^0.4.11;
 import './ERC20.sol';

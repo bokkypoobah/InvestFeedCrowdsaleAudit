@@ -2,6 +2,10 @@
 
 Source file [../contracts/SafeMathLib.sol](../contracts/SafeMathLib.sol)
 
+<br />
+
+<hr />
+
 ```javascript
 pragma solidity ^0.4.11;
 

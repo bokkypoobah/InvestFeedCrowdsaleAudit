@@ -2,6 +2,10 @@
 
 Source file [../contracts/ReleasableToken.sol](../contracts/ReleasableToken.sol)
 
+<br />
+
+<hr />
+
 ```javascript
 pragma solidity ^0.4.11;
 

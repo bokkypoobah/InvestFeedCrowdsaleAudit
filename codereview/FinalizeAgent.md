@@ -2,6 +2,10 @@
 
 Source file [../contracts/FinalizeAgent.sol](../contracts/FinalizeAgent.sol)
 
+<br />
+
+<hr />
+
 ```javascript
 pragma solidity ^0.4.11;
 

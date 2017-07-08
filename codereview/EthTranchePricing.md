@@ -2,6 +2,10 @@
 
 Source file [../contracts/EthTranchePricing.sol](../contracts/EthTranchePricing.sol)
 
+<br />
+
+<hr />
+
 ```javascript
 pragma solidity ^0.4.11;
 

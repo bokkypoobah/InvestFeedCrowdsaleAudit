@@ -2,6 +2,10 @@
 
 Source file [../contracts/PricingStrategy.sol](../contracts/PricingStrategy.sol)
 
+<br />
+
+<hr />
+
 ```javascript
 pragma solidity ^0.4.11;
 

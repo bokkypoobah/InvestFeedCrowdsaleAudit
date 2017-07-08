@@ -2,6 +2,10 @@
 
 Source file [../contracts/StandardToken.sol](../contracts/StandardToken.sol)
 
+<br />
+
+<hr />
+
 ```javascript
 pragma solidity ^0.4.11;
 

@@ -2,6 +2,10 @@
 
 Source file [../contracts/CrowdsaleToken.sol](../contracts/CrowdsaleToken.sol)
 
+<br />
+
+<hr />
+
 ```javascript
 pragma solidity ^0.4.11;
 

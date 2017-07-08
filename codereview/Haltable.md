@@ -2,6 +2,10 @@
 
 Source file [../contracts/Haltable.sol](../contracts/Haltable.sol)
 
+<br />
+
+<hr />
+
 ```javascript
 pragma solidity ^0.4.11;
 

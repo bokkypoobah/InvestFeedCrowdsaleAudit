@@ -2,6 +2,10 @@
 
 Source file [../contracts/UpgradeableToken.sol](../contracts/UpgradeableToken.sol)
 
+<br />
+
+<hr />
+
 ```javascript
 pragma solidity ^0.4.11;
 
