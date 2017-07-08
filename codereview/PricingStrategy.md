@@ -7,14 +7,17 @@ Source file [../contracts/PricingStrategy.sol](../contracts/PricingStrategy.sol)
 <hr />
 
 ```javascript
+// BK Ok
 pragma solidity ^0.4.11;
 
 /**
  * Interface for defining crowdsale pricing.
  */
+// BK Ok
 contract PricingStrategy {
 
   /** Interface declaration. */
+  // BK Ok
   function isPricingStrategy() public constant returns (bool) {
     return true;
   }
@@ -23,6 +26,7 @@ contract PricingStrategy {
    *
    * Checks that pricing strategy matches crowdsale parameters.
    */
+  // BK Ok
   function isSane(address crowdsale) public constant returns (bool) {
     return true;
   }
@@ -38,6 +42,7 @@ contract PricingStrategy {
    * @param decimals - how many decimal units the token has
    * @return Amount of tokens the investor receives
    */
+  // BK Ok
   function calculatePrice(uint value, uint weiRaised, uint tokensSold, address msgSender, uint decimals) public constant returns (uint tokenAmount);
 }
 ```

@@ -207,7 +207,7 @@ Setting up [tests](test).
 
 * [EthTranchePricingCombined.sol](contracts-thirdreview/EthTranchePricingCombined.sol)
   * contract [EthTranchePricing](codereview/EthTranchePricing.md) is *PricingStrategy*, *Ownable*, *SafeMathLib*
-    * contract [PricingStrategy](codereview/PricingStrategy.md)
+    * [x] contract [PricingStrategy](codereview/PricingStrategy.md)
     * contract *Ownable*
     * contract *SafeMathLib*
   
