@@ -177,7 +177,7 @@ Setting up [tests](test).
 
 * \#10 MEDIUM IMPORTANCE - Comments from the individual contract files should be left in the combined files to make it more readable
 
-* \#11 MEDIUM IMPORTANCE - Use the ConsenSys or Ethereum multisig as these are more widely use, unless you have a good reason to use the OpenZeppelin multisig
+* \#11 MEDIUM IMPORTANCE - Use the [ConsenSys multisig](https://github.com/ConsenSys/MultiSigWallet) or Ethereum multisig as these are more widely use, unless you have a good reason to use the OpenZeppelin multisig
 
 * \#12 MEDIUM IMPORTANCE - Developer to review recent changes to the OpenZeppelin and TokenMarket libraries since the contracts were copied, for high priority bugs
 
