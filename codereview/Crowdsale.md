@@ -117,7 +117,7 @@ contract Crowdsale is Haltable, SafeMathLib {
   mapping (address => bool) public earlyParticipantWhitelist;
 
   /** This is for manul testing for the interaction from owner wallet. You can set it to any value and inspect this in blockchain explorer to see that crowdsale interaction works. */
-  // BK Ok
+  // BK NOTE - This variable is unused and redundant
   uint public ownerTestValue;
 
   /** State machine
@@ -459,10 +459,15 @@ contract Crowdsale is Haltable, SafeMathLib {
    *
    * Design choice: no state restrictions on the set, so that we can fix fat finger mistakes.
    */
+  // BK NOTE - Pricing strategy can be changed at any point during the crowdsale
+  //           A change can only be detected by looking for this change transaction, and the ETH to token rate changes
+  // BK Ok
   function setPricingStrategy(PricingStrategy _pricingStrategy) onlyOwner {
+    // BK Ok
     pricingStrategy = _pricingStrategy;
 
     // Don't allow setting bad agent
+    // BK Ok
     require(pricingStrategy.isPricingStrategy());
     // if(!pricingStrategy.isPricingStrategy()) {
     //   throw;
@@ -476,13 +481,16 @@ contract Crowdsale is Haltable, SafeMathLib {
    * (we have done only few test transactions). After the crowdsale is going
    * then multisig address stays locked for the safety reasons.
    */
+  // BK Ok - Only owner can change the multisig address
   function setMultisig(address addr) public onlyOwner {
 
     // Change
+    // BK Ok - Cannot have more than 5 investors and still change the multisig address
     if(investorCount > MAX_INVESTMENTS_BEFORE_MULTISIG_CHANGE) {
       throw;
     }
 
+    // BK Ok
     multisigWallet = addr;
   }
 
@@ -491,6 +499,7 @@ contract Crowdsale is Haltable, SafeMathLib {
    *
    * The team can transfer the funds back on the smart contract in the case the minimum goal was not reached..
    */
+  // BK TODO
   function loadRefund() public payable inState(State.Failure) {
     require(msg.value != 0);
     //if(msg.value == 0) throw;
@@ -500,6 +509,7 @@ contract Crowdsale is Haltable, SafeMathLib {
   /**
    * Investors can claim refund.
    */
+  // BK TODO
   function refund() public inState(State.Refunding) {
     uint256 weiValue = investedAmountOf[msg.sender];
     require(weiValue != 0);
@@ -513,21 +523,29 @@ contract Crowdsale is Haltable, SafeMathLib {
   /**
    * @return true if the crowdsale has raised enough money to be a succes
    */
+  // BK Ok
   function isMinimumGoalReached() public constant returns (bool reached) {
+    // BK Ok
     return weiRaised >= minimumFundingGoal;
   }
 
   /**
    * Check if the contract relationship looks good.
    */
+  // BK NOTE - This function is unused and redundant, and not used in any other TokenMarket contracts
+  // BK Ok
   function isFinalizerSane() public constant returns (bool sane) {
+    // BK Ok
     return finalizeAgent.isSane();
   }
 
   /**
    * Check if the contract relationship looks good.
    */
+  // BK NOTE - This function is unused and redundant, and not used in any other TokenMarket contracts
+  // BK Ok
   function isPricingSane() public constant returns (bool sane) {
+    // BK Ok
     return pricingStrategy.isSane(address(this));
   }
 
@@ -536,25 +554,49 @@ contract Crowdsale is Haltable, SafeMathLib {
    *
    * We make it a function and do not assign the result to a variable, so there is no chance of the variable being stale.
    */
+  // BK Ok
   function getState() public constant returns (State) {
+    // BK Ok - Is finalised?
     if(finalized) return State.Finalized;
+    // BK Ok - Needs finalizeAgent
     else if (address(finalizeAgent) == 0) return State.Preparing;
+    // BK Ok - Needs valid finalizeAgent
     else if (!finalizeAgent.isSane()) return State.Preparing;
+    // BK Ok - Needs ETH -> token conversion algorithm
     else if (!pricingStrategy.isSane(address(this))) return State.Preparing;
+    // BK Ok - Set up and prepared, before the public crowdsale
     else if (block.timestamp < startsAt) return State.PreFunding;
+    // BK Ok - Before crowdsale end, and cap not reached
     else if (block.timestamp <= endsAt && !isCrowdsaleFull()) return State.Funding;
+    // BK NOTE - [prev] Not finalised
+    //           [prev] After crowdsale start
+    //           [prev] Not (before end and cap not reached) => after end or cap reached
+    //           Minimum goal reached
     else if (isMinimumGoalReached()) return State.Success;
+    // BK NOTE - [prev] Not finalised
+    //           [prev] After crowdsale start
+    //           [prev] Not (before end and cap not reached) => after end or cap reached
+    //           [prev] Minimum goal not reached
+    //           Some funds raised
+    //           Refunds have been loaded and >= funds raised
     else if (!isMinimumGoalReached() && weiRaised > 0 && loadedRefund >= weiRaised) return State.Refunding;
+    // BK Ok - Something fell through the logic above
     else return State.Failure;
   }
 
   /** This is for manual testing of multisig wallet interaction */
+  // BK NOTE - This function sets `ownerTestValue` which is unused and redundant, and not used in any other TokenMarket contracts
+  // BK Ok
   function setOwnerTestValue(uint val) onlyOwner {
+    // BK OK
     ownerTestValue = val;
   }
 
   /** Interface marker. */
+  // BK NOTE - This function is unused in this set of contracts, but is used in one other TokenMarket contract
+  // BK Ok
   function isCrowdsale() public constant returns (bool) {
+    // BK Ok
     return true;
   }
 
@@ -563,9 +605,12 @@ contract Crowdsale is Haltable, SafeMathLib {
   //
 
   /** Modified allowing execution only if the crowdsale is currently running.  */
+  // BK Ok
   modifier inState(State state) {
+    // BK Ok
     require(getState() == state);
     //if(getState() != state) throw;
+    // BK Ok
     _;
   }
 
@@ -589,15 +634,18 @@ contract Crowdsale is Haltable, SafeMathLib {
    *
    * @return true if taking this investment would break our cap rules
    */
+  // BK Ok
   function isBreakingCap(uint weiAmount, uint tokenAmount, uint weiRaisedTotal, uint tokensSoldTotal) constant returns (bool limitBroken);
   /**
    * Check if the current crowdsale is full and we can no longer sell any tokens.
    */
+  // BK Ok
   function isCrowdsaleFull() public constant returns (bool);
 
   /**
    * Create new tokens or transfer issued tokens to the investor depending on the cap model.
    */
+  // BK Ok
   function assignTokens(address receiver, uint tokenAmount) private;
 }
 ```

@@ -82,7 +82,11 @@ recalculated and a new token contract can be deployed at a new address.
 
 ## Trustlessness Of The Crowdsale Contract
 
-TODO
+* The PricingStrategy can be changed at any point by the owner when the crowdsale is running. Comment in the source code:
+
+  > Design choice: no state restrictions on the set, so that we can fix fat finger mistakes.
+
+  A change in the pricing strategy can only be detected by looking for this `Crowdsale.setPricingStrategy(...)` transaction, and the ETH to token rate changes.
 
 <br />
 
@@ -245,8 +249,8 @@ Building up [tests](test).
     * contract *SafeMathLib*
   
 * [MintedEthCappedCrowdsaleCombined.sol](contracts-thirdreview/MintedEthCappedCrowdsaleCombined.sol)
-  * contract [MintedEthCappedCrowdsale](codereview/MintedEthCappedCrowdsale.md) is *Crowdsale*
-    * contract [Crowdsale](codereview/Crowdsale.md) is *Haltable*, *SafeMathLib*
+  * [x] contract [MintedEthCappedCrowdsale](codereview/MintedEthCappedCrowdsale.md) is *Crowdsale*
+    * [ ] contract [Crowdsale](codereview/Crowdsale.md) is *Haltable*, *SafeMathLib*
       * [x] contract [Haltable](codereview/Haltable.md) is *Ownable*
         * contract *Ownable*
       * contract *SafeMathLib*
