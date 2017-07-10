@@ -7,8 +7,10 @@ Source file [../contracts/Crowdsale.sol](../contracts/Crowdsale.sol)
 <hr />
 
 ```javascript
+// BK Ok
 pragma solidity ^0.4.11;
 
+// BK Next 5 Ok
 import "./SafeMathLib.sol";
 import "./Haltable.sol";
 import "./PricingStrategy.sol";
@@ -28,72 +30,94 @@ import "./FractionalERC20.sol";
  * - different investment policies (require server side customer id, allow only whitelisted addresses)
  *
  */
+// BK Ok
 contract Crowdsale is Haltable, SafeMathLib {
 
   /* Max investment count when we are still allowed to change the multisig address */
+  // BK Ok
   uint public MAX_INVESTMENTS_BEFORE_MULTISIG_CHANGE = 5;
 
   /* The token we are selling */
+  // BK Ok
   FractionalERC20 public token;
 
   /* How we are going to price our offering */
+  // BK Ok
   PricingStrategy public pricingStrategy;
 
   /* Post-success callback */
+  // BK Ok
   FinalizeAgent public finalizeAgent;
 
   /* tokens will be transfered from this address */
+  // BK Ok
   address public multisigWallet;
 
   /* if the funding goal is not reached, investors may withdraw their funds */
+  // BK Ok
   uint public minimumFundingGoal;
 
   /* the UNIX timestamp start date of the crowdsale */
+  // BK Ok
   uint public startsAt;
 
   /* the UNIX timestamp end date of the crowdsale */
+  // BK Ok
   uint public endsAt;
 
   /* the number of tokens already sold through this contract*/
+  // BK Ok
   uint public tokensSold = 0;
 
   /* How many wei of funding we have raised */
+  // BK Ok
   uint public weiRaised = 0;
 
   /* How many distinct addresses have invested */
+  // BK Ok
   uint public investorCount = 0;
 
   /* How much wei we have returned back to the contract after a failed crowdfund. */
+  // BK Ok
   uint public loadedRefund = 0;
 
   /* How much wei we have given back to investors.*/
+  // BK Ok
   uint public weiRefunded = 0;
 
   /* Has this crowdsale been finalized */
+  // BK Ok
   bool public finalized;
 
   /* Do we need to have unique contributor id for each customer */
+  // BK Ok
   bool public requireCustomerId;
 
   /**
     * Do we verify that contributor has been cleared on the server side (accredited investors only).
     * This method was first used in FirstBlood crowdsale to ensure all contributors have accepted terms on sale (on the web).
     */
+  // BK Ok
   bool public requiredSignedAddress;
 
   /* Server side address that signed allowed contributors (Ethereum addresses) that can participate the crowdsale */
+  // BK Ok
   address public signerAddress;
 
   /** How much ETH each address has invested to this crowdsale */
+  // BK Ok
   mapping (address => uint256) public investedAmountOf;
 
   /** How much tokens this crowdsale has credited for each investor address */
+  // BK Ok
   mapping (address => uint256) public tokenAmountOf;
 
   /** Addresses that are allowed to invest even before ICO offical opens. For testing, for ICO partners, etc. */
+  // BK Ok
   mapping (address => bool) public earlyParticipantWhitelist;
 
   /** This is for manul testing for the interaction from owner wallet. You can set it to any value and inspect this in blockchain explorer to see that crowdsale interaction works. */
+  // BK Ok
   uint public ownerTestValue;
 
   /** State machine
@@ -106,64 +130,82 @@ contract Crowdsale is Haltable, SafeMathLib {
    * - Finalized: The finalized has been called and succesfully executed
    * - Refunding: Refunds are loaded on the contract for reclaim.
    */
+  // BK Ok
   enum State{Unknown, Preparing, PreFunding, Funding, Success, Failure, Finalized, Refunding}
 
   // A new investment was made
+  // BK Ok
   event Invested(address investor, uint weiAmount, uint tokenAmount, uint128 customerId);
 
   // Refund was processed for a contributor
+  // BK Ok
   event Refund(address investor, uint weiAmount);
 
   // The rules were changed what kind of investments we accept
+  // BK Ok
   event InvestmentPolicyChanged(bool requireCustomerId, bool requiredSignedAddress, address signerAddress);
 
   // Address early participation whitelist status changed
+  // BK Ok
   event Whitelisted(address addr, bool status);
 
   // Crowdsale end time has been changed
+  // BK Ok
   event EndsAtChanged(uint endsAt);
 
+  // BK Ok
   function Crowdsale(address _token, PricingStrategy _pricingStrategy, address _multisigWallet, uint _start, uint _end, uint _minimumFundingGoal) {
 
+    // BK Ok - This is unnecessary as Haltable() -> Ownable() will initialise the owner to msg.sender
     owner = msg.sender;
 
+    // BK Ok
     token = FractionalERC20(_token);
 
+    // BK Ok
     setPricingStrategy(_pricingStrategy);
 
+    // BK Ok
     multisigWallet = _multisigWallet;
     require(multisigWallet != 0);
     // if(multisigWallet == 0) {
     //     throw;
     // }
 
+    // BK Ok
     require(_start != 0);
     // if(_start == 0) {
     //     throw;
     // }
 
+    // BK Ok
     startsAt = _start;
 
+    // BK Ok
     require(_end != 0);
     // if(_end == 0) {
     //     throw;
     // }
 
+    // BK Ok
     endsAt = _end;
 
     // Don't mess the dates
+    // BK Ok
     require(startsAt < endsAt);
     // if(startsAt >= endsAt) {
     //     throw;
     // }
 
     // Minimum funding goal can be zero
+    / BK Ok
     minimumFundingGoal = _minimumFundingGoal;
   }
 
   /**
    * Don't expect to just send in money and get tokens.
    */
+  // BK Ok - Not using default function to receive ethers
   function() payable {
     throw;
   }
