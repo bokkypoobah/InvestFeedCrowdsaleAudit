@@ -19,6 +19,7 @@ See [https://www.investfeed.com/tokensale](https://www.investfeed.com/tokensale)
 * [First Review](#first-review)
 * [Second Review](#second-review)
 * [Third Review](#third-review)
+* [Fourth Review](#fourth-review)
   * [Recommendations](#recommendations)
   * [Code Review](#code-review)
 
@@ -147,17 +148,27 @@ Some potential issues:
 
 * \#4 MEDIUM IMPORTANCE - Attribute the source of the source code
 
+  Fixed in third review.
+
 * \#5 MEDIUM IMPORTANCE - Use `acceptOwnership(...)` pattern in Owned contract
 
   Fixed in third review
 
 * \#6 LOW IMPORTANCE - `assert(...)` is built-in in Solidity 0.4.11 - https://github.com/investfeed-corp/feed-token-sale/blob/master/CrowdsaleTokenCombined.sol#L22-L24
 
+  Some change incorporated, and not necessary - in fourth review.
+
 * \#7 LOW IMPORTANCE - Use `require(...)` instead of `throw` or `assert(...)` - from https://www.reddit.com/r/ethereum/comments/6llgxv/solidity_0413_released/, "Syntax Checker: Deprecated throw in favour of require(), assert() and revert()"
+
+  Some changes incorporated, and not necessary - in fourth review.
 
 * \#8 LOW IMPORTANCE - The new OpenZeppelin libraries now use `balances[msg.sender] = balances[msg.sender].sub(_amount);` instead of `balances[_to] = safeAdd(balances[_to],_value);` style
 
+  Change not incorporated, and not necessary - in fourth review.
+
 * \#9 LOW IMPORTANCE - Decide on 2 or 4 spaces for tabs, have consistent spacing between functions, groups of statements, prettify source so investors can read easily and require less trust
+
+  Some small areas with inconsistent spacing - in fourth review.
 
 <br />
 
@@ -169,17 +180,39 @@ Third review of [https://github.com/investfeed-corp/feed-token-sale/commit/2007d
 
 Setting up [tests](test).
 
+Some potential issues:
+
+* \#10 MEDIUM IMPORTANCE - Comments from the individual contract files should be left in the combined files to make it more readable
+
+  Comments have now been left in the combined files - in fourth review.
+
+* \#11 MEDIUM IMPORTANCE - Use the [ConsenSys multisig](https://github.com/ConsenSys/MultiSigWallet) or Ethereum multisig as these are more widely use, unless you have a good reason to use the OpenZeppelin multisig
+
+  InvestFeed is using the ConsenSys multisig - in fourth review.
+
+* \#12 MEDIUM IMPORTANCE - Developer to review recent changes to the OpenZeppelin and TokenMarket libraries since the contracts were copied, for high priority bugs
+
+  InvestFeed incorporated changes to StandardToken.sol to remove `addApproval(...)` and `subApproval(...)` in the fourth review.
+
+<br />
+
+<hr />
+
+## Fourth Review
+
+Fourth review of [https://github.com/investfeed-corp/feed-token-sale/commit/68f31e23c40b405275ad1b521fc222ec7cccdde8](https://github.com/investfeed-corp/feed-token-sale/commit/68f31e23c40b405275ad1b521fc222ec7cccdde8).
+
+There were some changes to [contracts/Crowdsale.sol](contracts/Crowdsale.sol) and [contracts/StandardToken.sol](contracts/StandardToken.sol) which will be reviewed below.
+
+The combined files have been updated to leave the comments from the individual files in place.
+
+Building up [tests](test).
+
 <br />
 
 <hr />
 
 ### Recommendations
-
-* \#10 MEDIUM IMPORTANCE - Comments from the individual contract files should be left in the combined files to make it more readable
-
-* \#11 MEDIUM IMPORTANCE - Use the [ConsenSys multisig](https://github.com/ConsenSys/MultiSigWallet) or Ethereum multisig as these are more widely use, unless you have a good reason to use the OpenZeppelin multisig
-
-* \#12 MEDIUM IMPORTANCE - Developer to review recent changes to the OpenZeppelin and TokenMarket libraries since the contracts were copied, for high priority bugs
 
 <br />
 
