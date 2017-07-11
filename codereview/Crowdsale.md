@@ -220,15 +220,19 @@ contract Crowdsale is Haltable, SafeMathLib {
    * @param customerId (optional) UUID v4 to track the successful payments on the server side
    *
    */
+  // BK Ok - Anyone can call this via another public function, but not when halted
   function investInternal(address receiver, uint128 customerId) stopInEmergency private {
 
     // Determine if it's a good time to accept investment from this participant
+    // BK Ok
     if(getState() == State.PreFunding) {
       // Are we whitelisted for early deposit
+      // BK Ok
       require(earlyParticipantWhitelist[receiver]);
       // if(!earlyParticipantWhitelist[receiver]) {
       //   throw;
       // }
+    // BK Ok
     } else if(getState() == State.Funding) {
       // Retail participants can only come in when the crowdsale is running
       // pass
@@ -237,40 +241,53 @@ contract Crowdsale is Haltable, SafeMathLib {
       throw;
     }
 
+    // BK Ok
     uint weiAmount = msg.value;
+    // BK Ok
     uint tokenAmount = pricingStrategy.calculatePrice(weiAmount, weiRaised, tokensSold, msg.sender, token.decimals());
 
+    // BK Ok
     require(tokenAmount != 0);
     // if(tokenAmount == 0) {
     //   // Dust transaction
     //   throw;
     // }
 
+    // BK Ok
     if(investedAmountOf[receiver] == 0) {
        // A new investor
+       // BK Ok
        investorCount++;
     }
 
     // Update investor
+    // BK Ok
     investedAmountOf[receiver] = safeAdd(investedAmountOf[receiver],weiAmount);
+    // BK Ok
     tokenAmountOf[receiver] = safeAdd(tokenAmountOf[receiver],tokenAmount);
 
     // Update totals
+    // BK Ok
     weiRaised = safeAdd(weiRaised,weiAmount);
+    // BK Ok
     tokensSold = safeAdd(tokensSold,tokenAmount);
 
     // Check that we did not bust the cap
+    // BK Ok
     require(!isBreakingCap(weiAmount, tokenAmount, weiRaised, tokensSold));
     // if(isBreakingCap(weiAmount, tokenAmount, weiRaised, tokensSold)) {
     //   throw;
     // }
 
+    // BK Ok
     assignTokens(receiver, tokenAmount);
 
     // Pocket the money
+    // BK Ok
     if(!multisigWallet.send(weiAmount)) throw;
 
     // Tell us invest was success
+    // BK Ok
     Invested(receiver, weiAmount, tokenAmount, customerId);
   }
 
@@ -371,7 +388,9 @@ contract Crowdsale is Haltable, SafeMathLib {
    * Invest to tokens, recognize the payer.
    *
    */
+  // BK Ok
   function buyWithCustomerId(uint128 customerId) public payable {
+    // BK Ok
     investWithCustomerId(msg.sender, customerId);
   }
 
@@ -380,7 +399,9 @@ contract Crowdsale is Haltable, SafeMathLib {
    *
    * Pay for funding, get invested tokens back in the sender address.
    */
+  // BK Ok
   function buy() public payable {
+    // BK Ok
     invest(msg.sender);
   }
 
@@ -389,19 +410,24 @@ contract Crowdsale is Haltable, SafeMathLib {
    *
    * The owner can triggre a call the contract that provides post-crowdsale actions, like releasing the tokens.
    */
+  // BK Ok - Only owner, when not halted
   function finalize() public inState(State.Success) onlyOwner stopInEmergency {
 
     // Already finalized
+    // BK Ok - Can only run once
     require(!finalized);
     // if(finalized) {
     //   throw;
     // }
 
     // Finalizing is optional. We only call it if we are given a finalizing agent.
+    // BK Ok
     if(address(finalizeAgent) != 0) {
+      // BK Ok
       finalizeAgent.finalizeCrowdsale();
     }
 
+    // BK Ok
     finalized = true;
   }
 
@@ -410,10 +436,13 @@ contract Crowdsale is Haltable, SafeMathLib {
    *
    * Design choice: no state restrictions on setting this, so that we can fix fat finger mistakes.
    */
+  // BK Ok - Only owner, can execute at any time
   function setFinalizeAgent(FinalizeAgent addr) onlyOwner {
+    // BK Ok
     finalizeAgent = addr;
 
     // Don't allow setting bad agent
+    // BK Ok
     require(finalizeAgent.isFinalizeAgent());
     // if(!finalizeAgent.isFinalizeAgent()) {
     //   throw;
@@ -424,8 +453,11 @@ contract Crowdsale is Haltable, SafeMathLib {
    * Set policy do we need to have server-side customer ids for the investments.
    *
    */
+  // BK Ok - Only owner, can execute at any time
   function setRequireCustomerId(bool value) onlyOwner {
+    // BK Ok
     requireCustomerId = value;
+    // BK Ok
     InvestmentPolicyChanged(requireCustomerId, requiredSignedAddress, signerAddress);
   }
 
@@ -446,8 +478,11 @@ contract Crowdsale is Haltable, SafeMathLib {
    *
    * TODO: Fix spelling error in the name
    */
+  // BK Ok - Only owner, anytime. But only applicable to contributions before the public crowdsale period 
   function setEarlyParicipantWhitelist(address addr, bool status) onlyOwner {
+    // BK Ok
     earlyParticipantWhitelist[addr] = status;
+    // BK Ok - Log event
     Whitelisted(addr, status);
   }
 

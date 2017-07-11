@@ -302,7 +302,7 @@ Building up [tests](test).
   
 * [MintedEthCappedCrowdsaleCombined.sol](contracts-thirdreview/MintedEthCappedCrowdsaleCombined.sol)
   * [x] contract [MintedEthCappedCrowdsale](codereview/MintedEthCappedCrowdsale.md) is *Crowdsale*
-    * [ ] contract [Crowdsale](codereview/Crowdsale.md) is *Haltable*, *SafeMathLib*
+    * [x] contract [Crowdsale](codereview/Crowdsale.md) is *Haltable*, *SafeMathLib*
       * [x] contract [Haltable](codereview/Haltable.md) is *Ownable*
         * contract *Ownable*
       * contract *SafeMathLib*
