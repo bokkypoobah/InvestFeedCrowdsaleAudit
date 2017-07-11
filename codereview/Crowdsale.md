@@ -289,8 +289,13 @@ contract Crowdsale is Haltable, SafeMathLib {
    * @param weiPrice Price of a single full token in wei
    *
    */
+  // BK NOTE - You cannot add 10.12345678 tokens using this function, as only `10` can be specified
+  //         - This function can be executed at any time (before, during and after the crowdsale period) before finalisation
+  //           instead of just being available before the crowdsale starts
+  // BK Ok - Only owner
   function preallocate(address receiver, uint fullTokens, uint weiPrice) public onlyOwner {
 
+    // BK Ok
     uint tokenAmount = fullTokens * 10**uint(token.decimals());
     uint weiAmount = weiPrice * fullTokens; // This can be also 0, we give out tokens for free
 

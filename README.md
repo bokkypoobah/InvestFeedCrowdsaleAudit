@@ -265,6 +265,11 @@ Building up [tests](test).
   Once scenario is where the `preallocate(...)` function has the `weiPrice` out by a factor of 10 times. 10 times as much funds that were 
   collected during the preallocation phase will need to be moved back into the crowdsale contract for refunds to be active.
 
+* The `preallocate(...)` function can be executed at any time before, during and after the crowdsale, but before finalisation of the crowdsale. Normally
+  this function is used before the crowdsale starts.
+
+* The `preallocate(...)` function can only be used to allocate round token amounts and not fractional token amounts. E.g. 10 instead of 10.123456789000000000
+
 <br />
 
 <hr />
