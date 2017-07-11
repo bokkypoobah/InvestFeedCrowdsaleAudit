@@ -282,7 +282,7 @@ Building up [tests](test).
       * [x] contract [ERC20](codereview/ERC20.md) is *ERC20Basic*
         * [x] contract [ERC20Basic](codereview/ERC20Basic.md)
       * [x] contract [Ownable](codereview/Ownable.md)
-    * contract [MintableToken](codereview/MintableToken.md) is *StandardToken*, *Ownable*
+    * [x] contract [MintableToken](codereview/MintableToken.md) is *StandardToken*, *Ownable*
       * contract [StandardToken](codereview/StandardToken.md) is *ERC20*, *SafeMathLib*
         * contract *ERC20* is *ERC20Basic*
           * contract *ERC20Basic*
