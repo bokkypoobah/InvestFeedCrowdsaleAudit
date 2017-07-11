@@ -293,6 +293,7 @@ Building up [tests](test).
         * contract *ERC20* is *ERC20Basic*
           * contract *ERC20Basic*
         * contract *SafeMathLib*
+      * [x] contract [UpgradeAgent](codereview/UpgradeAgent.md)
 
 * [EthTranchePricingCombined.sol](contracts-thirdreview/EthTranchePricingCombined.sol)
   * [x] contract [EthTranchePricing](codereview/EthTranchePricing.md) is *PricingStrategy*, *Ownable*, *SafeMathLib*

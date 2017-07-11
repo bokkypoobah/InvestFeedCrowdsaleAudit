@@ -7,8 +7,10 @@ Source file [../contracts/CrowdsaleToken.sol](../contracts/CrowdsaleToken.sol)
 <hr />
 
 ```javascript
+// BK Ok
 pragma solidity ^0.4.11;
 
+// BK Next 4 Ok
 import './StandardToken.sol';
 import "./UpgradeableToken.sol";
 import "./ReleasableToken.sol";
@@ -28,12 +30,16 @@ import "./MintableToken.sol";
  */
 contract CrowdsaleToken is ReleasableToken, MintableToken, UpgradeableToken {
 
+  // BK Ok
   event UpdatedTokenInformation(string newName, string newSymbol);
 
+  // BK Ok
   string public name;
 
+  // BK Ok
   string public symbol;
 
+  // BK Ok
   uint8 public decimals;
 
   /**
