@@ -446,13 +446,15 @@ contract Crowdsale is Haltable, SafeMathLib {
    */
   // BK NOTE - Crowdsale end date can be changed by the owner at any point during the crowdsale, to a time later than when the change is made
   //           The `EndsAtChanged(...)` event is logged
+  // BK Ok - Only owner
   function setEndsAt(uint time) onlyOwner {
-
+    // BK Ok - Can only update to a future time
     if(now > time) {
       throw; // Don't change past
     }
-
+    // BK Ok
     endsAt = time;
+    // BK Ok - Log event
     EndsAtChanged(endsAt);
   }
 
@@ -501,24 +503,43 @@ contract Crowdsale is Haltable, SafeMathLib {
    *
    * The team can transfer the funds back on the smart contract in the case the minimum goal was not reached..
    */
-  // BK TODO
+  // BK NOTE - This crowdsale contract moves all investor contributions into a multisig. If the crowdsale does not meet the minimum goal,
+  //           investors must claim their refunds. For the crowdsale contract to switch to State.Refund mode, the crowdsale multisig funds
+  //           must be moved back into the crowdsale contract with this function.
+  //           This will be a safer crowdsale contract as the funds being raised is not sitting in a little used often customised contract
+  //           compared to the widely used multisig wallets.
+  //           However, investors will need to trust that the crowdsale team will move the funds back into the crowdsale contract for 
+  //           refunds to become active.
+  // BK Ok - Anyone can execute this function, payable
   function loadRefund() public payable inState(State.Failure) {
+    // BK Ok
     require(msg.value != 0);
     //if(msg.value == 0) throw;
+    // BK Ok - Funds can be moved in portions, but refunds will only be active when all the original funds are moved back into the crowdsale contract
     loadedRefund = safeAdd(loadedRefund,msg.value);
   }
 
   /**
    * Investors can claim refund.
    */
-  // BK TODO
+  // BK NOTE - The refund mode will only become active when all crowdsale contribution ethers are moved from the multisig back into the 
+  //           crowdsale contract.
+  // BK Ok
   function refund() public inState(State.Refunding) {
+    // BK Ok
     uint256 weiValue = investedAmountOf[msg.sender];
+    // BK Ok - Non zero refunds due
     require(weiValue != 0);
     //if (weiValue == 0) throw;
+    // BK NOTE - Original amounts contributed in one or more contribution transactions
+    //         - `preallocate(...)` entries can also withdraw their refunds using this function 
+    // BK Ok
     investedAmountOf[msg.sender] = 0;
+    // BK Ok - Keep a tally
     weiRefunded = safeAdd(weiRefunded,weiValue);
+    // BK Ok - Log an event
     Refund(msg.sender, weiValue);
+    // BK Ok
     if (!msg.sender.send(weiValue)) throw;
   }
 
@@ -582,7 +603,8 @@ contract Crowdsale is Haltable, SafeMathLib {
     //           Some funds raised
     //           Refunds have been loaded and >= funds raised
     else if (!isMinimumGoalReached() && weiRaised > 0 && loadedRefund >= weiRaised) return State.Refunding;
-    // BK Ok - Something fell through the logic above
+    // BK Ok - Something fell through the logic above, including the situation where the minimum goal is not reached and the
+    //         funds to be refunded have not been moved from the multisig back to the crowdsale contract
     else return State.Failure;
   }
 

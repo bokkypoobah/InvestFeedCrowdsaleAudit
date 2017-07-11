@@ -21,6 +21,7 @@ See [https://www.investfeed.com/tokensale](https://www.investfeed.com/tokensale)
 * [Third Review](#third-review)
 * [Fourth Review](#fourth-review)
   * [Recommendations](#recommendations)
+  * [Notes](#notes)
   * [Code Review](#code-review)
 
 <br />
@@ -106,6 +107,10 @@ recalculated and a new token contract can be deployed at a new address.
     and the crowdsale owners can extend the crowdsale closing date to any point in the future.
 
   * Investors may decide to wait nearer to the end of the crowdsale to invest, but the owners can suddenly close down the crowdsale. 
+
+* This crowdsale contract moves all investor contributions straight into the crowdsale team's multisig wallet. If the minimum funding goal
+  is not reached, investors will only be able to claim their refunds IF the crowdsale team moves all original funds back from the
+  multisig into the crowdsale contract. See `Crowdsale.loadRefund()`.
 
 <br />
 
@@ -236,6 +241,16 @@ Building up [tests](test).
 <hr />
 
 ### Recommendations
+
+<br />
+
+<hr />
+
+### Notes
+
+* If the crowdsale does not reach the minimum fund goal by the end of the crowdsale period, all funds supporting the tokens issued must be moved
+  back into the crowdsale contract before the refund state is activated. This includes the funds that support the tokens created using the
+  `preallocate(...)` function.
 
 <br />
 
