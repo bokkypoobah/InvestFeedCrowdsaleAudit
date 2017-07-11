@@ -20,6 +20,7 @@ See [https://www.investfeed.com/tokensale](https://www.investfeed.com/tokensale)
 * [Second Review](#second-review)
 * [Third Review](#third-review)
 * [Fourth Review](#fourth-review)
+  * [TODO](#todo)
   * [Recommendations](#recommendations)
   * [Notes](#notes)
   * [Code Review](#code-review)
@@ -155,19 +156,19 @@ Some potential issues:
 
 * \#1 LOW IMPORTANCE `uint` is used instead of `uint8` for `decimals`. `uint8` is the recommended data type in ERC20 . I have not found any side-effects from using `uint` but it may be better to stick to the standard
 
-  Fixed in second review
+  * [x] Fixed in second review
 
 * \#2 LOW IMPORTANCE `transfer(...)` and `transferFrom(...)` throws when unable to transfer the tokens. This will not allow contracts to use `transfer(...)` and `transferFrom(...)` elegantly. Some discussion at https://www.reddit.com/r/ethdev/comments/6hakyf/please_those_in_favor_of_throwing_instead_of/ . I have not worked out what the resolution is, but I return true/false for my `transfer(...)` and `transferFrom(...)` - example https://github.com/openanx/OpenANXToken/blob/master/contracts/OpenANXToken.sol#L71-L83 and https://github.com/openanx/OpenANXToken/blob/master/contracts/OpenANXToken.sol#L101-L124
 
-  Fixed in second review
+  * [x] Fixed in second review
 
 * \#3 MEDIUM IMPORTANCE There are problems with the use of `onlyPayloadSize(...)` - https://blog.coinfabrik.com/smart-contract-short-address-attack-mitigation-failure/ . And OpenZeppelin have a closed issue to remove all short address attack mitigation code - https://github.com/OpenZeppelin/zeppelin-solidity/issues/261 . You can see that they removed this check - https://github.com/OpenZeppelin/zeppelin-solidity/commit/e33d9bb41be136f12bc734aef1aa6fffbf54fa40#diff-36d1ffbdb9795a5b94350fb71b725dbe
 
-  Fixed in second review 
+  * [x] Fixed in second review 
 
 * \#4 Attribute the source of the source code
 
-  Moving to the second review.
+  * [x] Moving to the second review.
 
 <br />
 
@@ -183,19 +184,19 @@ Some potential issues:
 
 * \#4 MEDIUM IMPORTANCE - Attribute the source of the source code
 
-  Fixed in third review.
+  * [x] Fixed in third review.
 
 * \#5 MEDIUM IMPORTANCE - Use `acceptOwnership(...)` pattern in Owned contract
 
-  Fixed in third review
+  * [x] Fixed in third review
 
 * \#6 LOW IMPORTANCE - `assert(...)` is built-in in Solidity 0.4.11 - https://github.com/investfeed-corp/feed-token-sale/blob/master/CrowdsaleTokenCombined.sol#L22-L24
 
-  Some change incorporated, and not necessary - in fourth review.
+  * [x] Some change incorporated, and this is not necessary - in fourth review.
 
 * \#7 LOW IMPORTANCE - Use `require(...)` instead of `throw` or `assert(...)` - from https://www.reddit.com/r/ethereum/comments/6llgxv/solidity_0413_released/, "Syntax Checker: Deprecated throw in favour of require(), assert() and revert()"
 
-  Some changes incorporated, and not necessary - in fourth review.
+  * [x] Some changes incorporated, and this is not necessary - in fourth review.
 
 * \#8 LOW IMPORTANCE - The new OpenZeppelin libraries now use `balances[msg.sender] = balances[msg.sender].sub(_amount);` instead of `balances[_to] = safeAdd(balances[_to],_value);` style
 
@@ -203,7 +204,7 @@ Some potential issues:
 
 * \#9 LOW IMPORTANCE - Decide on 2 or 4 spaces for tabs, have consistent spacing between functions, groups of statements, prettify source so investors can read easily and require less trust
 
-  Some small areas with inconsistent spacing - in fourth review.
+  * [x] Some small areas with inconsistent spacing - in fourth review.
 
 <br />
 
@@ -219,15 +220,15 @@ Some potential issues:
 
 * \#10 MEDIUM IMPORTANCE - Comments from the individual contract files should be left in the combined files to make it more readable
 
-  Comments have now been left in the combined files - in fourth review.
+  * [x] Comments have now been left in the combined files - in fourth review.
 
 * \#11 MEDIUM IMPORTANCE - Use the [ConsenSys multisig](https://github.com/ConsenSys/MultiSigWallet) or Ethereum multisig as these are more widely use, unless you have a good reason to use the OpenZeppelin multisig
 
-  InvestFeed is using the ConsenSys multisig - in fourth review.
+  * [x] InvestFeed is using the ConsenSys multisig - in fourth review.
 
 * \#12 MEDIUM IMPORTANCE - Developer to review recent changes to the OpenZeppelin and TokenMarket libraries since the contracts were copied, for high priority bugs
 
-  InvestFeed incorporated changes to StandardToken.sol to remove `addApproval(...)` and `subApproval(...)` in the fourth review.
+  * [x] InvestFeed incorporated changes to StandardToken.sol to remove `addApproval(...)` and `subApproval(...)` in the fourth review.
 
 <br />
 
@@ -241,7 +242,17 @@ There were some changes to [contracts/Crowdsale.sol](contracts/Crowdsale.sol) an
 
 The combined files have been updated to leave the comments from the individual files in place.
 
-* TODO - Run a few more tests [tests](test) to confirm that the contracts lifecycle works as expected.
+<br />
+
+<hr />
+
+### TODO
+
+* [ ] Run a few more tests [tests](test) to confirm that the contracts lifecycle works as expected.
+
+* [ ] Confirm that the combined .sol files are made up from the individual files correctly.
+
+* [ ] Complete BonusFinalizeAgent code review.
 
 <br />
 
@@ -320,7 +331,7 @@ The combined files have been updated to leave the comments from the individual f
       * contract *SafeMathLib*
 
 * [BonusFInalizeAgentCombined.sol](contracts-thirdreview/BonusFInalizeAgentCombined.sol)
-  * contract [BonusFinalizeAgent](codereview/BonusFinalizeAgent.md) is *FinalizeAgent*, *SafeMathLib*
+  * [ ] contract [BonusFinalizeAgent](codereview/BonusFinalizeAgent.md) is *FinalizeAgent*, *SafeMathLib*
     * [x] contract [FinalizeAgent](codereview/FinalizeAgent.md)
     * contract *SafeMathLib*
 
