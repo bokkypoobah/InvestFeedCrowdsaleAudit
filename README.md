@@ -241,7 +241,7 @@ There were some changes to [contracts/Crowdsale.sol](contracts/Crowdsale.sol) an
 
 The combined files have been updated to leave the comments from the individual files in place.
 
-Building up [tests](test).
+* TODO - Run a few more tests [tests](test) to confirm that the contracts lifecycle works as expected.
 
 <br />
 
