@@ -348,4 +348,4 @@ The combined files have been updated to leave the comments from the individual f
 
 <br />
 
-Enjoy. (c) BokkyPooBah / Bok Consulting Pty Ltd for InvestFeed Jul 9 2017. The MIT Licence.
+Enjoy. (c) BokkyPooBah / Bok Consulting Pty Ltd for InvestFeed Jul 12 2017. The MIT Licence.
