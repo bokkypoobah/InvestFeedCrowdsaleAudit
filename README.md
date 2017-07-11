@@ -101,12 +101,15 @@ recalculated and a new token contract can be deployed at a new address.
 
   The `EndsAtChanged(...)` event is logged.
 
+  The crowdsale contract owner can also re-open a closed crowdsale using this parameter, if the crowdsale has not been `finalized`.
+
 * Some negative scenarios:
 
-  * Investors may decide to invest if the crowdsale is ending and only a small amount has been contributed by other investors,
-    and the crowdsale owners can extend the crowdsale closing date to any point in the future.
+  * An investor may decide to invest near the end of the crowdsale only a small amount has been contributed by other investors. The crowdsale
+    contract owner may extend the crowdsale closing date to any point in the future.
 
-  * Investors may decide to wait nearer to the end of the crowdsale to invest, but the owners can suddenly close down the crowdsale. 
+  * An investor may decide to wait nearer to the end of the crowdsale to invest, but the owners can suddenly close down the crowdsale. They would normally
+    inform their community that they plan to close down the crowdsale prematurely, but this could be 24 hours and not enough time for this investor. 
 
 * This crowdsale contract moves all investor contributions straight into the crowdsale team's multisig wallet. If the minimum funding goal
   is not reached, investors will only be able to claim their refunds IF the crowdsale team moves all original funds back from the
@@ -242,15 +245,25 @@ Building up [tests](test).
 
 ### Recommendations
 
+* See note below re `preallocate(...)` and refunds. The crowdsale team should reconcile the crowdsale contract `weiRaised` variable against
+  the funds received during the preallocation phase - after all the `preallocate(...)` entries have been entered. If these numbers do not
+  reconcile, it may be best to deploy a new crowdsale contract and enter the correct `preallocate(...)` entries.
+
 <br />
 
 <hr />
 
 ### Notes
 
-* If the crowdsale does not reach the minimum fund goal by the end of the crowdsale period, all funds supporting the tokens issued must be moved
+* If the crowdsale does not reach the minimum funding goal by the end of the crowdsale period, all funds supporting the tokens issued must be moved
   back into the crowdsale contract before the refund state is activated. This includes the funds that support the tokens created using the
   `preallocate(...)` function.
+
+  It is important to get the `weiPrice` parameter of the `preallocate(...)` function correct, as noone will be able claim their refunds and 
+  the ethers may be trapped in this crowdsale contract.
+
+  Once scenario is where the `preallocate(...)` function has the `weiPrice` out by a factor of 10 times. 10 times as much funds that were 
+  collected during the preallocation phase will need to be moved back into the crowdsale contract for refunds to be active.
 
 <br />
 
