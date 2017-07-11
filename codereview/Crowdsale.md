@@ -444,6 +444,8 @@ contract Crowdsale is Haltable, SafeMathLib {
    * but we trust owners know what they are doing.
    *
    */
+  // BK NOTE - Crowdsale end date can be changed by the owner at any point during the crowdsale, to a time later than when the change is made
+  //           The `EndsAtChanged(...)` event is logged
   function setEndsAt(uint time) onlyOwner {
 
     if(now > time) {
@@ -459,7 +461,7 @@ contract Crowdsale is Haltable, SafeMathLib {
    *
    * Design choice: no state restrictions on the set, so that we can fix fat finger mistakes.
    */
-  // BK NOTE - Pricing strategy can be changed at any point during the crowdsale
+  // BK NOTE - Pricing strategy can be changed by the owner at any point during the crowdsale
   //           A change can only be detected by looking for this change transaction, and the ETH to token rate changes
   // BK Ok
   function setPricingStrategy(PricingStrategy _pricingStrategy) onlyOwner {

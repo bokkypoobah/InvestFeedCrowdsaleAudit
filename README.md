@@ -88,6 +88,25 @@ recalculated and a new token contract can be deployed at a new address.
 
   A change in the pricing strategy can only be detected by looking for this `Crowdsale.setPricingStrategy(...)` transaction, and the ETH to token rate changes.
 
+* The crowdsale end date can be changed by the owner at any point during the crowdsale, to a time later than when the change is made. Comment in the source code:
+
+  > Allow crowdsale owner to close early or extend the crowdsale.
+  >
+  > This is useful e.g. for a manual soft cap implementation:
+  > - after X amount is reached determine manual closing
+  >
+  > This may put the crowdsale to an invalid state,
+  > but we trust owners know what they are doing.
+
+  The `EndsAtChanged(...)` event is logged.
+
+* Some negative scenarios:
+
+  * Investors may decide to invest if the crowdsale is ending and only a small amount has been contributed by other investors,
+    and the crowdsale owners can extend the crowdsale closing date to any point in the future.
+
+  * Investors may decide to wait nearer to the end of the crowdsale to invest, but the owners can suddenly close down the crowdsale. 
+
 <br />
 
 <hr />
