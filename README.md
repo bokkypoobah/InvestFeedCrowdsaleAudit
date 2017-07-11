@@ -270,6 +270,8 @@ Building up [tests](test).
 
 * The `preallocate(...)` function can only be used to allocate round token amounts and not fractional token amounts. E.g. 10 instead of 10.123456789000000000
 
+* If `CrowdsaleToken.(UpgradeableToken).setUpgradeMaster(...)` is called with an invalid new upgrade master, upgrades can be prevented forever
+ 
 <br />
 
 <hr />
@@ -288,7 +290,7 @@ Building up [tests](test).
           * contract *ERC20Basic*
         * [x] contract [SafeMathLib](codereview/SafeMathLib.md)
       * contract *Ownable*
-    * contract [UpgradeableToken](codereview/UpgradeableToken.md) is *StandardToken*
+    * [x] contract [UpgradeableToken](codereview/UpgradeableToken.md) is *StandardToken*
       * contract *StandardToken* is *ERC20*, *SafeMathLib*
         * contract *ERC20* is *ERC20Basic*
           * contract *ERC20Basic*
