@@ -295,19 +295,23 @@ contract Crowdsale is Haltable, SafeMathLib {
   // BK Ok - Only owner
   function preallocate(address receiver, uint fullTokens, uint weiPrice) public onlyOwner {
 
-    // BK Ok
+    // BK Next 2 Ok. No safeMul, but contract owner inputs the data
     uint tokenAmount = fullTokens * 10**uint(token.decimals());
     uint weiAmount = weiPrice * fullTokens; // This can be also 0, we give out tokens for free
 
+    // BK Next 2 Ok
     weiRaised = safeAdd(weiRaised,weiAmount);
     tokensSold = safeAdd(tokensSold,tokenAmount);
 
+    // BK Next 2 Ok
     investedAmountOf[receiver] = safeAdd(investedAmountOf[receiver],weiAmount);
     tokenAmountOf[receiver] = safeAdd(tokenAmountOf[receiver],tokenAmount);
 
+    // BK Ok
     assignTokens(receiver, tokenAmount);
 
     // Tell us invest was success
+    // BK Ok
     Invested(receiver, weiAmount, tokenAmount, 0);
   }
 
@@ -325,24 +329,32 @@ contract Crowdsale is Haltable, SafeMathLib {
   /**
    * Track who is the customer making the payment so we can send thank you email.
    */
+  // BK Ok. Anyone can execute this
   function investWithCustomerId(address addr, uint128 customerId) public payable {
+    // BK Ok
     require(!requiredSignedAddress);
     //if(requiredSignedAddress) throw; // Crowdsale allows only server-side signed participants
     
+    // BK Ok
     require(customerId != 0);
     //if(customerId == 0) throw;  // UUIDv4 sanity check
+    // BK Ok
     investInternal(addr, customerId);
   }
 
   /**
    * Allow anonymous contributions to this crowdsale.
    */
+  // BK Ok. Anyone can execute this
   function invest(address addr) public payable {
+    // BK Ok
     require(!requireCustomerId);
     //if(requireCustomerId) throw; // Crowdsale needs to track partipants for thank you email
-    
+
+    // BK Ok
     require(!requiredSignedAddress);
     //if(requiredSignedAddress) throw; // Crowdsale allows only server-side signed participants
+    // BK Ok
     investInternal(addr, 0);
   }
 
