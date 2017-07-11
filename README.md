@@ -295,7 +295,7 @@ Building up [tests](test).
         * contract *SafeMathLib*
 
 * [EthTranchePricingCombined.sol](contracts-thirdreview/EthTranchePricingCombined.sol)
-  * contract [EthTranchePricing](codereview/EthTranchePricing.md) is *PricingStrategy*, *Ownable*, *SafeMathLib*
+  * [x] contract [EthTranchePricing](codereview/EthTranchePricing.md) is *PricingStrategy*, *Ownable*, *SafeMathLib*
     * [x] contract [PricingStrategy](codereview/PricingStrategy.md)
     * contract *Ownable*
     * contract *SafeMathLib*
