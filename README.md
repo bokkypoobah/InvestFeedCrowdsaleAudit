@@ -23,6 +23,7 @@ See [https://www.investfeed.com/tokensale](https://www.investfeed.com/tokensale)
   * [TODO](#todo)
   * [Recommendations](#recommendations)
   * [Notes](#notes)
+  * [Crowdsale Contracts Overview](#crowdsale-contracts-overview)
   * [Code Review](#code-review)
 
 <br />
@@ -106,11 +107,11 @@ recalculated and a new token contract can be deployed at a new address.
 
 * Some negative scenarios:
 
-  * An investor may decide to invest near the end of the crowdsale only a small amount has been contributed by other investors. The crowdsale
+  * An investor may decide to invest near the end of the crowdsale if only a small amount has been contributed by other investors. The crowdsale
     contract owner may extend the crowdsale closing date to any point in the future.
 
   * An investor may decide to wait nearer to the end of the crowdsale to invest, but the owners can suddenly close down the crowdsale. They would normally
-    inform their community that they plan to close down the crowdsale prematurely, but this could be 24 hours and not enough time for this investor. 
+    inform their community that they plan to close down the crowdsale prematurely, but this could be 24 hours and not be enough time for this investor to respond. 
 
 * This crowdsale contract moves all investor contributions straight into the crowdsale team's multisig wallet. If the minimum funding goal
   is not reached, investors will only be able to claim their refunds IF the crowdsale team moves all original funds back from the
@@ -292,6 +293,37 @@ The combined files have been updated to leave the comments from the individual f
 
 * If `CrowdsaleToken.(UpgradeableToken).setUpgradeMaster(...)` is called with an invalid new upgrade master, upgrades can be prevented forever
  
+<br />
+
+<hr />
+
+## Crowdsale Contracts Overview
+
+* [x] This token contract is of moderate complexity
+* [ ] The code has been tested for the normal [ERC20](https://github.com/ethereum/EIPs/issues/20) use cases, and around some of the boundary cases
+  * [ ] Deployment, with correct `symbol()`, `name()`, `decimals()` and `totalSupply()`
+  * [ ] `transfer(...)` from one account to another
+  * [ ] `approve(...)` and `transferFrom(...)` from one account to another
+  * While the `transfer(...)` and `transferFrom(...)` uses safe maths, there are checks so the function is able to return **true** and **false** instead of throwing an error
+* `transfer(...)` and `transferFrom(...)` is only enabled when the crowdsale is finalised, when either the funds raised matches the cap, or the current time is beyond the crowdsale end date
+* [ ] `transferOwnership(...)` and `acceptOwnership()` of the token contract
+* [ ] ETH contributed to this contract is immediately moved to a separate wallet
+* [ ] ETH cannot be trapped in this contract due to the logic preventing ETH being sent to this contract outside the crowdfunding dates
+* [ ] The testing has been done using geth v1.6.5-stable-cf87713d/darwin-amd64/go1.8.3 and solc 0.4.11+commit.68ef5810.Darwin.appleclang instead of one of the testing frameworks and JavaScript VMs to simulate the live environment as closely as possible
+* [ ] Check potential division by zero
+* [ ] All numbers used are **uint** (which is **uint256**), with the exception of `decimals`, reducing the risk of errors from type conversions
+* [ ] Areas with potential overflow errors in `transfer(...)` and `transferFrom(...)` have the logic to prevent overflows
+* [ ] Areas with potential underflow errors in `transfer(...)` and `transferFrom(...)` have the logic to prevent underflows
+* [ ] Function and event names are differentiated by case - function names begin with a lowercase character and event names begin with an uppercase character
+* [ ] The default function will receive contributions during the crowdsale phase and mint tokens
+* [ ] The function `transferAnyERC20Token(...)` has been added in case the owner has to free any accidentally trapped ERC20 tokens
+* [ ] The test scripts can be found in [testNew/01_test1.sh](testNew/01_test1.sh)
+* [ ] The test results can be found in [testNew/test1results.txt](testNew/test1results.txt) for the results and [testNew/test1output.txt](testNew/test1output.txt) for the full output
+* [ ] There is no switch to pause and then restart the contract being able to receive contributions
+* [ ] The [`transfer(...)`](https://github.com/ConsenSys/smart-contract-best-practices#be-aware-of-the-tradeoffs-between-send-transfer-and-callvalue) call is the last statements in the control flow of `proxyPayment(...)` to prevent the hijacking of the control flow
+* [ ] NOTE that this contract does not implement the check for the number of bytes sent to functions to reject errors from the [short address attack](http://vessenes.com/the-erc20-short-address-attack-explained/)
+* [ ] NOTE that this contract does not implement the modified `approve(...)` and `approveAnCall(...)` functions to mitigate the risk of [double spending](https://docs.google.com/document/d/1YLPtQxZu1UAvO9cZ1O2RPXBbT0mooh4DYKjA_jp-RLM/edit#) in the `approve(...)` and `transferFrom(...)` calls
+
 <br />
 
 <hr />
