@@ -115,6 +115,10 @@ recalculated and a new token contract can be deployed at a new address.
   is not reached, investors will only be able to claim their refunds IF the crowdsale team moves all original funds back from the
   multisig into the crowdsale contract. See `Crowdsale.loadRefund()`.
 
+* The upgrade agent can be set by the upgrade master (crowdsale team's account), but accounts have to execute the upgrades themselves, which is a good trustless upgrade
+
+* TODO - CHECK AGAIN - Once the crowdsale if finalised, the token contract has the right elements for a trustless token contract
+
 <br />
 
 <hr />
