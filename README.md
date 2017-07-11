@@ -253,6 +253,11 @@ Building up [tests](test).
   the funds received during the preallocation phase - after all the `preallocate(...)` entries have been entered. If these numbers do not
   reconcile, it may be best to deploy a new crowdsale contract and enter the correct `preallocate(...)` entries.
 
+* As the interactions between the different contracts is quite convoluted, prepare some scripts to check the relationships between the contracts are correct 
+  and that the crowdsale numbers add up. See the example script [https://github.com/openanx/OpenANXToken/blob/master/scripts/getOpenANXTokenDetails.sh](https://github.com/openanx/OpenANXToken/blob/master/scripts/getOpenANXTokenDetails.sh) 
+  with sample results in [https://github.com/openanx/OpenANXToken/blob/master/scripts/Main_20170704_150051-final.txt](https://github.com/openanx/OpenANXToken/blob/master/scripts/Main_20170704_150051-final.txt) and
+  [https://github.com/openanx/OpenANXToken/blob/master/scripts/TokensBought_20170625_015900.tsv](https://github.com/openanx/OpenANXToken/blob/master/scripts/TokensBought_20170625_015900.tsv).
+
 <br />
 
 <hr />
