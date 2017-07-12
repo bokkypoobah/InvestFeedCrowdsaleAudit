@@ -253,8 +253,6 @@ The combined files have been updated to leave the comments from the individual f
 
 * [ ] Confirm that the combined .sol files are made up from the individual files correctly.
 
-* [ ] Complete BonusFinalizeAgent code review.
-
 <br />
 
 <hr />
@@ -309,7 +307,6 @@ The combined files have been updated to leave the comments from the individual f
 * [ ] `transferOwnership(...)` and `acceptOwnership()` of the token contract
 * [ ] ETH contributed to this contract is immediately moved to a separate wallet
 * [ ] ETH cannot be trapped in this contract due to the logic preventing ETH being sent to this contract outside the crowdfunding dates
-* [ ] The testing has been done using geth v1.6.5-stable-cf87713d/darwin-amd64/go1.8.3 and solc 0.4.11+commit.68ef5810.Darwin.appleclang instead of one of the testing frameworks and JavaScript VMs to simulate the live environment as closely as possible
 * [ ] Check potential division by zero
 * [ ] All numbers used are **uint** (which is **uint256**), with the exception of `decimals`, reducing the risk of errors from type conversions
 * [ ] Areas with potential overflow errors in `transfer(...)` and `transferFrom(...)` have the logic to prevent overflows
@@ -317,8 +314,9 @@ The combined files have been updated to leave the comments from the individual f
 * [ ] Function and event names are differentiated by case - function names begin with a lowercase character and event names begin with an uppercase character
 * [ ] The default function will receive contributions during the crowdsale phase and mint tokens
 * [ ] The function `transferAnyERC20Token(...)` has been added in case the owner has to free any accidentally trapped ERC20 tokens
-* [ ] The test scripts can be found in [testNew/01_test1.sh](testNew/01_test1.sh)
-* [ ] The test results can be found in [testNew/test1results.txt](testNew/test1results.txt) for the results and [testNew/test1output.txt](testNew/test1output.txt) for the full output
+* [ ] The testing has been done using geth v1.6.5-stable-cf87713d/darwin-amd64/go1.8.3 and solc 0.4.11+commit.68ef5810.Darwin.appleclang instead of one of the testing frameworks and JavaScript VMs to simulate the live environment as closely as possible
+* [ ] The test scripts can be found in [test/01_test1.sh](test/01_test1.sh)
+* [ ] The test results can be found in [test/test1results.txt](test/test1results.txt) for the results and [test/test1output.txt](test/test1output.txt) for the full output
 * [ ] There is no switch to pause and then restart the contract being able to receive contributions
 * [ ] The [`transfer(...)`](https://github.com/ConsenSys/smart-contract-best-practices#be-aware-of-the-tradeoffs-between-send-transfer-and-callvalue) call is the last statements in the control flow of `proxyPayment(...)` to prevent the hijacking of the control flow
 * [ ] NOTE that this contract does not implement the check for the number of bytes sent to functions to reject errors from the [short address attack](http://vessenes.com/the-erc20-short-address-attack-explained/)
@@ -363,7 +361,7 @@ The combined files have been updated to leave the comments from the individual f
       * contract *SafeMathLib*
 
 * [BonusFInalizeAgentCombined.sol](contracts-thirdreview/BonusFInalizeAgentCombined.sol)
-  * [ ] contract [BonusFinalizeAgent](codereview/BonusFinalizeAgent.md) is *FinalizeAgent*, *SafeMathLib*
+  * [x] contract [BonusFinalizeAgent](codereview/BonusFinalizeAgent.md) is *FinalizeAgent*, *SafeMathLib*
     * [x] contract [FinalizeAgent](codereview/FinalizeAgent.md)
     * contract *SafeMathLib*
 
