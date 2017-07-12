@@ -2,6 +2,10 @@
 
 This is an audit of [InvestFeed's crowdsale](https://www.investfeed.com/tokensale) contracts.
 
+No potential vulnerabilities have been identified in the crowdsale and token contracts.
+
+Details of the reviews are below.
+
 <br />
 
 <hr />
@@ -18,7 +22,6 @@ This is an audit of [InvestFeed's crowdsale](https://www.investfeed.com/tokensal
 * [Second Review](#second-review)
 * [Third Review](#third-review)
 * [Fourth Review](#fourth-review)
-  * [TODO](#todo)
   * [Recommendations](#recommendations)
   * [Notes](#notes)
   * [Crowdsale Contracts Overview](#crowdsale-contracts-overview)
@@ -51,6 +54,7 @@ As always, potential participants in any crowdsale are encouraged to perform the
 Potential participants are also encouraged to only send their funds to the official crowdsale Ethereum address, published on InvestFeed's official communication channel.
 
 Scammers have been publishing phishing address in the forums, twitter and other communication channels, and some go as far as duplicating crowdsale websites.
+Potential participants should NOT just click on any links received through these messages.
  
 Potential participants should also confirm that the verified source code on EtherScan.io for the published crowdsale address matches the audited source code, and that 
 the deployment parameters are correctly set, including the constant parameters.
@@ -125,7 +129,7 @@ recalculated and a new token contract can be deployed at a new address.
 
 ## Potential Vulnerabilities
 
-No potential vulnerabilities have been identified in the crowdsale contract.
+No potential vulnerabilities have been identified in the crowdsale and token contract.
 
 <br />
 
@@ -245,14 +249,6 @@ The combined files have been updated to leave the comments from the individual f
 
 <hr />
 
-### TODO
-
-* [ ] Confirm that the deployed source code is made up from the individual files correctly.
-
-<br />
-
-<hr />
-
 ### Recommendations
 
 * See note below re `preallocate(...)` and refunds. The crowdsale team should reconcile the crowdsale contract `weiRaised` variable against
@@ -329,7 +325,7 @@ The combined files have been updated to leave the comments from the individual f
 
 ### Code Review
 
-The *Combined.sol files are from the third review, and was used to compile the individual files to be code-reviewed.
+The *Combined.sol files are from the third review, and was used to compile the individual files to be code-reviewed in the fourth review.
 
 * [CrowdsaleTokenCombined.sol](contracts-thirdreview/CrowdsaleTokenCombined.sol) - from the third review
   * [x] contract [CrowdsaleToken](codereview/CrowdsaleToken.md) is *ReleasableToken*, *MintableToken*, *UpgradeableToken*
