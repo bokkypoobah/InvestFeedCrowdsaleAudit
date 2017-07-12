@@ -16,16 +16,7 @@ addAccount(eth.accounts[5], "Account #5 - Team #3");
 addAccount(eth.accounts[6], "Account #6");
 addAccount(eth.accounts[7], "Account #7");
 addAccount(eth.accounts[8], "Account #8");
-// addAccount(eth.accounts[9], "Account #9 - Crowdfund Wallet");
-// addAccount(eth.accounts[10], "Account #10 - Foundation");
-// addAccount(eth.accounts[11], "Account #11 - Advisors");
-// addAccount(eth.accounts[12], "Account #12 - Directors");
-// addAccount(eth.accounts[13], "Account #13 - Early Backers");
-// addAccount(eth.accounts[14], "Account #14 - Developers");
-// addAccount(eth.accounts[15], "Account #15 - Precommitments");
-// addAccount(eth.accounts[16], "Account #16 - Tranche 2 Locked");
-// addAccount("0x0000000000000000000000000000000000000000", "Burn Account");
-
+addAccount(eth.accounts[9], "Account #9");
 
 
 var minerAccount = eth.accounts[0];
@@ -37,14 +28,7 @@ var team3 = eth.accounts[5];
 var account6 = eth.accounts[6];
 var account7 = eth.accounts[7];
 var account8 = eth.accounts[8];
-// var crowdfundWallet = eth.accounts[9];
-// var foundationAccount = eth.accounts[10];
-// var advisorsAccount = eth.accounts[11];
-// var directorsAccount = eth.accounts[12];
-// var earlyBackersAccount = eth.accounts[13];
-// var developersAccount = eth.accounts[14];
-// var precommitmentsAccount = eth.accounts[15];
-// var tranche2Account = eth.accounts[16];
+var account9 = eth.accounts[9];
 
 var baseBlock = eth.blockNumber;
 
@@ -215,36 +199,6 @@ function printCrowdsaleContractDetails() {
     console.log("RESULT: crowdsale.startsAt=" + startsAt + " " + new Date(startsAt * 1000).toUTCString());
     var endsAt = contract.endsAt();
     console.log("RESULT: crowdsale.endsAt=" + endsAt + " " + new Date(endsAt * 1000).toUTCString());
-
-    // console.log("RESULT: crowdsale.minDonation=" + contract.minDonation().shift(-18));
-    // console.log("RESULT: crowdsale.BLOCKS_IN_DAY=" + contract.BLOCKS_IN_DAY());
-    // console.log("RESULT: crowdsale.cf.fund=" + contract.fund());
-    // console.log("RESULT: crowdsale.cf.bounty=" + contract.bounty());
-    // console.log("RESULT: crowdsale.cf.totalFunded=" + contract.totalFunded().shift(-18));
-    // console.log("RESULT: crowdsale.cf.reference=" + contract.reference());
-    // console.log("RESULT: crowdsale.cf.config=" + JSON.stringify(contract.config()));
-    // var config = contract.config();
-    // console.log("RESULT: crowdsale.cf.config[startBlock]=" + config[0]);
-    // console.log("RESULT: crowdsale.cf.config[stopBlock]=" + config[1]);
-    // console.log("RESULT: crowdsale.cf.config[minValue]=" + config[2].shift(-18));
-    // console.log("RESULT: crowdsale.cf.config[maxValue]=" + config[3].shift(-18));
-    // console.log("RESULT: crowdsale.cf.config[bountyScale]=" + config[4]);
-    // console.log("RESULT: crowdsale.cf.config[startRatio]=" + config[5]);
-    // console.log("RESULT: crowdsale.cf.config[reductionStep]=" + config[6]);
-    // console.log("RESULT: crowdsale.cf.config[reductionValue]=" + config[7]);
-    
-    var latestBlock = eth.blockNumber;
-    var i;
-
-    // var receivedEtherEvents = contract.ReceivedEther({}, { fromBlock: crowdsaleFromBlock, toBlock: latestBlock });
-    // i = 0;
-    // receivedEtherEvents.watch(function (error, result) {
-    //   console.log("RESULT: ReceivedEther " + i++ + " #" + result.blockNumber + " sender=" + result.args.sender + " amount=" + result.args.amount + " " +
-    //     result.args.amount.shift(-decimals));
-    // });
-    // receivedEtherEvents.stopWatching();
-
-    crowdsaleFromBlock = latestBlock + 1;
   }
 }
 
@@ -263,7 +217,7 @@ function printTokenContractDetails() {
     console.log("RESULT: token.symbol=" + contract.symbol());
     console.log("RESULT: token.name=" + contract.name());
     console.log("RESULT: token.decimals=" + decimals);
-    console.log("RESULT: token.totalSupply=" + contract.totalSupply());
+    console.log("RESULT: token.totalSupply=" + contract.totalSupply().shift(-decimals));
     console.log("RESULT: token.mintingFinished=" + contract.mintingFinished());
 
     var latestBlock = eth.blockNumber;
