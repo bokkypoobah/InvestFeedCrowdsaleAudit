@@ -407,6 +407,20 @@ printTokenContractDetails();
 console.log("RESULT: ");
 
 
+// -----------------------------------------------------------------------------
+var invalidPaymentMessage = "Send invalid payment to token contract";
+console.log("RESULT: " + invalidPaymentMessage);
+var invalidPaymentTx = eth.sendTransaction({from: account7, to: cstAddress, gas: 400000, value: web3.toWei("123", "ether")});
+
+while (txpool.status.pending > 0) {
+}
+printTxData("invalidPaymentTx", invalidPaymentTx);
+printBalances();
+passIfGasEqualsGasUsed(invalidPaymentTx, invalidPaymentMessage);
+printTokenContractDetails();
+console.log("RESULT: ");
+
+
 exit;
 
 

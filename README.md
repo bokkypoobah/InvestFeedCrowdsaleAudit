@@ -292,7 +292,9 @@ The combined files have been updated to leave the comments from the individual f
 * The team bonus tokens are created as a percentage on top of the crowdsale tokens. If the team bonus tokens is 10% on top of the crowdsale tokens,
   the team bonus tokens will end up being 9.090909091% of the totalSupply. Let's say 1,000,000 tokens are raised by the crowdsale. 10% of this is 100,000 tokens.
   100,000 / (1,000,000 + 100,000) = 100,000 / 1,100,000 = 9.090909090909091% .
- 
+
+* There is no mechanism to transfer out any other ERC20 tokens from the crowdsale or token contracts. See for example [https://github.com/openanx/OpenANXToken/blob/master/contracts/OpenANXToken.sol#L451-L458](https://github.com/openanx/OpenANXToken/blob/master/contracts/OpenANXToken.sol#L451-L458).
+
 <br />
 
 <hr />
@@ -307,9 +309,8 @@ The combined files have been updated to leave the comments from the individual f
   * [x] While the `transfer(...)` and `transferFrom(...)` uses safe maths, there are checks so the function is able to return **true** and **false** instead of throwing an error
 * [x] `transfer(...)` and `transferFrom(...)` is only enabled when the crowdsale is finalised, when either the funds raised matches the cap, or the current time is beyond the crowdsale end date
 * [x] `transferOwnership(...)` has `acceptOwnership()` to prevent errorneous transfers of ownership of the token contract
-* [x] ETH contributed to this contract is immediately moved to a separate wallet
-* [x] ETH cannot be trapped in this contract due to the logic preventing ETH being sent to this contract outside the crowdfunding dates
-* NOTE There is no mechanism to transfer out any other ERC20 tokens from the crowdsale or token contracts
+* [x] ETH contributed to the crowdsale contract is immediately moved to a separate wallet
+* [x] ETH cannot be trapped in the token contract as the default `function () payable` is not implemented
 * [x] Check potential division by zero
 * [x] All numbers used are **uint** (which is **uint256**), with the exception of `decimals`, reducing the risk of errors from type conversions
 * [x] Areas with potential overflow errors in `transfer(...)` and `transferFrom(...)` have the logic to prevent overflows
