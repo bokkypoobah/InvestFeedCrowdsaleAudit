@@ -360,6 +360,7 @@ The combined files have been updated to leave the comments from the individual f
       * [x] contract [Haltable](codereview/Haltable.md) is *Ownable*
         * contract *Ownable*
       * contract *SafeMathLib*
+    * [x] contract [FractionalERC20](codereview/FractionalERC20.md) is *ERC20*
 
 * [BonusFInalizeAgentCombined.sol](contracts-thirdreview/BonusFInalizeAgentCombined.sol)
   * [x] contract [BonusFinalizeAgent](codereview/BonusFinalizeAgent.md) is *FinalizeAgent*, *SafeMathLib*
