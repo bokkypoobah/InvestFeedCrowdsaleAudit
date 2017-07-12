@@ -329,7 +329,9 @@ The combined files have been updated to leave the comments from the individual f
 
 ### Code Review
 
-* [CrowdsaleTokenCombined.sol](contracts-thirdreview/CrowdsaleTokenCombined.sol)
+The *Combined.sol files are from the third review, and was used to compile the individual files to be code-reviewed.
+
+* [CrowdsaleTokenCombined.sol](contracts-thirdreview/CrowdsaleTokenCombined.sol) - from the third review
   * [x] contract [CrowdsaleToken](codereview/CrowdsaleToken.md) is *ReleasableToken*, *MintableToken*, *UpgradeableToken*
     * [x] contract [ReleasableToken](codereview/ReleasableToken.md) is *ERC20*, *Ownable*
       * [x] contract [ERC20](codereview/ERC20.md) is *ERC20Basic*
@@ -348,13 +350,13 @@ The combined files have been updated to leave the comments from the individual f
         * contract *SafeMathLib*
       * [x] contract [UpgradeAgent](codereview/UpgradeAgent.md)
 
-* [EthTranchePricingCombined.sol](contracts-thirdreview/EthTranchePricingCombined.sol)
+* [EthTranchePricingCombined.sol](contracts-thirdreview/EthTranchePricingCombined.sol) - from the third review
   * [x] contract [EthTranchePricing](codereview/EthTranchePricing.md) is *PricingStrategy*, *Ownable*, *SafeMathLib*
     * [x] contract [PricingStrategy](codereview/PricingStrategy.md)
     * contract *Ownable*
     * contract *SafeMathLib*
   
-* [MintedEthCappedCrowdsaleCombined.sol](contracts-thirdreview/MintedEthCappedCrowdsaleCombined.sol)
+* [MintedEthCappedCrowdsaleCombined.sol](contracts-thirdreview/MintedEthCappedCrowdsaleCombined.sol) - from the third review
   * [x] contract [MintedEthCappedCrowdsale](codereview/MintedEthCappedCrowdsale.md) is *Crowdsale*
     * [x] contract [Crowdsale](codereview/Crowdsale.md) is *Haltable*, *SafeMathLib*
       * [x] contract [Haltable](codereview/Haltable.md) is *Ownable*
@@ -362,11 +364,174 @@ The combined files have been updated to leave the comments from the individual f
       * contract *SafeMathLib*
     * [x] contract [FractionalERC20](codereview/FractionalERC20.md) is *ERC20*
 
-* [BonusFInalizeAgentCombined.sol](contracts-thirdreview/BonusFInalizeAgentCombined.sol)
+* [BonusFInalizeAgentCombined.sol](contracts-thirdreview/BonusFInalizeAgentCombined.sol) - from the third review
   * [x] contract [BonusFinalizeAgent](codereview/BonusFinalizeAgent.md) is *FinalizeAgent*, *SafeMathLib*
     * [x] contract [FinalizeAgent](codereview/FinalizeAgent.md)
     * contract *SafeMathLib*
 
+The deployment will be based on [contracts-fourthreview/MasterCombined.sol](contracts-fourthreview/MasterCombined.sol).
+
+The script [contracts/generateMyMasterCombined.sh](contracts/generateMyMasterCombined.sh) was used to generate 
+[contracts/MyMasterCombined.sh](contracts/MyMasterCombined.sol).
+
+The differences between MasterCombined.sol and MyMasterCombined.sol follows, and confirms that the individual .sol files have been correctly merged into MasterCombined.sol:
+
+```javascript
+$ diff MyMasterCombined.sol ../contracts-fourthreview/MasterCombined.sol 
+2c2
+< 
+---
+> // Thanks to OpenZeppeline & TokenMarket for the awesome Libraries.
+21,22d20
+< pragma solidity ^0.4.11;
+< 
+24,28d21
+< /**
+<  * @title Ownable
+<  * @dev The Ownable contract has an owner address, and provides basic authorization control 
+<  * functions, this simplifies the implementation of "user permissions". 
+<  */
+33,36d25
+<   /** 
+<    * @dev The Ownable constructor sets the original `owner` of the contract to the sender
+<    * account.
+<    */
+40,44d28
+< 
+< 
+<   /**
+<    * @dev Throws if called by any account other than the owner. 
+<    */
+49,53d32
+< 
+<   /**
+<    * @dev Allows the current owner to transfer control of the contract to a newOwner.
+<    * @param _newOwner The address to transfer ownership to. 
+<    */
+63c42
+< 
+---
+>   
+65,70c44
+< pragma solidity ^0.4.11;
+< /**
+<  * @title ERC20Basic
+<  * @dev Simpler version of ERC20 interface
+<  * @dev see https://github.com/ethereum/EIPs/issues/20
+<  */
+---
+> 
+76,81c50,51
+< }pragma solidity ^0.4.11;
+< import './ERC20Basic.sol';
+< /**
+<  * @title ERC20 interface
+<  * @dev see https://github.com/ethereum/EIPs/issues/20
+<  */
+---
+> }
+> 
+88d57
+< pragma solidity ^0.4.11;
+90,94d58
+< import './ERC20.sol';
+< 
+< /**
+<  * A token that defines fractional units as decimals.
+<  */
+98,102d61
+< pragma solidity ^0.4.11;
+< 
+< import './ERC20.sol';
+< import './SafeMathLib.sol';
+< 
+104,109d62
+< /**
+<  * Standard ERC20 token with Short Hand Attack and approve() race condition mitigation.
+<  *
+<  * Based on code by FirstBlood:
+<  * https://github.com/Firstbloodio/token/blob/master/smart_contract/FirstBloodToken.sol
+<  */
+178d130
+< pragma solidity ^0.4.11;
+194,198d145
+< pragma solidity ^0.4.11;
+< 
+< import './ERC20.sol';
+< import './StandardToken.sol';
+< import "./UpgradeAgent.sol";
+331,335d277
+< pragma solidity ^0.4.11;
+< 
+< import './Ownable.sol';
+< import './ERC20.sol';
+< 
+423,427d364
+< pragma solidity ^0.4.11;
+< import './ERC20.sol';
+< import './Ownable.sol';
+< import './StandardToken.sol';
+< import "./SafeMathLib.sol";
+483,489d419
+< pragma solidity ^0.4.11;
+< 
+< import './StandardToken.sol';
+< import "./UpgradeableToken.sol";
+< import "./ReleasableToken.sol";
+< import "./MintableToken.sol";
+< 
+580d509
+< pragma solidity ^0.4.11;
+606d534
+< pragma solidity ^0.4.11;
+639,641d566
+< pragma solidity ^0.4.11;
+< 
+< import './Ownable.sol';
+678,685d602
+< pragma solidity ^0.4.11;
+< 
+< import "./SafeMathLib.sol";
+< import "./Haltable.sol";
+< import "./PricingStrategy.sol";
+< import "./FinalizeAgent.sol";
+< import "./FractionalERC20.sol";
+< 
+1229,1233d1145
+< pragma solidity ^0.4.11;
+< 
+< import "./Crowdsale.sol";
+< import "./CrowdsaleToken.sol";
+< import "./SafeMathLib.sol";
+1317,1320d1228
+< pragma solidity ^0.4.11;
+< 
+< import "./Crowdsale.sol";
+< import "./MintableToken.sol";
+1357d1264
+< pragma solidity ^0.4.11;
+1359,1367c1266,1270
+< import "./PricingStrategy.sol";
+< import "./Crowdsale.sol";
+< import "./SafeMathLib.sol";
+< import './Ownable.sol';
+< 
+< /// @dev Tranche based pricing with special support for pre-ico deals.
+< ///      Implementing "first price" tranches, meaning, that if byers order is
+< ///      covering more than one tranche, the price of the lowest tranche will apply
+< ///      to the whole order.
+---
+> /** Tranche based pricing with special support for pre-ico deals.
+>  *      Implementing "first price" tranches, meaning, that if byers order is
+>  *      covering more than one tranche, the price of the lowest tranche will apply
+>  *      to the whole order.
+>  */
+1513c1416
+< }
+---
+> }
+\ No newline at end of file
+```
 
 <br />
 
