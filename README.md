@@ -1,8 +1,6 @@
 # InvestFeed Crowdsale Audit
 
-**STATUS: Work In Progress**
-
-See [https://www.investfeed.com/tokensale](https://www.investfeed.com/tokensale).
+This is an audit of [InvestFeed's crowdsale](https://www.investfeed.com/tokensale) contracts.
 
 <br />
 
@@ -119,7 +117,7 @@ recalculated and a new token contract can be deployed at a new address.
 
 * The upgrade agent can be set by the upgrade master (crowdsale team's account), but accounts have to execute the upgrades themselves, which is a good trustless upgrade
 
-* TODO - CHECK AGAIN - Once the crowdsale if finalised, the token contract has the right elements for a trustless token contract
+* Once the crowdsale if finalised, the token contract has the right elements for a trustless token contract
 
 <br />
 
@@ -127,7 +125,7 @@ recalculated and a new token contract can be deployed at a new address.
 
 ## Potential Vulnerabilities
 
-TODO No potential vulnerabilities have been identified in the crowdsale contract yet.
+No potential vulnerabilities have been identified in the crowdsale contract.
 
 <br />
 
@@ -249,7 +247,7 @@ The combined files have been updated to leave the comments from the individual f
 
 ### TODO
 
-* [ ] Confirm that the combined .sol files are made up from the individual files correctly.
+* [ ] Confirm that the deployed source code is made up from the individual files correctly.
 
 <br />
 
