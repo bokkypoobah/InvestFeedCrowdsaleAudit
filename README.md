@@ -24,7 +24,7 @@ Details of the reviews are below.
 * [Fourth Review](#fourth-review)
   * [Recommendations](#recommendations)
   * [Notes](#notes)
-  * [Crowdsale Contracts Overview](#crowdsale-contracts-overview)
+  * [Crowdsale And Token Contracts Overview](#crowdsale-and-token-contracts-overview)
   * [Code Review](#code-review)
 
 <br />
@@ -293,7 +293,7 @@ The combined files have been updated to leave the comments from the individual f
 
 <hr />
 
-## Crowdsale Contracts Overview
+## Crowdsale And Token Contracts Overview
 
 * [x] This token contract is of moderate complexity
 * [x] The code has been tested for the normal [ERC20](https://github.com/ethereum/EIPs/issues/20) use cases
