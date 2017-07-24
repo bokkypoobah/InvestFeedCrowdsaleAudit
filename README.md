@@ -12,6 +12,7 @@ Details of the reviews are below.
 
 ## Table Of Contents
 
+* [Updates](#updates)
 * [Scope](#scope)
 * [Limitations](#limitations)
 * [Due Diligence](#due-diligence)
@@ -26,6 +27,15 @@ Details of the reviews are below.
   * [Notes](#notes)
   * [Crowdsale And Token Contracts Overview](#crowdsale-and-token-contracts-overview)
   * [Code Review](#code-review)
+
+<br />
+
+<hr />
+
+## Updates
+
+* Jul 24 2017 - The InvestFeed Crowdsale contract is live at [0xfc5de599c9fe4e5cf0744aef3139ae53aa30a566](https://etherscan.io/address/0xfc5de599c9fe4e5cf0744aef3139ae53aa30a566),
+  with the funds flowing into the multisig at [0x66e32d375642ce9c8202caea1f6a83b0c3caf32c](https://etherscan.io/address/0x66e32d375642ce9c8202caea1f6a83b0c3caf32c).
 
 <br />
 
